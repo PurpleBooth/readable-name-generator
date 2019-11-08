@@ -1,4 +1,8 @@
-on: [push, pull_request]
+on:
+  schedule:
+    - cron:  '0 12 * * 1-5'
+  push: ~
+  pull_request: ~
 name: Test
 jobs:
   test:
