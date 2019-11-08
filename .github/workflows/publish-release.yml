@@ -25,8 +25,8 @@ jobs:
           make build
       - uses: actions/upload-artifact@master
         with:
-          name: moby-name-generator-${{ matrix.platform }}
-          path: ./moby-name-generator
+          name: readable-name-generator-${{ matrix.platform }}
+          path: ./readable-name-generator
   release:
     needs: [build]
     runs-on: ubuntu-latest
@@ -42,34 +42,34 @@ jobs:
         prerelease: false
     - uses: actions/download-artifact@master
       with:
-        name: moby-name-generator-ubuntu-latest
+        name: readable-name-generator-ubuntu-latest
     - uses: actions/download-artifact@master
       with:
-        name: moby-name-generator-macos-latest
+        name: readable-name-generator-macos-latest
     - uses: actions/download-artifact@master
       with:
-        name: moby-name-generator-windows-latest
+        name: readable-name-generator-windows-latest
     - uses: actions/upload-release-asset@v1.0.1
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         upload_url: ${{ steps.create_release.outputs.upload_url }}
-        asset_path: ./moby-name-generator-ubuntu-latest/moby-name-generator
-        asset_name: moby-name-generator-ubuntu
+        asset_path: ./readable-name-generator-ubuntu-latest/readable-name-generator
+        asset_name: readable-name-generator-ubuntu
         asset_content_type: application/octet-stream
     - uses: actions/upload-release-asset@v1.0.1
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         upload_url: ${{ steps.create_release.outputs.upload_url }}
-        asset_path: ./moby-name-generator-macos-latest/moby-name-generator
-        asset_name: moby-name-generator-macos
+        asset_path: ./readable-name-generator-macos-latest/readable-name-generator
+        asset_name: readable-name-generator-macos
         asset_content_type: application/octet-stream
     - uses: actions/upload-release-asset@v1.0.1
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         upload_url: ${{ steps.create_release.outputs.upload_url }}
-        asset_path: ./moby-name-generator-windows-latest/moby-name-generator
-        asset_name: moby-name-generator-windows.exe
+        asset_path: ./readable-name-generator-windows-latest/readable-name-generator
+        asset_name: readable-name-generator-windows.exe
         asset_content_type: application/octet-stream

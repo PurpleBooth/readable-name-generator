@@ -1,4 +1,4 @@
-module github.com/PurpleBooth/moby-name-generator
+module github.com/PurpleBooth/readable-name-generator
 
 go 1.13
 
