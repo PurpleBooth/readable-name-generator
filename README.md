@@ -1,24 +1,24 @@
-# Moby Name Generator
+# Readable Name Generator
 
-This generates a string using the [name generator from docker](https://github.com/moby/moby/blob/master/pkg/namesgenerator/names-generator.go) and prints it. That's it.
+This generates a string using the [name generator from docker](https://github.com/readable/readable/blob/master/pkg/namesgenerator/names-generator.go) and prints it. That's it.
 
 ```shell
-moby-name-generator  
+readable-name-generator  
 #=> hungry_bhabha
 ```
 
 ## Installing
 
-Download the [latest release](https://github.com/PurpleBooth/moby-name-generator/releases) and run it. There are no packages currently. I put mine on the path for convenience. 
+Download the [latest release](https://github.com/PurpleBooth/readable-name-generator/releases) and run it. There are no packages currently. I put mine on the path for convenience. 
 
 ### Ubuntu
 
 Download the latest release, make it executable, and then run it
 
 ```shell
-curl -Lo moby-name-generator https://github.com/PurpleBooth/moby-name-generator/releases/download/v1.0.0/moby-name-generator-ubuntu
-chmod +x ./moby-name-generator
-./moby-name-generator
+curl -Lo readable-name-generator https://github.com/PurpleBooth/readable-name-generator/releases/download/v1.0.0/readable-name-generator-ubuntu
+chmod +x ./readable-name-generator
+./readable-name-generator
 ```
 
 ### macOS
@@ -26,9 +26,9 @@ chmod +x ./moby-name-generator
 Download the latest release, make it executable, and then run it
 
 ```shell
-curl -Lo moby-name-generator https://github.com/PurpleBooth/moby-name-generator/releases/download/v1.0.0/moby-name-generator-macos
-chmod +x ./moby-name-generator
-./moby-name-generator
+curl -Lo readable-name-generator https://github.com/PurpleBooth/readable-name-generator/releases/download/v1.0.0/readable-name-generator-macos
+chmod +x ./readable-name-generator
+./readable-name-generator
 ```
 
 ### Windows
@@ -36,8 +36,8 @@ chmod +x ./moby-name-generator
 I haven't tested this but if you have powershell you can use the curl command.
 
 ```shell
-curl -Lo moby-name-generator.exe https://github.com/PurpleBooth/moby-name-generator/releases/download/v1.0.0/moby-name-generator-windows.exe
-./moby-name-generator.exe
+curl -Lo readable-name-generator.exe https://github.com/PurpleBooth/readable-name-generator/releases/download/v1.0.0/readable-name-generator-windows.exe
+./readable-name-generator.exe
 ```
 
 ## Development
