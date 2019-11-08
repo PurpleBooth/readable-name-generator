@@ -21,7 +21,7 @@ fmt:
 
 ## Build the project
 build:
-	go build -o moby-name-generator .
+	go build -o readable-name-generator .
 
 ## Install the projeect into your go bin directory
 install:
