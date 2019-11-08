@@ -11,13 +11,13 @@ show-help:
 .PHONY: test
 ## Run the tests
 test:
-	go vet .
-	go test .
+	go vet
+	go test
 
 fmt:
 	go mod tidy
-	go fix .
-	go fmt .
+	go fix
+	go fmt
 
 ## Build the project
 build:
