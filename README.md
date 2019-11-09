@@ -1,6 +1,6 @@
 # Readable Name Generator
 
-This generates a string using the [name generator from docker](https://github.com/readable/readable/blob/master/pkg/namesgenerator/names-generator.go) and prints it. That's it.
+This generates a string using the [name generator from docker](https://github.com/moby/moby/blob/master/pkg/namesgenerator/names-generator.go) and prints it. That's it.
 
 ```shell
 readable-name-generator  
