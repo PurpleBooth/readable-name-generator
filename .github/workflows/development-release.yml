@@ -90,5 +90,5 @@ jobs:
       - uses: elgohr/Publish-Docker-Github-Action@master
         with:
           name: purplebooth/readable-name-generator
-          username: PurpleBooth
+          username: purplebooth
           password: ${{ secrets.DOCKER_HUB_PASSWORD }}
