@@ -24,4 +24,4 @@ jobs:
         uses: actions/checkout@master
       - run: |
           docker build -t ci .
-          docker run -it --rm ci
+          docker run --rm ci
