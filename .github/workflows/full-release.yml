@@ -74,6 +74,11 @@ jobs:
         asset_name: readable-name-generator-windows.exe
         asset_content_type: application/octet-stream
   github-docker-build:
+    needs: [build]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@master
     - uses: elgohr/Publish-Docker-Github-Action@master
       with:
         name: purplebooth/readable-name-generator/readable-name-generator
