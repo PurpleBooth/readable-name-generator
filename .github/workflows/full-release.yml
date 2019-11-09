@@ -79,13 +79,13 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@master
-    - uses: elgohr/Publish-Docker-Github-Action@master
-      with:
-        name: purplebooth/readable-name-generator/readable-name-generator
-        username: PurpleBooth
-        password: ${{ secrets.GITHUB_TOKEN }}
-        registry: docker.pkg.github.com
-        tag_names: true
+      - uses: elgohr/Publish-Docker-Github-Action@master
+        with:
+          name: purplebooth/readable-name-generator/readable-name-generator
+          username: PurpleBooth
+          password: ${{ secrets.GITHUB_TOKEN }}
+          registry: docker.pkg.github.com
+          tag_names: true
   docker-hub-docker-build:
     needs: [build]
     runs-on: ubuntu-latest
@@ -95,5 +95,6 @@ jobs:
       - uses: elgohr/Publish-Docker-Github-Action@master
         with:
           name: purplebooth/readable-name-generator
-          username: PurpleBooth
+          username: purplebooth
           password: ${{ secrets.DOCKER_HUB_PASSWORD }}
+          tag_names: true
