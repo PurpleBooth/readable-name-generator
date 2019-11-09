@@ -75,7 +75,7 @@ jobs:
         asset_content_type: application/octet-stream
     - uses: elgohr/Publish-Docker-Github-Action@master
       with:
-        name: PurpleBooth/readable-name-generator/readable-name-generator
+        name: purplebooth/readable-name-generator/readable-name-generator
         username: PurpleBooth
         password: ${{ secrets.GITHUB_TOKEN }}
         registry: docker.pkg.github.com
