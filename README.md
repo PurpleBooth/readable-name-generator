@@ -14,7 +14,7 @@ Download the [latest release](https://github.com/PurpleBooth/readable-name-gener
 ### Docker
 
 ```shell
-docker run -it purplebooth/readable-name-generator:latest
+docker run --rm -it purplebooth/readable-name-generator:latest
 ```
 
 ### Ubuntu
