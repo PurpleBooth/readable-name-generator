@@ -2,7 +2,7 @@ on:
   push:
     branches:
       - master
-name: Development Release
+name: Pre-Release
 jobs:
   test-windows:
     strategy:
