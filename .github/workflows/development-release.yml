@@ -4,7 +4,73 @@ on:
       - master
 name: Development Release
 jobs:
+  build:
+    strategy:
+      matrix:
+        platform: [ubuntu-latest, macos-latest, windows-latest]
+    runs-on: ${{ matrix.platform }}
+    name: Upload Release Asset
+    steps:
+      - uses: actions/checkout@master
+      - uses: actions/setup-go@v1
+        with:
+          go-version: 1.13.x
+      - run: |
+          make test
+      - run: |
+          make build
+      - uses: actions/upload-artifact@master
+        with:
+          name: readable-name-generator-${{ matrix.platform }}
+          path: ./readable-name-generator
+  release:
+    needs: [build]
+    runs-on: ubuntu-latest
+    steps:
+      - id: create_release
+        uses: actions/create-release@v1.0.0
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ github.sha }}
+          release_name: Pre-release ${{ github.sha }}
+          draft: false
+          prerelease: true
+      - uses: actions/download-artifact@master
+        with:
+          name: readable-name-generator-ubuntu-latest
+      - uses: actions/download-artifact@master
+        with:
+          name: readable-name-generator-macos-latest
+      - uses: actions/download-artifact@master
+        with:
+          name: readable-name-generator-windows-latest
+      - uses: actions/upload-release-asset@v1.0.1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ./readable-name-generator-ubuntu-latest/readable-name-generator
+          asset_name: readable-name-generator-ubuntu
+          asset_content_type: application/octet-stream
+      - uses: actions/upload-release-asset@v1.0.1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ./readable-name-generator-macos-latest/readable-name-generator
+          asset_name: readable-name-generator-macos
+          asset_content_type: application/octet-stream
+      - uses: actions/upload-release-asset@v1.0.1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ./readable-name-generator-windows-latest/readable-name-generator
+          asset_name: readable-name-generator-windows.exe
+          asset_content_type: application/octet-stream
   docker-build:
+    needs: [build]
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
