@@ -3,13 +3,19 @@
 This generates a string using the [name generator from docker](https://github.com/moby/moby/blob/master/pkg/namesgenerator/names-generator.go) and prints it. That's it.
 
 ```shell
-readable-name-generator  
-#=> hungry_bhabha
+$ readable-name-generator  
+hungry_bhabha
 ```
 
-## Installing
+## Using it
 
-Download the [latest release](https://github.com/PurpleBooth/readable-name-generator/releases) and run it. There are no packages currently. I put mine on the path for convenience. 
+Download the [latest release](https://github.com/PurpleBooth/readable-name-generator/releases) and run it. There are no packages currently. I put mine on the path for convenience. Or you could use docker. 
+
+### Docker
+
+```shell
+docker run -it purplebooth/readable-name-generator:latest
+```
 
 ### Ubuntu
 
