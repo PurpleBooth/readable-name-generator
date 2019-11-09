@@ -16,7 +16,7 @@ Download the [latest release](https://github.com/PurpleBooth/readable-name-gener
 Download the latest release, make it executable, and then run it
 
 ```shell
-curl -Lo readable-name-generator https://github.com/PurpleBooth/readable-name-generator/releases/download/v1.0.0/readable-name-generator-ubuntu
+curl -Lo readable-name-generator https://github.com/PurpleBooth/readable-name-generator/releases/download/v2.0.1/readable-name-generator-ubuntu
 chmod +x ./readable-name-generator
 ./readable-name-generator
 ```
@@ -26,7 +26,7 @@ chmod +x ./readable-name-generator
 Download the latest release, make it executable, and then run it
 
 ```shell
-curl -Lo readable-name-generator https://github.com/PurpleBooth/readable-name-generator/releases/download/v1.0.0/readable-name-generator-macos
+curl -Lo readable-name-generator https://github.com/PurpleBooth/readable-name-generator/releases/download/v2.0.1/readable-name-generator-macos
 chmod +x ./readable-name-generator
 ./readable-name-generator
 ```
@@ -36,7 +36,7 @@ chmod +x ./readable-name-generator
 I haven't tested this but if you have powershell you can use the curl command.
 
 ```shell
-curl -Lo readable-name-generator.exe https://github.com/PurpleBooth/readable-name-generator/releases/download/v1.0.0/readable-name-generator-windows.exe
+curl -Lo readable-name-generator.exe https://github.com/PurpleBooth/readable-name-generator/releases/download/v2.0.1/readable-name-generator-windows.exe
 ./readable-name-generator.exe
 ```
 
