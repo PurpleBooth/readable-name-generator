@@ -97,7 +97,7 @@ jobs:
         asset_path: ./readable-name-generator-windows-latest/readable-name-generator
         asset_name: readable-name-generator-windows.exe
         asset_content_type: application/octet-stream
-  github-docker-build:
+  github-docker-build-release:
     needs: [test, test-windows]
     runs-on: ubuntu-latest
     steps:
@@ -110,7 +110,19 @@ jobs:
           password: ${{ secrets.GITHUB_TOKEN }}
           registry: docker.pkg.github.com
           tag_names: true
-  docker-hub-docker-build:
+  github-docker-build-latest:
+    needs: [test, test-windows]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@master
+      - uses: elgohr/Publish-Docker-Github-Action@master
+        with:
+          name: purplebooth/readable-name-generator/readable-name-generator
+          username: PurpleBooth
+          password: ${{ secrets.GITHUB_TOKEN }}
+          registry: docker.pkg.github.com
+  docker-hub-docker-build-release:
     needs: [test, test-windows]
     runs-on: ubuntu-latest
     steps:
@@ -122,3 +134,14 @@ jobs:
           username: purplebooth
           password: ${{ secrets.DOCKER_HUB_PASSWORD }}
           tag_names: true
+  docker-hub-docker-build-latest:
+    needs: [test, test-windows]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@master
+      - uses: elgohr/Publish-Docker-Github-Action@master
+        with:
+          name: purplebooth/readable-name-generator
+          username: purplebooth
+          password: ${{ secrets.DOCKER_HUB_PASSWORD }}
