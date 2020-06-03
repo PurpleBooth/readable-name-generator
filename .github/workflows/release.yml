@@ -73,7 +73,7 @@ jobs:
     - uses: actions/download-artifact@master
       with:
         name: readable-name-generator-windows-latest
-    - uses: actions/upload-release-asset@v1.0.1
+    - uses: actions/upload-release-asset@v1.0.2
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
@@ -81,7 +81,7 @@ jobs:
         asset_path: ./readable-name-generator-ubuntu-latest/readable-name-generator
         asset_name: readable-name-generator-ubuntu
         asset_content_type: application/octet-stream
-    - uses: actions/upload-release-asset@v1.0.1
+    - uses: actions/upload-release-asset@v1.0.2
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
@@ -89,7 +89,7 @@ jobs:
         asset_path: ./readable-name-generator-macos-latest/readable-name-generator
         asset_name: readable-name-generator-macos
         asset_content_type: application/octet-stream
-    - uses: actions/upload-release-asset@v1.0.1
+    - uses: actions/upload-release-asset@v1.0.2
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
