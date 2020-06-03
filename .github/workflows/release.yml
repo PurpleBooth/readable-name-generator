@@ -47,7 +47,7 @@ jobs:
           go-version: 1.13.x
       - run: |
           make build
-      - uses: actions/upload-artifact@master
+      - uses: actions/upload-artifact@v2
         with:
           name: readable-name-generator-${{ matrix.platform }}
           path: ./readable-name-generator
@@ -64,16 +64,8 @@ jobs:
         release_name: Release ${{ github.ref }}
         draft: false
         prerelease: false
-    - uses: actions/download-artifact@master
-      with:
-        name: readable-name-generator-ubuntu-latest
-    - uses: actions/download-artifact@master
-      with:
-        name: readable-name-generator-macos-latest
-    - uses: actions/download-artifact@master
-      with:
-        name: readable-name-generator-windows-latest
-    - uses: actions/upload-release-asset@v1.0.2
+    - uses: actions/download-artifact@v2
+    - uses: actions/upload-release-asset@v1.0.1
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
