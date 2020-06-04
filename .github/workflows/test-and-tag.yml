@@ -67,7 +67,7 @@ jobs:
 
           git fetch
       - shell: bash
-        if: "contains(github.event.head_commit.message, 'Signed-off-by: dependabot-preview[bot] <support@dependabot.com>')"
+        if: github.actor == "dependabot[bot]"
         run: |
           git checkout master
           git merge --ff-only -
