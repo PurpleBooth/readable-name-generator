@@ -67,7 +67,7 @@ jobs:
 
           git fetch
       - shell: bash
-        if: contains( github.event.pull_request.labels.*.name, 'dependencies')
+        if: "contains(github.event.head_commit.message, 'Signed-off-by: dependabot-preview[bot] <support@dependabot.com>')"
         run: |
           git checkout master
           git merge --ff-only -
