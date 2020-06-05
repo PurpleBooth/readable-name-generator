@@ -62,11 +62,10 @@ jobs:
           mkdir -p "$(brew --repo)/Library/Taps/purplebooth"
           cp -r ./homebrew-repo/. "$(brew --repo)/Library/Taps/purplebooth/homebrew-repo"
 
-          cd "$(brew --repo)/Library/Taps/purplebooth/homebrew-repo"
-
           brew test-bot \
             --bintray-org="$BINTRAY_ORG" \
             --root-url="$BINTRAY_DL_URL" \
+            --tap purplebooth/homebrew-repo \
             "purplebooth/repo/$REPOSITORY_NAME"
 
           curl \
@@ -81,10 +80,10 @@ jobs:
             --ci-upload \
             --bintray-org="$BINTRAY_ORG" \
             --root-url="$BINTRAY_DL_URL" \
+            --tap purplebooth/homebrew-repo \
             --publish
 
-          git pull --rebase
-          git push
+          ( cd "$(brew --repo)/Library/Taps/purplebooth/homebrew-repo" && git pull --rebase && git push )
         env:
           REPOSITORY_NAME: ${{ steps.get_repository_name.outputs.REPOSITORY_NAME }}
           GITHUB_SHA: ${{ github.sha }}
