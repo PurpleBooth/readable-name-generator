@@ -33,7 +33,7 @@ jobs:
     runs-on: macos-latest
     steps:
       - id: get_repository_name
-        run: echo ::set-output name=REPOSITORY_NAME::$(echo "$GITHUB_REPOSITORY" | awk -F / '{print $2}' | sed -e "s/:refs//")
+        run: echo ::set-output "name=REPOSITORY_NAME::$(echo "$GITHUB_REPOSITORY" | awk -F / '{print $2}' | sed -e "s/:refs//")"
         shell: bash
       - uses: actions/download-artifact@v2
       - uses: actions/checkout@v2
@@ -77,11 +77,11 @@ jobs:
             "purplebooth/repo/$REPOSITORY_NAME"
 
           curl \
-            "$BINTRAY_API_URL/packages/$BINTRAY_ORG/$PACKAGE" \
+            "$BINTRAY_API_URL/packages/$BINTRAY_ORG/$REPOSITORY_NAME" \
             -u "$HOMEBREW_BINTRAY_USER:$HOMEBREW_BINTRAY_KEY" \
             -X POST \
             -H 'Content-Type: application/json' \
-            -d "{ \"name\": \"$PACKAGE\", \"vcs_url\": \"https://github.com/PurpleBooth/$PACKAGE.git\", \"github_repo\": \"PurpleBooth/$PACKAGE\", \"public_download_numbers\": true, \"public_stats\": true }" ||
+            -d "{ \"name\": \"$REPOSITORY_NAME\", \"vcs_url\": \"https://github.com/PurpleBooth/$REPOSITORY_NAME.git\", \"github_repo\": \"PurpleBooth/$REPOSITORY_NAME\", \"public_download_numbers\": true, \"public_stats\": true }" ||
             echo "Package probably already exists..."
 
           brew test-bot \
