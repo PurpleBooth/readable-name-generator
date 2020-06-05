@@ -13,8 +13,7 @@ hungry_bhabha
 
 Download the [latest
 release](https://github.com/PurpleBooth/readable-name-generator/releases)
-and run it. There are no packages currently. I put mine on the path for
-convenience. Or you could use docker.
+and run it. I install it with homebrew. Or you could use docker.
 
 ### Homebrew 
 
