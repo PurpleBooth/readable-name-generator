@@ -60,6 +60,7 @@ jobs:
           fi
 
           brew update
+          mkdir -p "$(brew --repo)/Library/Taps/purplebooth"
           cp -r ./homebrew-repo/. "$(brew --repo)/Library/Taps/purplebooth/homebrew-repo"
 
           cd "$(brew --repo)/Library/Taps/purplebooth/homebrew-repo"
