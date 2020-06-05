@@ -59,7 +59,7 @@ jobs:
             cp formula/formula.rb "homebrew-repo/Formula/$REPOSITORY_NAME.rb"
           fi
 
-          cp -r ./homebrew-repo "$(brew --repo)/Library/Taps/purplebooth/homebrew-repo"
+          cp -r ./homebrew-repo/. "$(brew --repo)/Library/Taps/purplebooth/homebrew-repo"
 
           cd "$(brew --repo)/Library/Taps/purplebooth/homebrew-repo"
 
