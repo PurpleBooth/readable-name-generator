@@ -1,0 +1,17 @@
+class ReadableNameGenerator < Formula
+  desc "Generate a readable name using Dockers formula"
+  homepage "https://github.com/{{ github_repo }}"
+  url "https://github.com/{{ github_repo }}/archive/{{ git_tag }}.tar.gz"
+  sha256 "{{ git_sha }}"
+
+  depends_on "go" => :build
+
+  def install
+    system "go", "build", *std_go_args
+  end
+
+  test do
+    system "#{bin}/readable-name-generator"
+    assert_not_equal "", shell_output("#{bin}/readable-name-generator").strip
+  end
+end
