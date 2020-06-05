@@ -3,7 +3,7 @@
     tags:
       - '*'
 jobs:
-  generate_formula:
+  generate-formula:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -20,6 +20,8 @@ jobs:
           name: formula
           path: ./formula.rb
   build:
+    needs:
+      - generate-formula
     runs-on: macos-latest
     steps:
       - id: get_repository_name
