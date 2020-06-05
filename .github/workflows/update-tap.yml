@@ -59,7 +59,6 @@ jobs:
             cp formula/formula.rb "homebrew-repo/Formula/$REPOSITORY_NAME.rb"
           fi
 
-          brew update
           mkdir -p "$(brew --repo)/Library/Taps/purplebooth"
           cp -r ./homebrew-repo/. "$(brew --repo)/Library/Taps/purplebooth/homebrew-repo"
 
