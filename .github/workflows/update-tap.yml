@@ -6,9 +6,10 @@ jobs:
   generate_formula:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v2
       - uses: cuchi/jinja2-action@v1.1.0
         with:
-          template: source-repo/homebrew/formula.rb.j2
+          template: homebrew/formula.rb.j2
           output_file: formula.rb
           variables: |
             github_repo=${{ github.repository }}
