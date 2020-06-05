@@ -16,6 +16,20 @@ release](https://github.com/PurpleBooth/readable-name-generator/releases)
 and run it. There are no packages currently. I put mine on the path for
 convenience. Or you could use docker.
 
+### Homebrew 
+
+First tap my homebrew repo
+
+``` shell
+brew tap PurpleBooth/repo
+```
+
+Next install the binary
+
+``` shell
+brew install PurpleBooth/repo/readable-name-generator
+```
+
 ### Docker
 
 ``` shell
