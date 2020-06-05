@@ -3,12 +3,28 @@
     tags:
       - '*'
 jobs:
+  generate_formula:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: cuchi/jinja2-action@v1.1.0
+        with:
+          template: source-repo/homebrew/formula.rb.j2
+          output_file: formula.rb
+          variables: |
+            github_repo=${{ github.repository }}
+            git_tag=${{ github.ref }}
+            git_sha=${{ github.sha }}
+      - uses: actions/upload-artifact@v2
+        with:
+          name: formula
+          path: ./formula.rb
   build:
     runs-on: macos-latest
     steps:
       - id: get_repository_name
         run: echo ::set-output name=REPOSITORY_NAME::$(echo "$GITHUB_REPOSITORY" | awk -F / '{print $2}' | sed -e "s/:refs//")
         shell: bash
+      - uses: actions/download-artifact@v2
       - uses: actions/checkout@v2
         with:
           repository: PurpleBooth/homebrew-repo
@@ -18,21 +34,13 @@ jobs:
         with:
           token: ${{ secrets.COMMITTER_TOKEN }}
           path: source-repo
-      - uses: cuchi/jinja2-action@v1.1.0
-        with:
-          template: source-repo/homebrew/formula.rb.j2
-          output_file: formula.rb
-          variables: |
-            github_repo=${{ github.repository }}
-            git_tag=${{ github.ref }}
-            git_sha=${{ github.sha }}
       - shell: bash
         run: |
           set -euo pipefail
           FORMULA_LOCATION="homebrew-repo/Formula/$REPOSITORY_NAME.rb"
 
           if [ ! -f "$FORMULA_LOCATION" ] || ! grep -q $GITHUB_SHA "$FORMULA_LOCATION" ; then
-            cp formula.rb "homebrew-repo/Formula/$REPOSITORY_NAME.rb"
+            cp formula/formula.rb "homebrew-repo/Formula/$REPOSITORY_NAME.rb"
           fi
 
           cp -r ./homebrew-repo "$(brew --repo)/Library/Taps/purplebooth/homebrew-repo"
