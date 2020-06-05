@@ -3,16 +3,67 @@
     tags:
       - '*'
 jobs:
-  check:
-    runs-on: ubuntu-latest
-    steps:
-      - id: get_repository_name
-        run: echo ::set-output name=REPOSITORY_NAME::$(echo "$GITHUB_REPOSITORY" | awk -F / '{print $2}' | sed -e "s/:refs//")
-        shell: bash
-      - uses: mislav/bump-homebrew-formula-action@v1.6
-        if: '!contains(github.ref, ''-'')'
-        with:
-          formula-name: '${{ steps.get_repository_name.outputs.REPOSITORY_NAME }}'
-          homebrew-tap: PurpleBooth/homebrew-repo
-        env:
-          COMMITTER_TOKEN: '${{ secrets.COMMITTER_TOKEN }}'
+  runs-on: macos-latest
+  steps:
+    - id: get_repository_name
+      run: echo ::set-output name=REPOSITORY_NAME::$(echo "$GITHUB_REPOSITORY" | awk -F / '{print $2}' | sed -e "s/:refs//")
+      shell: bash
+    - uses: actions/checkout@v2
+      with:
+        repository: PurpleBooth/homebrew-repo
+        token: ${{ secrets.COMMITTER_TOKEN }}
+        path: homebrew-repo
+    - uses: actions/checkout@v2
+      with:
+        token: ${{ secrets.COMMITTER_TOKEN }}
+        path: source-repo
+    - uses: cuchi/jinja2-action@v1.1.0
+      with:
+        template: source-repo/homebrew/formula.rb.j2
+        output_file: formula.rb
+        variables: |
+          github_repo=${{ github.repository }}
+          git_tag=${{ github.ref }}
+          git_sha=${{ github.sha }}
+    - shell: bash
+      run: |
+        set -euo pipefail
+        FORMULA_LOCATION="homebrew-repo/Formula/$REPOSITORY_NAME.rb"
+
+        if [ ! -f "$FORMULA_LOCATION" ] || ! grep -q $GITHUB_SHA "$FORMULA_LOCATION" ; then
+          cp formula.rb "homebrew-repo/Formula/$REPOSITORY_NAME.rb"
+        fi
+
+        cp -r ./homebrew-repo "$(brew --repo)/Library/Taps/purplebooth/homebrew-repo"
+
+        cd "$(brew --repo)/Library/Taps/purplebooth/homebrew-repo"
+
+        brew test-bot \
+          --bintray-org="$BINTRAY_ORG" \
+          --root-url="$BINTRAY_DL_URL" \
+          "purplebooth/repo/$REPOSITORY_NAME"
+
+        curl \
+          "$BINTRAY_API_URL/packages/$BINTRAY_ORG/$PACKAGE" \
+          -u "$HOMEBREW_BINTRAY_USER:$HOMEBREW_BINTRAY_KEY" \
+          -X POST \
+          -H 'Content-Type: application/json' \
+          -d "{ \"name\": \"$PACKAGE\", \"vcs_url\": \"https://github.com/PurpleBooth/$PACKAGE.git\", \"github_repo\": \"PurpleBooth/$PACKAGE\", \"public_download_numbers\": true, \"public_stats\": true }" ||
+          echo "Package probably already exists..."
+
+        brew test-bot \
+          --ci-upload \
+          --bintray-org="$BINTRAY_ORG" \
+          --root-url="$BINTRAY_DL_URL" \
+          --publish
+
+        git pull --rebase
+        git push
+      env:
+        REPOSITORY_NAME: ${{ steps.get_repository_name.outputs.REPOSITORY_NAME }}
+        GITHUB_SHA: ${{ github.sha }}
+        BINTRAY_API_URL: https://api.bintray.com
+        BINTRAY_DL_URL: https://dl.bintray.com/purplebooth/bottles-repo
+        BINTRAY_ORG: purplebooth
+        HOMEBREW_BINTRAY_USER: purplebooth
+        HOMEBREW_BINTRAY_KEY: '${{ secrets.HOMEBREW_BINTRAY_KEY }}'
