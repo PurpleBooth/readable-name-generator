@@ -41,7 +41,7 @@ jobs:
     runs-on: ${{ matrix.platform }}
     name: Upload Release Asset
     steps:
-      - uses: actions/checkout@master
+      - uses: actions/checkout@v2
       - uses: actions/setup-go@v2.0.3
         with:
           go-version: 1.13.x
@@ -93,9 +93,8 @@ jobs:
     needs: [test, test-windows]
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@master
-      - uses: elgohr/Publish-Docker-Github-Action@master
+      - uses: actions/checkout@v2
+      - uses: elgohr/Publish-Docker-Github-Action@2.16
         with:
           name: purplebooth/readable-name-generator/readable-name-generator
           username: PurpleBooth
@@ -106,9 +105,8 @@ jobs:
     needs: [test, test-windows]
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@master
-      - uses: elgohr/Publish-Docker-Github-Action@master
+      - uses: actions/checkout@v2
+      - uses: elgohr/Publish-Docker-Github-Action@2.16
         with:
           name: purplebooth/readable-name-generator/readable-name-generator
           username: PurpleBooth
@@ -118,9 +116,8 @@ jobs:
     needs: [test, test-windows]
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@master
-      - uses: elgohr/Publish-Docker-Github-Action@master
+      - uses: actions/checkout@v2
+      - uses: elgohr/Publish-Docker-Github-Action@2.16
         with:
           name: purplebooth/readable-name-generator
           username: purplebooth
@@ -130,9 +127,8 @@ jobs:
     needs: [test, test-windows]
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@master
-      - uses: elgohr/Publish-Docker-Github-Action@master
+      - uses: actions/checkout@v2
+      - uses: elgohr/Publish-Docker-Github-Action@2.16
         with:
           name: purplebooth/readable-name-generator
           username: purplebooth
