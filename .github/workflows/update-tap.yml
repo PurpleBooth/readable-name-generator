@@ -49,6 +49,7 @@ jobs:
       - uses: actions/cache@v2
         with:
           path: ${{ steps.get-brew-cache.outputs.dir }}
+          key: ${{ runner.os }}-go-${{ hashFiles('**/formula.rb.j2') }}
       - shell: bash
         run: |
           set -euo pipefail
