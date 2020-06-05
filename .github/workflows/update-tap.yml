@@ -7,6 +7,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+      - run: |
+          curl -Lo file.tar.gz https://github.com/${GIT_REPO}}/archive/${GIT_TAG}.tar.gz
+          echo ::set-output name=SHA256::$( sha256sum -b file.tar.gz | awk '{ print $1 }' )
+        id: hash
+        env:
+          GIT_REPO: ${{ github.repository }}
+          GIT_TAG: ${{ github.ref }}
       - uses: cuchi/jinja2-action@v1.1.0
         with:
           template: homebrew/formula.rb.j2
@@ -14,7 +21,7 @@ jobs:
           variables: |
             github_repo=${{ github.repository }}
             git_tag=${{ github.ref }}
-            git_sha=${{ github.sha }}
+            file_sha=${{ steps.hash.outputs.SHA256 }}
       - uses: actions/upload-artifact@v2
         with:
           name: formula
