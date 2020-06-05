@@ -11,10 +11,16 @@ jobs:
         platform: [windows-latest]
     runs-on: ${{ matrix.platform }}
     steps:
+      - uses: actions/checkout@v2
+      - uses: actions/cache@v2
+        with:
+          path: ~/go/pkg/mod
+          key: ${{ runner.os }}-go-${{ hashFiles('**/go.sum') }}
+          restore-keys: |
+            ${{ runner.os }}-go-
       - uses: actions/setup-go@v1
         with:
           go-version: ${{ matrix.go-version }}
-      - uses: actions/checkout@v1
       - run: make test-universal
   test:
     strategy:
@@ -23,10 +29,16 @@ jobs:
         platform: [ubuntu-latest, macos-latest]
     runs-on: ${{ matrix.platform }}
     steps:
+      - uses: actions/checkout@v2
+      - uses: actions/cache@v2
+        with:
+          path: ~/go/pkg/mod
+          key: ${{ runner.os }}-go-${{ hashFiles('**/go.sum') }}
+          restore-keys: |
+            ${{ runner.os }}-go-
       - uses: actions/setup-go@v1
         with:
           go-version: ${{ matrix.go-version }}
-      - uses: actions/checkout@v1
       - run: make test
   merge-and-push:
     if: contains( github.event.pull_request.labels.*.name, 'dependencies') || ( github.ref == 'refs/heads/master' && !contains(github.event.head_commit.message, 'Release v') )
@@ -39,6 +51,13 @@ jobs:
         with:
           token: '${{ secrets.COMMITTER_TOKEN }}'
           fetch-depth: 0
+      - uses: actions/cache@v2
+        with:
+          path: ~/go/pkg/mod
+          key: ${{ runner.os }}-go-${{ hashFiles('**/go.sum') }}
+          restore-keys: |
+            ${{ runner.os }}-go-
+
       - run: git fetch --depth=1 origin +refs/tags/*:refs/tags/*
       - id: get_previous_version
         run: echo ::set-output name=PREVIOUS_VERSION::$(git tag --sort=-creatordate | head -n 1)
