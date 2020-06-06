@@ -94,7 +94,17 @@ jobs:
             --bintray-org="$BINTRAY_ORG" \
             --root-url="$BINTRAY_DL_URL" \
             --tap purplebooth/homebrew-repo \
-            --publish
+            --publish || ( brew bump-revision "purplebooth/repo/$REPOSITORY_NAME" && rm *.json *.bottle.tar.gz && brew test-bot \
+            --bintray-org="$BINTRAY_ORG" \
+            --root-url="$BINTRAY_DL_URL" \
+            --tap purplebooth/homebrew-repo \
+            "purplebooth/repo/$REPOSITORY_NAME" && \
+            brew test-bot \
+            --ci-upload \
+            --bintray-org="$BINTRAY_ORG" \
+            --root-url="$BINTRAY_DL_URL" \
+            --tap purplebooth/homebrew-repo \
+            --publish )
 
           (
             cd "$(brew --repo)/Library/Taps/purplebooth/homebrew-repo" && \
