@@ -68,6 +68,10 @@ jobs:
         run: |
           set -euo pipefail
           FORMULA_LOCATION="homebrew-repo/Formula/$REPOSITORY_NAME.rb"
+          
+          brew update
+          brew upgrade
+          
           if [ ! -f "$FORMULA_LOCATION" ] || ! grep -q "$(cat ./hash/hash)" "$FORMULA_LOCATION"; then
             cp formula/formula.rb "homebrew-repo/Formula/$REPOSITORY_NAME.rb"
           fi
