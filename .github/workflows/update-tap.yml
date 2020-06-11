@@ -37,6 +37,17 @@ jobs:
       - generate-formula
     runs-on: macos-latest
     steps:
+      - shell: bash
+        run: |
+          mkdir -p $HOME/.config/gh/
+          cat > $HOME/.config/gh/config.yml <<EOF
+          github.com:
+           - user: "$GH_USERNAME"
+             oauth_token: "$GITHUB_TOKEN"
+          EOF
+        env:
+          GH_USERNAME: ${{ github.repository_owner }}
+          GITHUB_TOKEN: ${{ secrets.COMMITTER_TOKEN }}
       - id: get_repository_name
         run: echo ::set-output "name=REPOSITORY_NAME::$(echo "$GITHUB_REPOSITORY" | awk -F / '{print $2}' | sed -e "s/:refs//")"
         shell: bash
@@ -46,7 +57,7 @@ jobs:
           repository: PurpleBooth/homebrew-repo
           token: ${{ secrets.COMMITTER_TOKEN }}
           path: homebrew-repo
-          ref: 'master'
+          ref: "main"
       - uses: actions/checkout@v2
         with:
           token: ${{ secrets.COMMITTER_TOKEN }}
@@ -75,15 +86,22 @@ jobs:
           cp -r ./homebrew-repo/. "$(brew --repo)/Library/Taps/purplebooth/homebrew-repo"
       - shell: bash
         run: |
-          cd "$(brew --repo)/Library/Taps/purplebooth/homebrew-repo" && \
-          git add "$(brew --repo)/Library/Taps/purplebooth/$FORMULA_LOCATION" && \
-          git commit -m "Update $REPOSITORY_NAME to $GIT_TAG"
-          git pull --rebase
-          git push
+          cd "$(brew --repo)/Library/Taps/purplebooth/homebrew-repo"
+          git checkout -b "$REPOSITORY_NAME-$(echo $GIT_TAG | sed 's/^refs\/tags\///')"
+
+          cd "$(brew --repo)/Library/Taps/purplebooth/homebrew-repo"
+          if ! git diff-index --quiet HEAD -- ; then
+            git add "$(brew --repo)/Library/Taps/purplebooth/$FORMULA_LOCATION"
+            git commit -m "Update $REPOSITORY_NAME to $(echo $GIT_TAG | sed 's/^refs\/tags\///')"
+            git push -f origin "$REPOSITORY_NAME-$(echo $GIT_TAG | sed 's/^refs\/tags\///')"
+            brew install github/gh/gh
+            gh pr create --label releases --base main --fill
+          fi
         env:
           REPOSITORY_NAME: ${{ steps.get_repository_name.outputs.REPOSITORY_NAME }}
           GIT_TAG: ${{ github.ref }}
           FORMULA_LOCATION: homebrew-repo/Formula/${{ steps.get_repository_name.outputs.REPOSITORY_NAME }}.rb
+          GITHUB_TOKEN: "${{ secrets.COMMITTER_TOKEN }}"
       - shell: bash
         run: |
           brew test-bot \
@@ -125,9 +143,13 @@ jobs:
           BINTRAY_ORG: purplebooth
       - shell: bash
         run: |
-          cd "$(brew --repo)/Library/Taps/purplebooth/homebrew-repo" && \
-          git add "$(brew --repo)/Library/Taps/purplebooth/$FORMULA_LOCATION" && \
-          git pull --rebase && \
-          git push
+          cd "$(brew --repo)/Library/Taps/purplebooth/homebrew-repo"
+          git checkout -b "$REPOSITORY_NAME-$(echo $GIT_TAG | sed 's/^refs\/tags\///')-bottle"
+          git push -f origin "$REPOSITORY_NAME-$(echo $GIT_TAG | sed 's/^refs\/tags\///')"
+          brew install github/gh/gh
+          gh pr create --label bottles --base main --fill
         env:
+          REPOSITORY_NAME: ${{ steps.get_repository_name.outputs.REPOSITORY_NAME }}
+          GIT_TAG: ${{ github.ref }}
           FORMULA_LOCATION: homebrew-repo/Formula/${{ steps.get_repository_name.outputs.REPOSITORY_NAME }}.rb
+          GITHUB_TOKEN: "${{ secrets.COMMITTER_TOKEN }}"
