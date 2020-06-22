@@ -63,7 +63,7 @@ jobs:
         run: echo ::set-output name=PREVIOUS_VERSION::$(git tag --sort=-creatordate | head -n 1)
         shell: bash
       - id: semvers
-        uses: WyriHaximus/github-action-next-semvers@0.1.0
+        uses: WyriHaximus/github-action-next-semvers@v1
         with:
           version: '${{ steps.get_previous_version.outputs.PREVIOUS_VERSION }}'
       - run: mkdir -p ./version
