@@ -58,7 +58,7 @@ jobs:
           make build
       - uses: actions/upload-artifact@v2
         with:
-          name: readable-name-generator-${{ matrix.platform }}
+          name: readable-name-generator-${{ matrix.os }}
           path: ./readable-name-generator
   release:
     needs: [build]
