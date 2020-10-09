@@ -1,0 +1,57 @@
+pull_request_rules:
+  - name: automatic squash merge for main when tests pass
+    conditions:
+      - "status-success=test-windows (1.13.x, windows-latest)"
+      - "status-success=test-windows (1.14.x, windows-latest)"
+      - "status-success=test (1.13.x, ubuntu-latest)"
+      - "status-success=test (1.13.x, macos-latest)"
+      - "status-success=test (1.14.x, ubuntu-latest)"
+      - "status-success=test (1.14.x, macos-latest)"
+      - base=main
+      - label=automerge-squash
+    actions:
+      merge:
+        strict: smart+fasttrack
+        method: squash
+  - name: automatic rebase for main when tests pass
+    conditions:
+      - "status-success=test-windows (1.13.x, windows-latest)"
+      - "status-success=test-windows (1.14.x, windows-latest)"
+      - "status-success=test (1.13.x, ubuntu-latest)"
+      - "status-success=test (1.13.x, macos-latest)"
+      - "status-success=test (1.14.x, ubuntu-latest)"
+      - "status-success=test (1.14.x, macos-latest)"
+      - base=main
+      - label=automerge-rebase
+    actions:
+      merge:
+        strict: smart+fasttrack
+        method: rebase
+  - name: automatic rebase for releases
+    conditions:
+      - "status-success=test-windows (1.13.x, windows-latest)"
+      - "status-success=test-windows (1.14.x, windows-latest)"
+      - "status-success=test (1.13.x, ubuntu-latest)"
+      - "status-success=test (1.13.x, macos-latest)"
+      - "status-success=test (1.14.x, ubuntu-latest)"
+      - "status-success=test (1.14.x, macos-latest)"
+      - base=main
+      - label=releases
+    actions:
+      merge:
+        strict: smart+fasttrack
+        method: merge
+  - name: automatic rebase for dependencies
+    conditions:
+      - "status-success=test-windows (1.13.x, windows-latest)"
+      - "status-success=test-windows (1.14.x, windows-latest)"
+      - "status-success=test (1.13.x, ubuntu-latest)"
+      - "status-success=test (1.13.x, macos-latest)"
+      - "status-success=test (1.14.x, ubuntu-latest)"
+      - "status-success=test (1.14.x, macos-latest)"
+      - base=main
+      - label=dependencies
+    actions:
+      merge:
+        strict: smart+fasttrack
+        method: merge
