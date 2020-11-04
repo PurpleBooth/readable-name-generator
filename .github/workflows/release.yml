@@ -13,7 +13,7 @@ jobs:
         os: [windows-latest]
     runs-on: ${{ matrix.os }}
     steps:
-      - uses: actions/checkout@v2.3.3
+      - uses: actions/checkout@v2.3.4
       - uses: actions/cache@v2
         with:
           path: ~/go/pkg/mod
@@ -31,7 +31,7 @@ jobs:
         os: [ubuntu-latest, macos-latest]
     runs-on: ${{ matrix.os }}
     steps:
-      - uses: actions/checkout@v2.3.3
+      - uses: actions/checkout@v2.3.4
       - uses: actions/cache@v2
         with:
           path: ~/go/pkg/mod
@@ -50,7 +50,7 @@ jobs:
         os: [ubuntu-latest, macos-latest, windows-latest]
     runs-on: ${{ matrix.os }}
     steps:
-      - uses: actions/checkout@v2.3.3
+      - uses: actions/checkout@v2.3.4
       - uses: actions/setup-go@v2.1.3
         with:
           go-version: 1.13.x
@@ -102,7 +102,7 @@ jobs:
     needs: [test, test-windows]
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2.3.3
+      - uses: actions/checkout@v2.3.4
       - uses: elgohr/Publish-Docker-Github-Action@2.22
         with:
           name: purplebooth/readable-name-generator/readable-name-generator
@@ -114,7 +114,7 @@ jobs:
     needs: [test, test-windows]
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2.3.3
+      - uses: actions/checkout@v2.3.4
       - uses: elgohr/Publish-Docker-Github-Action@2.22
         with:
           name: purplebooth/readable-name-generator/readable-name-generator
@@ -125,7 +125,7 @@ jobs:
     needs: [test, test-windows]
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2.3.3
+      - uses: actions/checkout@v2.3.4
       - uses: elgohr/Publish-Docker-Github-Action@2.22
         with:
           name: purplebooth/readable-name-generator
@@ -136,7 +136,7 @@ jobs:
     needs: [test, test-windows]
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2.3.3
+      - uses: actions/checkout@v2.3.4
       - uses: elgohr/Publish-Docker-Github-Action@2.22
         with:
           name: purplebooth/readable-name-generator
