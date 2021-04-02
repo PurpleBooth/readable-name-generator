@@ -40,7 +40,7 @@ jobs:
           go-version: ${{ matrix.go-version }}
       - run: make test
   merge-and-push:
-    if: !contains(github.event.head_commit.message, 'Release v')
+    if: "!contains(github.event.head_commit.message, 'Release v')"
     needs:
       - test-windows
       - test
