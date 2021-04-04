@@ -1,5 +1,5 @@
 pull_request_rules:
-  - name: automatic squash merge for main when tests pass
+   - name: request review on external contributor
     conditions:
       - "status-success=test-windows (1.13.x, windows-latest)"
       - "status-success=test-windows (1.14.x, windows-latest)"
@@ -8,25 +8,12 @@ pull_request_rules:
       - "status-success=test (1.14.x, ubuntu-latest)"
       - "status-success=test (1.14.x, macos-latest)"
       - base=main
-      - label=automerge-squash
+      - -author~=^dependabot(|-preview)\[bot\]$
+      - -author=PurpleBooth
     actions:
-      merge:
-        strict: smart+fasttrack
-        method: squash
-  - name: automatic rebase for main when tests pass
-    conditions:
-      - "status-success=test-windows (1.13.x, windows-latest)"
-      - "status-success=test-windows (1.14.x, windows-latest)"
-      - "status-success=test (1.13.x, ubuntu-latest)"
-      - "status-success=test (1.13.x, macos-latest)"
-      - "status-success=test (1.14.x, ubuntu-latest)"
-      - "status-success=test (1.14.x, macos-latest)"
-      - base=main
-      - label=automerge-rebase
-    actions:
-      merge:
-        strict: smart+fasttrack
-        method: rebase
+      request_reviews:
+        users:
+          - PurpleBooth
   - name: automatic rebase for releases
     conditions:
       - "status-success=test-windows (1.13.x, windows-latest)"
