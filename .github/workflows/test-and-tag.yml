@@ -1,7 +1,8 @@
 'on':
   push:
     branches:
-      - 'main'
+      - '*'
+  pull_request: null
 jobs:
   version:
     runs-on: ubuntu-latest
@@ -56,7 +57,7 @@ jobs:
           go-version: ${{ matrix.go-version }}
       - run: make test
   merge-and-push:
-    if: "!contains(github.event.head_commit.message, 'Release v')"
+    if: github.ref == 'refs/heads/main'
     needs:
       - test-windows
       - test
