@@ -1,0 +1,18 @@
+options:
+  prev_tag: versio-prev
+
+projects:
+- name: docker
+  id: 1
+  tag_prefix: ''
+  labels: docker
+  version:
+    tags:
+      default: 0.0.0
+
+sizes:
+  major: ['!']
+  minor: [feat]
+  patch: [fix, docs, style, refactor, perf, test, chore, build, ci]
+  none: []
+  fail: ['*']
