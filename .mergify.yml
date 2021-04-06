@@ -1,44 +1,44 @@
 pull_request_rules:
-   - name: request review on external contributor
-    conditions:
-      - "status-success=test-windows (1.13.x, windows-latest)"
-      - "status-success=test-windows (1.14.x, windows-latest)"
-      - "status-success=test (1.13.x, ubuntu-latest)"
-      - "status-success=test (1.13.x, macos-latest)"
-      - "status-success=test (1.14.x, ubuntu-latest)"
-      - "status-success=test (1.14.x, macos-latest)"
-      - base=main
-      - -author~=^dependabot(|-preview)\[bot\]$
-      - -author=PurpleBooth
-    actions:
-      request_reviews:
-        users:
-          - PurpleBooth
-  - name: automatic rebase for releases
-    conditions:
-      - "status-success=test-windows (1.13.x, windows-latest)"
-      - "status-success=test-windows (1.14.x, windows-latest)"
-      - "status-success=test (1.13.x, ubuntu-latest)"
-      - "status-success=test (1.13.x, macos-latest)"
-      - "status-success=test (1.14.x, ubuntu-latest)"
-      - "status-success=test (1.14.x, macos-latest)"
-      - base=main
-      - label=releases
-    actions:
-      merge:
-        strict: smart+fasttrack
-        method: merge
-  - name: automatic rebase for dependencies
-    conditions:
-      - "status-success=test-windows (1.13.x, windows-latest)"
-      - "status-success=test-windows (1.14.x, windows-latest)"
-      - "status-success=test (1.13.x, ubuntu-latest)"
-      - "status-success=test (1.13.x, macos-latest)"
-      - "status-success=test (1.14.x, ubuntu-latest)"
-      - "status-success=test (1.14.x, macos-latest)"
-      - base=main
-      - label=dependencies
-    actions:
-      merge:
-        strict: smart+fasttrack
-        method: merge
+- name: request review on external contributor
+  conditions:
+  - status-success=test-windows (1.13.x, windows-latest)
+  - status-success=test-windows (1.14.x, windows-latest)
+  - status-success=test (1.13.x, ubuntu-latest)
+  - status-success=test (1.13.x, macos-latest)
+  - status-success=test (1.14.x, ubuntu-latest)
+  - status-success=test (1.14.x, macos-latest)
+  - base=main
+  - -author~=^dependabot(|-preview)\[bot\]$
+  - -author=PurpleBooth
+  actions:
+    request_reviews:
+      users:
+      - PurpleBooth
+- name: automatic rebase for releases
+  conditions:
+  - status-success=test-windows (1.13.x, windows-latest)
+  - status-success=test-windows (1.14.x, windows-latest)
+  - status-success=test (1.13.x, ubuntu-latest)
+  - status-success=test (1.13.x, macos-latest)
+  - status-success=test (1.14.x, ubuntu-latest)
+  - status-success=test (1.14.x, macos-latest)
+  - base=main
+  - label=releases
+  actions:
+    merge:
+      strict: smart+fasttrack
+      method: merge
+- name: automatic rebase for dependencies
+  conditions:
+  - status-success=test-windows (1.13.x, windows-latest)
+  - status-success=test-windows (1.14.x, windows-latest)
+  - status-success=test (1.13.x, ubuntu-latest)
+  - status-success=test (1.13.x, macos-latest)
+  - status-success=test (1.14.x, ubuntu-latest)
+  - status-success=test (1.14.x, macos-latest)
+  - base=main
+  - label=dependencies
+  actions:
+    merge:
+      strict: smart+fasttrack
+      method: merge
