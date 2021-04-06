@@ -62,15 +62,34 @@ jobs:
     needs: [build]
     runs-on: ubuntu-latest
     steps:
-    - id: create_release
-      uses: actions/create-release@v1.1.4
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    - uses: actions/checkout@v2.3.4
+      name: Checkout the repository
       with:
-        tag_name: ${{ github.ref }}
-        release_name: Release ${{ github.ref }}
+        lfs: true
+        fetch-depth: 0
+    - id: get_previous_version
+      run: echo ::set-output name=PREVIOUS_VERSION::$(git tag | sort --version-sort
+        | tail -n 3 | head -n 1)
+    - name: Get the version
+      id: get_version
+      run: echo ::set-output name=VERSION::${GITHUB_REF#refs/tags/}
+    - uses: dlavrenuek/conventional-changelog-action@v1.1.1
+      name: Generate change log
+      id: changelog
+      with:
+        from: ${{ steps.get_previous_version.outputs.PREVIOUS_VERSION }}
+        to: ${{ steps.get_version.outputs.VERSION }}
+    - env:
+        GITHUB_TOKEN: ${{ secrets.COMMITTER_TOKEN }}
+      id: create_release
+      name: Create GitHub Release
+      uses: actions/create-release@v1.1.4
+      with:
         draft: false
         prerelease: false
+        body: ${{ steps.changelog.outputs.body }}
+        release_name: Release ${{ steps.get_version.outputs.VERSION }}
+        tag_name: ${{ steps.get_version.outputs.VERSION }}
     - uses: actions/download-artifact@v2
     - uses: actions/upload-release-asset@v1.0.2
       env:
