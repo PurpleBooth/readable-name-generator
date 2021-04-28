@@ -120,7 +120,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2.3.4
-    - uses: elgohr/Publish-Docker-Github-Action@3.03
+    - uses: elgohr/Publish-Docker-Github-Action@3.04
       with:
         name: purplebooth/readable-name-generator/readable-name-generator
         username: PurpleBooth
@@ -132,7 +132,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2.3.4
-    - uses: elgohr/Publish-Docker-Github-Action@3.03
+    - uses: elgohr/Publish-Docker-Github-Action@3.04
       with:
         name: purplebooth/readable-name-generator/readable-name-generator
         username: PurpleBooth
@@ -143,7 +143,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2.3.4
-    - uses: elgohr/Publish-Docker-Github-Action@3.03
+    - uses: elgohr/Publish-Docker-Github-Action@3.04
       with:
         name: purplebooth/readable-name-generator
         username: purplebooth
@@ -154,7 +154,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2.3.4
-    - uses: elgohr/Publish-Docker-Github-Action@3.03
+    - uses: elgohr/Publish-Docker-Github-Action@3.04
       with:
         name: purplebooth/readable-name-generator
         username: purplebooth
