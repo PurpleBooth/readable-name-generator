@@ -73,7 +73,7 @@ jobs:
     - name: Get the version
       id: get_version
       run: echo ::set-output name=VERSION::${GITHUB_REF#refs/tags/}
-    - uses: dlavrenuek/conventional-changelog-action@v1.1.1
+    - uses: dlavrenuek/conventional-changelog-action@v1.1.2
       name: Generate change log
       id: changelog
       with:
