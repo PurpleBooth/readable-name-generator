@@ -1,5 +1,7 @@
 queue_rules:
 - name: default
+  speculative_checks: 20
+  batch_size: 20
   conditions:
   - status-success=test-windows (1.13.x, windows-latest)
   - status-success=test-windows (1.14.x, windows-latest)
