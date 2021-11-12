@@ -77,8 +77,7 @@ jobs:
       name: Generate change log
       id: changelog
       with:
-        from: ${{ steps.get_previous_version.outputs.PREVIOUS_VERSION }}
-        to: ${{ steps.get_version.outputs.VERSION }}
+        args: --verbose v${{ steps.get_previous_version.outputs.PREVIOUS_VERSION }}..v${{ steps.get_version.outputs.VERSION }}
     - env:
         GITHUB_TOKEN: ${{ secrets.COMMITTER_TOKEN }}
       id: create_release
@@ -87,7 +86,7 @@ jobs:
       with:
         draft: false
         prerelease: false
-        body: ${{ steps.changelog.outputs.body }}
+        bodyFile: "CHANGELOG.md"
         release_name: Release ${{ steps.get_version.outputs.VERSION }}
         tag_name: ${{ steps.get_version.outputs.VERSION }}
     - uses: actions/download-artifact@v2
