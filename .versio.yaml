@@ -2,16 +2,8 @@ options:
   prev_tag: "versio-prev"
 
 projects:
-  - name: "docker"
-    id: 1
-    tag_prefix: "docker"
-    labels: docker
-    version:
-      tags:
-        default: "2.100.5"
-
   - name: "readable-name-generator"
-    id: 2
+    id: 1
     tag_prefix: "readable-name-generator"
     labels: cargo
     version:
@@ -20,6 +12,7 @@ projects:
     also:
       - file: ./README.md
         pattern: readable-name-generator (\d+\.\d+\.\d+)
+
     hooks:
       post_write: 'cargo update --workspace'
 
