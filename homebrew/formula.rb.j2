@@ -1,17 +1,19 @@
 class ReadableNameGenerator < Formula
-  desc "Generate a readable name using Dockers formula"
+  desc "Make conventional commits, faster, and consistently name scopes"
   homepage "https://github.com/{{ github_repo }}"
   url "https://github.com/{{ github_repo }}/archive/{{ git_tag }}.tar.gz"
   sha256 "{{ file_sha }}"
-
-  depends_on "go" => :build
+  depends_on "rust" => :build
+  depends_on "help2man" => :build
+  depends_on "specdown/repo/specdown" => :test
 
   def install
-    system "go", "build", *std_go_args
+    system "cargo", "install", "--locked", "--root", prefix, "--path", "."
   end
 
   test do
-    system "#{bin}/readable-name-generator"
-    refute_equal "", shell_output("#{bin}/readable-name-generator").strip
+    system "#{bin}/readable-name-generator", "-h"
+    system "#{bin}/readable-name-generator", "-V"
+    system "specdown run --temporary-workspace-dir --add-path \"#{bin}\" \"#{prefix}\/README.md\""
   end
 end

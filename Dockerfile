@@ -1,9 +1,33 @@
-FROM golang:1.17.7-alpine as builder
-RUN mkdir /build
-ADD . /build/
-WORKDIR /build
-RUN CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -ldflags '-extldflags "-static"' -o main .
-FROM scratch
-COPY --from=builder /build/main /app/
-WORKDIR /app
-CMD ["./main"]
+FROM rust:1.58.1 as builder
+
+## Update the system generally
+RUN apt-get update && \
+    apt-get upgrade -y && \
+    rm -rf /var/lib/apt/lists/*
+
+WORKDIR /root/app
+
+## Build deps for git-mit
+RUN apt-get update && \
+    apt-get upgrade -y && \
+    rm -rf /var/lib/apt/lists/*
+
+COPY . .
+
+RUN --mount=type=cache,target=/root/.cargo cargo clean
+RUN --mount=type=cache,target=/root/.cargo cargo build --release
+
+FROM rust:1.58.1
+ENV DEBIAN_FRONTEND noninteractive
+
+## Update the system generally
+RUN apt-get update && \
+    apt-get upgrade -y && \
+    rm -rf /var/lib/apt/lists/*
+
+### The Tool
+COPY --from=builder \
+    /root/app/target/release/readable-name-generator \
+    /usr/local/bin/readable-name-generator
+
+ENTRYPOINT ["/usr/local/bin/readable-name-generator"]

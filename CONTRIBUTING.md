@@ -4,9 +4,9 @@
 
 Issues are very valuable to this project.
 
-  - Ideas are a valuable source of contributions others can make
-  - Problems show where this project is lacking
-  - With a question you show where contributors can improve the user
+-   Ideas are a valuable source of contributions others can make
+-   Problems show where this project is lacking
+-   With a question you show where contributors can improve the user
     experience
 
 Thank you for creating them.
@@ -37,15 +37,15 @@ the action you have taken to solve it.
 
 ### Is it of good quality
 
-  - Do the tests pass
-  - Is it well formatted
-  - Does mutation testing show you have sufficient code coverage
+-   Do the tests pass
+-   Is it well formatted
+-   Does mutation testing show you have sufficient code coverage
 
 ### Does it move this repository closer to my vision for the repository
 
 The aim of this repository is:
 
-  - To generate human readable names for things for scripting, and other
+-   To generate human readable names for things for scripting, and other
     tasks where querying an API would be cumbersome.
 
 ### Does it follow the contributor covenant
