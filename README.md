@@ -2,6 +2,40 @@
 
 Generate a readable name for throwaway infrastructure
 
+## Usage
+
+### Basic Usage
+
+``` shell,script(name="random_name")
+readable-name-generator
+```
+
+``` shell,skip()
+capable_munson
+```
+
+### Reproducing names
+
+``` shell,script(name="running")
+readable-name-generator --initial-seed 1
+```
+
+``` shell,verify(script_name="running")
+gregarious_pauli
+```
+
+### Changing the separator
+
+``` shell,script(name="seperator")
+readable-name-generator --initial-seed 1 --separator "###"
+```
+
+``` shell,verify(script_name="seperator")
+gregarious###pauli
+```
+
+### Full usage
+
 ``` shell,script(name="help")
 readable-name-generator --help
 ```
@@ -31,26 +65,6 @@ OPTIONS:
 
     -V, --version
             Print version information
-```
-
-> **Note:** We are specifying a seed here, but it is optional. We
-> include it here so the examples are replicable when we run them as
-> part of our tests
-
-``` shell,script(name="running")
-readable-name-generator --initial-seed 1
-```
-
-``` shell,verify(script_name="running")
-gregarious_pauli
-```
-
-``` shell,script(name="seperator")
-readable-name-generator --initial-seed 1 --separator "###"
-```
-
-``` shell,verify(script_name="seperator")
-gregarious###pauli
 ```
 
 ## Installing
