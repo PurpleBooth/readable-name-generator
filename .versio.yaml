@@ -4,7 +4,7 @@ options:
 projects:
   - name: "readable-name-generator"
     id: 1
-    tag_prefix: "readable-name-generator"
+    tag_prefix: ""
     labels: cargo
     version:
       file: "Cargo.toml"
