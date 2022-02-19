@@ -25,4 +25,4 @@ projects:
 
 sizes:
   use_angular: true
-  fail: ["*"]
+  none: ["*"]
