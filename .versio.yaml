@@ -1,15 +1,28 @@
 options:
-  prev_tag: versio-prev
+  prev_tag: "versio-prev"
 
 projects:
-- name: docker
-  id: 1
-  tag_prefix: ''
-  labels: docker
-  version:
-    tags:
-      default: 0.0.0
+  - name: "docker"
+    id: 1
+    tag_prefix: "docker"
+    labels: docker
+    version:
+      tags:
+        default: "0.1.0"
+
+  - name: "readable-name-generator"
+    id: 2
+    tag_prefix: "readable-name-generator"
+    labels: cargo
+    version:
+      file: "Cargo.toml"
+      toml: "package.version"
+    also:
+      - file: ./README.md
+        pattern: readable-name-generator (\d+\.\d+\.\d+)
+    hooks:
+      post_write: 'cargo update --workspace'
 
 sizes:
   use_angular: true
-  none: [ci, "-"]
+  fail: ["*"]

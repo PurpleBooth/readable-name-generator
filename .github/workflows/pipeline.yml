@@ -1,0 +1,57 @@
+name: Test
+on:
+  push:
+    branches:
+    - '*'
+  pull_request:
+  workflow_dispatch:
+jobs:
+  lint-markdown:
+    uses: PurpleBooth/common-pipelines/.github/workflows/markdown-check.yml@main
+  commit-checks:
+    uses: PurpleBooth/common-pipelines/.github/workflows/commit-check.yml@main
+  rust-checks:
+    uses: PurpleBooth/common-pipelines/.github/workflows/rust-check.yml@main
+  specdown:
+    uses: PurpleBooth/common-pipelines/.github/workflows/specdown-check.yml@main
+  docker-build:
+    uses: PurpleBooth/common-pipelines/.github/workflows/docker-build.yml@v0.4.5
+
+  release:
+    if: github.ref == 'refs/heads/main'
+    needs:
+    - docker-build
+    - commit-checks
+    - specdown
+    - lint-markdown
+    - rust-checks
+    outputs:
+      version_bump: ${{ steps.release.outputs.version_bump }}
+      current_version: ${{ steps.release.outputs.current_version }}
+      previous_version: ${{ steps.release.outputs.previous_version }}
+    runs-on: ubuntu-latest
+    steps:
+    - uses: PurpleBooth/versio-release-action@v0.1.7
+      id: release
+
+  docker-push:
+    if: needs.release.outputs.version_bump
+    needs:
+    - release
+    uses: PurpleBooth/common-pipelines/.github/workflows/docker-push.yml@v0.4.6
+    with:
+      current_version: ${{ needs.release.outputs.current_version }}
+
+  release-binary:
+    if: needs.release.outputs.version_bump
+    needs:
+    - release
+    uses: PurpleBooth/common-pipelines/.github/workflows/release-rust-binary.yml@main
+    with:
+      current_version: ${{ needs.release.outputs.current_version }}
+      previous_version: ${{ needs.release.outputs.previous_version }}
+    secrets:
+      cargo_token: ${{ secrets.CARGO_TOKEN }}
+      committer_token: ${{ secrets.COMMITTER_TOKEN }}
+      gpg_private_key: ${{ secrets.GPG_PRIVATE_KEY }}
+      gpg_passphrase: ${{ secrets.GPG_PASSPHRASE }}

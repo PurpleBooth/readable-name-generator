@@ -7,17 +7,15 @@ updates:
   open-pull-requests-limit: 10
   commit-message:
     prefix: fix
-- package-ecosystem: gomod
-  directory: /
+- package-ecosystem: github-actions     # See documentation for possible values
+  directory: /     # Location of package manifests
   schedule:
     interval: daily
-  open-pull-requests-limit: 10
-  commit-message:
-    prefix: fix
-- package-ecosystem: github-actions
-  directory: /
-  schedule:
-    interval: daily
-  open-pull-requests-limit: 10
   commit-message:
     prefix: ci
+- package-ecosystem: cargo     # See documentation for possible values
+  directory: /     # Location of package manifests
+  schedule:
+    interval: daily
+  commit-message:
+    prefix: fix
