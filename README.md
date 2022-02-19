@@ -67,6 +67,18 @@ OPTIONS:
             Print version information
 ```
 
+### Docker
+
+We also have a docker image
+
+``` shell,skip()
+docker run --rm -it ghcr.io/purplebooth/readable-name-generator:latest -i 1
+```
+
+``` shell,skip()
+gregarious_pauli
+```
+
 ## Installing
 
 Download the [latest
@@ -113,11 +125,11 @@ just fmt
 We have a docker container
 
 ``` shell,skip()
-docker build -t "purplebooth/readable-name-generator:latest"
+docker build -t "ghcr.io/purplebooth/readable-name-generator:latest"
 ```
 
 ``` shell,skip()
-docker run --rm -it purplebooth/readable-name-generator:latest -i 1
+docker run --rm -it ghcr.io/purplebooth/readable-name-generator:latest -i 1
 ```
 
 ``` shell,skip()
