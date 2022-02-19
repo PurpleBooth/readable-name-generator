@@ -38,7 +38,7 @@ OPTIONS:
 > part of our tests
 
 ``` shell,script(name="running")
-readable-name-generator -i 1
+readable-name-generator --initial-seed 1
 ```
 
 ``` shell,verify(script_name="running")
@@ -46,11 +46,11 @@ gregarious_pauli
 ```
 
 ``` shell,script(name="running")
-readable-name-generator -i 1 -s /
+readable-name-generator --initial-seed 1 --separator "###"
 ```
 
 ``` shell,verify(script_name="running")
-gregarious/pauli
+gregarious###pauli
 ```
 
 ## Installing
