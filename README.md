@@ -126,9 +126,6 @@ We have a docker container
 
 ``` shell,skip()
 docker build -t "ghcr.io/purplebooth/readable-name-generator:latest"
-```
-
-``` shell,skip()
 docker run --rm -it ghcr.io/purplebooth/readable-name-generator:latest -i 1
 ```
 
