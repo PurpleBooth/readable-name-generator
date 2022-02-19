@@ -45,11 +45,11 @@ readable-name-generator --initial-seed 1
 gregarious_pauli
 ```
 
-``` shell,script(name="running")
+``` shell,script(name="seperator")
 readable-name-generator --initial-seed 1 --separator "###"
 ```
 
-``` shell,verify(script_name="running")
+``` shell,verify(script_name="seperator")
 gregarious###pauli
 ```
 
