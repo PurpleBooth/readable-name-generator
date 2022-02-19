@@ -8,7 +8,7 @@ projects:
     labels: docker
     version:
       tags:
-        default: "0.1.0"
+        default: "2.100.5"
 
   - name: "readable-name-generator"
     id: 2
