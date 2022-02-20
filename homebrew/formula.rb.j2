@@ -8,7 +8,20 @@ class ReadableNameGenerator < Formula
   depends_on "specdown/repo/specdown" => :test
 
   def install
+    # Build binary
     system "cargo", "install", "--locked", "--root", prefix, "--path", "."
+
+    # Completions
+    output = Utils.safe_popen_read("#{bin}/readable-name-generator", "--completion", "bash")
+    (bash_completion/binary.to_s).write output
+    output = Utils.safe_popen_read("#{bin}/readable-name-generator", "--completion", "zsh")
+    (zsh_completion/binary.to_s).write output
+    output = Utils.safe_popen_read("#{bin}/readable-name-generator", "--completion", "fish")
+    (fish_completion/binary.to_s).write output
+
+    # Man pages
+    output = Utils.safe_popen_read("help2man", "#{bin}/readable-name-generator")
+    (man1/"readable-name-generator.1").write output
   end
 
   test do
