@@ -13,11 +13,11 @@ class ReadableNameGenerator < Formula
 
     # Completions
     output = Utils.safe_popen_read("#{bin}/readable-name-generator", "--completion", "bash")
-    (bash_completion/binary.to_s).write output
+    (bash_completion/"readable-name-generator").write output
     output = Utils.safe_popen_read("#{bin}/readable-name-generator", "--completion", "zsh")
-    (zsh_completion/binary.to_s).write output
+    (zsh_completion/"_readable-name-generator").write output
     output = Utils.safe_popen_read("#{bin}/readable-name-generator", "--completion", "fish")
-    (fish_completion/binary.to_s).write output
+    (fish_completion/"readable-name-generator.fish").write output
 
     # Man pages
     output = Utils.safe_popen_read("help2man", "#{bin}/readable-name-generator")
