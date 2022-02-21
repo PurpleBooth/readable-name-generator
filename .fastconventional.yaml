@@ -5,6 +5,7 @@ scopes:
         "versio",
         "deps",
         "deploy",
+        "dependabot",
         "Mergify",
         "Actions",
         "Homebrew",
