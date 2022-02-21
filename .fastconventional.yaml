@@ -1,0 +1,15 @@
+use_angular: true
+types: [ci]
+scopes:
+    [
+        "versio",
+        "deps",
+        "deploy",
+        "Mergify",
+        "Actions",
+        "Homebrew",
+        "FastConventional",
+        "Justfile",
+        "src",
+        "Changelog",
+    ]
