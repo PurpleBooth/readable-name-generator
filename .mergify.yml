@@ -16,8 +16,8 @@ queue_rules:
   - check-success=rust-checks / bench (macos-latest)
   - check-success=rust-checks / bench (ubuntu-latest)
   - check-success=rust-checks / bench (windows-latest)
-  - check-success=specdown / specdown (macos-latest, brew install socat)
-  - check-success=specdown / specdown (ubuntu-latest, brew install socat)
+  - check-success=specdown / specdown (macos-latest)
+  - check-success=specdown / specdown (ubuntu-latest)
   - check-success=specdown / specdown (windows-latest)
   - check-success=docker-build / docker-build
   - base=main
@@ -46,8 +46,8 @@ pull_request_rules:
   - check-success=rust-checks / bench (macos-latest)
   - check-success=rust-checks / bench (ubuntu-latest)
   - check-success=rust-checks / bench (windows-latest)
-  - check-success=specdown / specdown (macos-latest, brew install socat)
-  - check-success=specdown / specdown (ubuntu-latest, brew install socat)
+  - check-success=specdown / specdown (macos-latest)
+  - check-success=specdown / specdown (ubuntu-latest)
   - check-success=specdown / specdown (windows-latest)
   - check-success=docker-build / docker-build
   - base=main
