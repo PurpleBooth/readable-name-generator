@@ -41,7 +41,7 @@ readable-name-generator --help
 ```
 
 ``` shell,verify(script_name="help")
-readable-name-generator 2.100.24
+readable-name-generator 2.100.25
 
 Generate a readable name for throwaway infrastructure
 
