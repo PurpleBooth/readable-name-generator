@@ -14,7 +14,7 @@ categories = ["development-tools::testing","command-line-utilities"]
 rand = "0.8.5"
 rand_pcg = "0.3.1"
 anarchist-readable-name-generator-lib = "0.1.1"
-clap_complete = "3.1.4"
+clap_complete = "3.2.1"
 clap = { version = "3.1.18", features = ["derive", "cargo", "wrap_help", "yaml", "env", "unicode" ] }
 miette = { version = "4.7.1", features = ["fancy"] }
 thiserror = "1.0.31"
