@@ -11,15 +11,13 @@
     missing_docs
 )]
 
-mod cli;
-mod completion;
-
-use std::io::stdout;
-
 use cli::cli;
-
 use rand::prelude::*;
 use rand_pcg::Pcg64;
+use std::io::stdout;
+
+mod cli;
+mod completion;
 
 fn main() {
     miette::set_panic_hook();
@@ -36,17 +34,20 @@ fn main() {
         .value_of("separator")
         .expect("Failed to get default value for separator");
 
-    if let Ok(seed) = args.value_of_t("initial_seed") {
-        let rng = Pcg64::seed_from_u64(seed);
-        println!(
-            "{}",
-            anarchist_readable_name_generator_lib::readable_name_custom(seperator, rng)
-        );
-    } else {
-        let rng = thread_rng();
-        println!(
-            "{}",
-            anarchist_readable_name_generator_lib::readable_name_custom(seperator, rng)
-        );
-    }
+    args.value_of_t("initial_seed").map_or_else(
+        |_| {
+            let rng = thread_rng();
+            println!(
+                "{}",
+                anarchist_readable_name_generator_lib::readable_name_custom(seperator, rng)
+            );
+        },
+        |seed| {
+            let rng = Pcg64::seed_from_u64(seed);
+            println!(
+                "{}",
+                anarchist_readable_name_generator_lib::readable_name_custom(seperator, rng)
+            );
+        },
+    );
 }
