@@ -12,12 +12,9 @@ class ReadableNameGenerator < Formula
     system "cargo", "install", "--locked", "--root", prefix, "--path", "."
 
     # Completions
-    output = Utils.safe_popen_read("#{bin}/readable-name-generator", "--completion", "bash")
-    (bash_completion/"readable-name-generator").write output
-    output = Utils.safe_popen_read("#{bin}/readable-name-generator", "--completion", "zsh")
-    (zsh_completion/"_readable-name-generator").write output
-    output = Utils.safe_popen_read("#{bin}/readable-name-generator", "--completion", "fish")
-    (fish_completion/"readable-name-generator.fish").write output
+    generate_completions_from_executable(bin/"readable-name-generator", "--completion", "bash", shells: [:bash])
+    generate_completions_from_executable(bin/"readable-name-generator", "--completion", "zsh", shells: [:zsh])
+    generate_completions_from_executable(bin/"readable-name-generator", "--completion", "fish", shells: [:fish])
 
     # Man pages
     output = Utils.safe_popen_read("help2man", "#{bin}/readable-name-generator")
