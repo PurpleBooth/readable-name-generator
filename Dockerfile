@@ -1,4 +1,4 @@
-FROM rust:1.62.1 as builder
+FROM rust:1.64.0 as builder
 
 ## Update the system generally
 RUN apt-get update && \
@@ -17,7 +17,7 @@ COPY . .
 RUN --mount=type=cache,target=/root/.cargo cargo clean
 RUN --mount=type=cache,target=/root/.cargo cargo build --release
 
-FROM rust:1.62.1
+FROM rust:1.64.0
 ENV DEBIAN_FRONTEND noninteractive
 
 ## Update the system generally
