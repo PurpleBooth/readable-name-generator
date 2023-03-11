@@ -10,43 +10,49 @@
     missing_debug_implementations,
     missing_docs
 )]
+use clap::Parser;
 
-use cli::cli;
+use clap::CommandFactory;
 use rand::prelude::*;
 use rand_pcg::Pcg64;
 use std::io::stdout;
 
+use clap_complete::generate;
+
 mod cli;
-mod completion;
+
+use crate::cli::Arguments as CliArgs;
 
 fn main() {
     miette::set_panic_hook();
 
-    let mut app = cli();
-    let args = app.clone().get_matches();
+    let args: CliArgs = CliArgs::parse();
 
-    if let Ok(shell) = args.value_of_t("completion_shell") {
-        completion::print_completions(&mut stdout(), &mut app, shell);
+    if let Some(shell) = args.completion_shell {
+        let mut cmd = CliArgs::command();
+        let name = cmd.get_name().to_string();
+        generate(shell, &mut cmd, name, &mut stdout());
+
         return;
     }
 
     let seperator = args
-        .value_of("separator")
+        .separator
         .expect("Failed to get default value for separator");
 
-    args.value_of_t("initial_seed").map_or_else(
-        |_| {
+    args.initial_seed.map_or_else(
+        || {
             let rng = thread_rng();
             println!(
                 "{}",
-                anarchist_readable_name_generator_lib::readable_name_custom(seperator, rng)
+                anarchist_readable_name_generator_lib::readable_name_custom(&seperator, rng)
             );
         },
         |seed| {
             let rng = Pcg64::seed_from_u64(seed);
             println!(
                 "{}",
-                anarchist_readable_name_generator_lib::readable_name_custom(seperator, rng)
+                anarchist_readable_name_generator_lib::readable_name_custom(&seperator, rng)
             );
         },
     );

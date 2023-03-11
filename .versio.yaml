@@ -9,10 +9,6 @@ projects:
     version:
       file: "Cargo.toml"
       toml: "package.version"
-    also:
-      - file: ./README.md
-        pattern: readable-name-generator (\d+\.\d+\.\d+)
-
     hooks:
       post_write: 'cargo update --workspace'
 

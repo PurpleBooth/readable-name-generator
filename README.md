@@ -41,30 +41,23 @@ readable-name-generator --help
 ```
 
 ``` shell,verify(script_name="help")
-readable-name-generator 2.100.52
-
 Generate a readable name for throwaway infrastructure
 
-USAGE:
-    readable-name-generator [OPTIONS]
+Usage: readable-name-generator [OPTIONS]
 
-OPTIONS:
-    -c, --completion <completion_shell>
-            Generate completion for your shell [possible values: bash, elvish, fish, powershell,
-            zsh]
-
-    -h, --help
-            Print help information
-
-    -i, --initial-seed <initial_seed>
-            Use a known seed to generate the readable name for repeatability [env:
-            READABLE_NAME_GENERATOR_INITIAL_SEED=]
-
-    -s, --separator <separator>
-            The separator to use [env: READABLE_NAME_GENERATOR_SEPARATOR=] [default: _]
-
-    -V, --version
-            Print version information
+Options:
+  -s, --separator <SEPARATOR>
+          The separator to use [env: READABLE_NAME_GENERATOR_SEPARATOR=] [default: _]
+  -i, --initial-seed <INITIAL_SEED>
+          Use a known seed to generate the readable name for repeatability [env:
+          READABLE_NAME_GENERATOR_INITIAL_SEED=]
+  -c, --completion-shell <COMPLETION_SHELL>
+          Generate completion for your shell [env: COMPLETION_SHELL=] [possible values: bash,
+          elvish, fish, powershell, zsh]
+  -h, --help
+          Print help
+  -V, --version
+          Print version
 ```
 
 ### Docker
