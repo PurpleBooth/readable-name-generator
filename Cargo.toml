@@ -15,6 +15,6 @@ rand = "0.8.5"
 rand_pcg = "0.3.1"
 anarchist-readable-name-generator-lib = "0.1.1"
 clap_complete = "4.1.4"
-clap = { version = "4.1.8", features = ["derive", "cargo", "wrap_help", "env", "unicode" ] }
+clap = { version = "4.2.4", features = ["derive", "cargo", "wrap_help", "env", "unicode" ] }
 miette = { version = "5.5.0", features = ["fancy"] }
 thiserror = "1.0.39"
