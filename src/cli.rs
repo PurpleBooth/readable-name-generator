@@ -4,6 +4,7 @@ use clap::Parser;
 
 #[derive(Parser, Debug)]
 #[clap(author, version, about)]
+#[cfg_attr(target_os = "windows", clap(bin_name = "readable-name-generator"))]
 pub struct Arguments {
     /// The separator to use
     #[clap(
