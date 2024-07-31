@@ -18,7 +18,7 @@ RUN --mount=type=cache,target=/root/.cargo cargo clean
 RUN --mount=type=cache,target=/root/.cargo cargo build --release
 
 FROM rust:latest
-ENV DEBIAN_FRONTEND noninteractive
+ENV DEBIAN_FRONTEND=noninteractive
 
 ## Update the system generally
 RUN apt-get update && \
