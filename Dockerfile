@@ -1,4 +1,4 @@
-FROM rust:latest as builder
+FROM rust:latest AS builder
 
 ## Update the system generally
 RUN apt-get update && \
