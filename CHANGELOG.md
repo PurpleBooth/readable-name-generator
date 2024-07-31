@@ -2,6 +2,18 @@
 All notable changes to this project will be documented in this file. See [conventional commits](https://www.conventionalcommits.org/) for commit guidelines.
 
 - - -
+## [v2.100.54](https://github.com/PurpleBooth/readable-name-generator/compare/e72668f07d1f0427d9920dd9a76dd7d2964855cd..v2.100.54) - 2024-07-31
+#### Bug Fixes
+- **(Homebrew)** Fix urls in template - ([e72668f](https://github.com/PurpleBooth/readable-name-generator/commit/e72668f07d1f0427d9920dd9a76dd7d2964855cd)) - Billie Thompson
+- **(deps)** Bump versions - ([7c09d15](https://github.com/PurpleBooth/readable-name-generator/commit/7c09d1556472415552373fa96ae1b6cce1dbe7ee)) - Billie Thompson
+#### Build system
+- Use cog - ([101ef2f](https://github.com/PurpleBooth/readable-name-generator/commit/101ef2f0906fbf419fdf12074eb5e8c2370002e5)) - Billie Thompson
+#### Continuous Integration
+- No confirmation - ([f352bb2](https://github.com/PurpleBooth/readable-name-generator/commit/f352bb2b1a11576df0327be84ead4386564afd4e)) - Billie Thompson
+- Use binstall rather than install - ([9a48538](https://github.com/PurpleBooth/readable-name-generator/commit/9a48538e64d6df86b37f7de233dc1682c2ff7dd3)) - Billie Thompson
+
+- - -
+
 ## [v2.100.53](https://github.com/PurpleBooth/readable-name-generator/compare/v2.100.52..v2.100.53) - 2023-09-04
 #### Bug Fixes
 - Bump versions - ([f2801bd](https://github.com/PurpleBooth/readable-name-generator/commit/f2801bd9a4dc1cf08e9d5397f58abef9443261f1)) - Billie Thompson
