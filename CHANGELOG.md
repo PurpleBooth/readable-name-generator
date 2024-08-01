@@ -2,6 +2,26 @@
 All notable changes to this project will be documented in this file. See [conventional commits](https://www.conventionalcommits.org/) for commit guidelines.
 
 - - -
+## [v2.100.55](https://github.com/PurpleBooth/readable-name-generator/compare/873557a0eeeb7d18536faf040840a52ee94024a1..v2.100.55) - 2024-08-01
+#### Bug Fixes
+- **(deps)** bump clap_complete from 4.4.9 to 4.5.12 - ([7b34a13](https://github.com/PurpleBooth/readable-name-generator/commit/7b34a133930ed0d791152dd59029e5957de07320)) - dependabot[bot]
+- **(deps)** bump thiserror from 1.0.56 to 1.0.63 - ([b4da1da](https://github.com/PurpleBooth/readable-name-generator/commit/b4da1da217dbc601ea7ea6796ea30a06bbcc2dc8)) - dependabot[bot]
+- **(deps)** bump miette from 5.10.0 to 7.2.0 - ([7cb6d46](https://github.com/PurpleBooth/readable-name-generator/commit/7cb6d46f5c42a3debc0c8b2efcc82bedda847a4b)) - dependabot[bot]
+- **(deps)** bump clap from 4.4.18 to 4.5.13 - ([f96b94c](https://github.com/PurpleBooth/readable-name-generator/commit/f96b94c341cbd1921786aef0a5b2dc55e0d0e4ab)) - dependabot[bot]
+#### Build system
+- remove invalid key - ([0625e91](https://github.com/PurpleBooth/readable-name-generator/commit/0625e9146eabd3d3d6147d4de41493b374bef09e)) - Billie Thompson
+- Bump rust version for docker - ([78cd4d6](https://github.com/PurpleBooth/readable-name-generator/commit/78cd4d6c36ef1cea3b1ea1e90804a4982545958d)) - Billie Thompson
+#### Continuous Integration
+- **(Mergify)** configuration update - ([4135ada](https://github.com/PurpleBooth/readable-name-generator/commit/4135ada508f24d89da626cd36ea5e9c3be13a758)) - Billie Thompson
+- Enable merge group - ([63baa51](https://github.com/PurpleBooth/readable-name-generator/commit/63baa51ceafd423e3cbe2f6380f8a03fce7a5057)) - Billie Thompson
+- Remove removed job - ([f3b09b1](https://github.com/PurpleBooth/readable-name-generator/commit/f3b09b1026613feda2cacc2afefc65dd55fa7ded)) - Billie Thompson
+- Use main rather than a tagged version - ([873557a](https://github.com/PurpleBooth/readable-name-generator/commit/873557a0eeeb7d18536faf040840a52ee94024a1)) - Billie Thompson
+#### Refactoring
+- Use modern env format - ([046b9c7](https://github.com/PurpleBooth/readable-name-generator/commit/046b9c7efa03a874ab45cd889b6a1d8e61145bf8)) - Billie Thompson
+- Capitalise as - ([a5681ac](https://github.com/PurpleBooth/readable-name-generator/commit/a5681ac3686ade4361dbe8ea168216eca8410781)) - Billie Thompson
+
+- - -
+
 ## [v2.100.54](https://github.com/PurpleBooth/readable-name-generator/compare/e72668f07d1f0427d9920dd9a76dd7d2964855cd..v2.100.54) - 2024-07-31
 #### Bug Fixes
 - **(Homebrew)** Fix urls in template - ([e72668f](https://github.com/PurpleBooth/readable-name-generator/commit/e72668f07d1f0427d9920dd9a76dd7d2964855cd)) - Billie Thompson
