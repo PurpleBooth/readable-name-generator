@@ -2,6 +2,12 @@
 All notable changes to this project will be documented in this file. See [conventional commits](https://www.conventionalcommits.org/) for commit guidelines.
 
 - - -
+## [v2.100.56](https://github.com/PurpleBooth/readable-name-generator/compare/19550c8b81b92133d724a837dc7f28fd075f422e..v2.100.56) - 2024-08-01
+#### Bug Fixes
+- Trigger a release - ([19550c8](https://github.com/PurpleBooth/readable-name-generator/commit/19550c8b81b92133d724a837dc7f28fd075f422e)) - Billie Thompson
+
+- - -
+
 ## [v2.100.55](https://github.com/PurpleBooth/readable-name-generator/compare/873557a0eeeb7d18536faf040840a52ee94024a1..v2.100.55) - 2024-08-01
 #### Bug Fixes
 - **(deps)** bump clap_complete from 4.4.9 to 4.5.12 - ([7b34a13](https://github.com/PurpleBooth/readable-name-generator/commit/7b34a133930ed0d791152dd59029e5957de07320)) - dependabot[bot]
