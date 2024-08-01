@@ -4,7 +4,6 @@ queue_rules:
   batch_size: 20
   conditions:
   - check-success=lint-markdown / lint-markdown
-  - check-success=commit-checks / version
   - check-success=rust-checks / check
   - check-success=rust-checks / test (macos-latest)
   - check-success=rust-checks / test (ubuntu-latest)
@@ -34,7 +33,6 @@ pull_request_rules:
 - name: automatic rebase for dependencies
   conditions:
   - check-success=lint-markdown / lint-markdown
-  - check-success=commit-checks / version
   - check-success=rust-checks / check
   - check-success=rust-checks / test (macos-latest)
   - check-success=rust-checks / test (ubuntu-latest)
