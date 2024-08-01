@@ -15,6 +15,7 @@ post_package_bump_hooks = []
 
 [git_hooks]
 
+
 [commit_types]
 
 [changelog]
