@@ -12,16 +12,17 @@ class ReadableNameGenerator < Formula
     system "cargo", "install", "--locked", "--root", prefix, "--path", "."
 
     # Completions
-    generate_completions_from_executable(bin/"readable-name-generator", "--completion-shell", shells: [:bash, :zsh, :fish])
+    generate_completions_from_executable(bin/"readable-name-generator", "--completion-shell",
+shells: [:bash, :zsh, :fish])
 
     # Man pages
-    output = Utils.safe_popen_read("help2man", "#{bin}/readable-name-generator")
+    output = Utils.safe_popen_read("help2man", bin/"readable-name-generator")
     (man1/"readable-name-generator.1").write output
   end
 
   test do
-    system "#{bin}/readable-name-generator", "-h"
-    system "#{bin}/readable-name-generator", "-V"
+    system bin/"readable-name-generator", "-h"
+    system bin/"readable-name-generator", "-V"
     system "specdown run --temporary-workspace-dir --add-path \"#{bin}\" \"#{prefix}/README.md\""
   end
 end
