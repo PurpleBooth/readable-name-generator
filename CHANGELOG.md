@@ -2,6 +2,20 @@
 All notable changes to this project will be documented in this file. See [conventional commits](https://www.conventionalcommits.org/) for commit guidelines.
 
 - - -
+## [v2.100.57](https://github.com/PurpleBooth/readable-name-generator/compare/8170d92f962fc75387a6f0ecbb29abd64f8c0d24..v2.100.57) - 2024-08-08
+#### Bug Fixes
+- **(deps)** bump clap from 4.5.13 to 4.5.14 - ([6f8ebe3](https://github.com/PurpleBooth/readable-name-generator/commit/6f8ebe31f4c934424e87f1bae1059994cd9cd1e6)) - dependabot[bot]
+#### Build system
+- Fix Homebrew formula - ([aa1a38b](https://github.com/PurpleBooth/readable-name-generator/commit/aa1a38b335b175dc538fb2e2b63ab12bb43157f5)) - Billie Thompson
+- Correct shell flag - ([ba4fc65](https://github.com/PurpleBooth/readable-name-generator/commit/ba4fc6542c790cd29baab5beaa4d722a862f11f7)) - Billie Thompson
+#### Continuous Integration
+- Remove branch restriction - ([064d005](https://github.com/PurpleBooth/readable-name-generator/commit/064d005119e2166d2b8bdece2e88d3f185684106)) - Billie Thompson
+- Use renovate - ([8170d92](https://github.com/PurpleBooth/readable-name-generator/commit/8170d92f962fc75387a6f0ecbb29abd64f8c0d24)) - Billie Thompson
+#### Miscellaneous Chores
+- **(deps)** pin rust docker tag to fcbb950 - ([7adde3c](https://github.com/PurpleBooth/readable-name-generator/commit/7adde3cb44dc780ce042c95eb7d68f6029ae2089)) - renovate[bot]
+
+- - -
+
 ## [v2.100.56](https://github.com/PurpleBooth/readable-name-generator/compare/19550c8b81b92133d724a837dc7f28fd075f422e..v2.100.56) - 2024-08-01
 #### Bug Fixes
 - Trigger a release - ([19550c8](https://github.com/PurpleBooth/readable-name-generator/commit/19550c8b81b92133d724a837dc7f28fd075f422e)) - Billie Thompson
