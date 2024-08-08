@@ -2,6 +2,12 @@
 All notable changes to this project will be documented in this file. See [conventional commits](https://www.conventionalcommits.org/) for commit guidelines.
 
 - - -
+## [v2.100.58](https://github.com/PurpleBooth/readable-name-generator/compare/9dc65b77f048105584e4281c382e36f90c51ec33..v2.100.58) - 2024-08-08
+#### Bug Fixes
+- **(deps)** bump clap_complete from 4.5.12 to 4.5.13 - ([9dc65b7](https://github.com/PurpleBooth/readable-name-generator/commit/9dc65b77f048105584e4281c382e36f90c51ec33)) - dependabot[bot]
+
+- - -
+
 ## [v2.100.57](https://github.com/PurpleBooth/readable-name-generator/compare/8170d92f962fc75387a6f0ecbb29abd64f8c0d24..v2.100.57) - 2024-08-08
 #### Bug Fixes
 - **(deps)** bump clap from 4.5.13 to 4.5.14 - ([6f8ebe3](https://github.com/PurpleBooth/readable-name-generator/commit/6f8ebe31f4c934424e87f1bae1059994cd9cd1e6)) - dependabot[bot]
