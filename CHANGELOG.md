@@ -2,6 +2,12 @@
 All notable changes to this project will be documented in this file. See [conventional commits](https://www.conventionalcommits.org/) for commit guidelines.
 
 - - -
+## [v2.100.59](https://github.com/PurpleBooth/readable-name-generator/compare/a4189cf465e29f36ab3d47ef5df753ed5d0cb2a9..v2.100.59) - 2024-08-09
+#### Bug Fixes
+- **(deps)** bump rust from `fcbb950` to `606b76f` - ([a4189cf](https://github.com/PurpleBooth/readable-name-generator/commit/a4189cf465e29f36ab3d47ef5df753ed5d0cb2a9)) - dependabot[bot]
+
+- - -
+
 ## [v2.100.58](https://github.com/PurpleBooth/readable-name-generator/compare/9dc65b77f048105584e4281c382e36f90c51ec33..v2.100.58) - 2024-08-08
 #### Bug Fixes
 - **(deps)** bump clap_complete from 4.5.12 to 4.5.13 - ([9dc65b7](https://github.com/PurpleBooth/readable-name-generator/commit/9dc65b77f048105584e4281c382e36f90c51ec33)) - dependabot[bot]
