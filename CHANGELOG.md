@@ -2,6 +2,13 @@
 All notable changes to this project will be documented in this file. See [conventional commits](https://www.conventionalcommits.org/) for commit guidelines.
 
 - - -
+## [v2.100.60](https://github.com/PurpleBooth/readable-name-generator/compare/432d2997dc4312eedd6e9684f174e964dbf1e914..v2.100.60) - 2024-08-13
+#### Bug Fixes
+- **(deps)** update rust crate clap_complete to v4.5.16 - ([1af7c37](https://github.com/PurpleBooth/readable-name-generator/commit/1af7c3776e691a7dbc8eaef76d5490f2fbc822e6)) - renovate[bot]
+- **(deps)** update rust crate clap to v4.5.15 - ([432d299](https://github.com/PurpleBooth/readable-name-generator/commit/432d2997dc4312eedd6e9684f174e964dbf1e914)) - renovate[bot]
+
+- - -
+
 ## [v2.100.59](https://github.com/PurpleBooth/readable-name-generator/compare/a4189cf465e29f36ab3d47ef5df753ed5d0cb2a9..v2.100.59) - 2024-08-09
 #### Bug Fixes
 - **(deps)** bump rust from `fcbb950` to `606b76f` - ([a4189cf](https://github.com/PurpleBooth/readable-name-generator/commit/a4189cf465e29f36ab3d47ef5df753ed5d0cb2a9)) - dependabot[bot]
