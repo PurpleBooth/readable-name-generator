@@ -1,4 +1,4 @@
-FROM rust:latest@sha256:536c1a47d86bcfcd08b00dc234c44db1f809d4d82e86bc27fac1bf93c5da4d4a AS builder
+FROM rust:latest@sha256:29fe4376919e25b7587a1063d7b521d9db735fc137d3cf30ae41eb326d209471 AS builder
 
 ## Update the system generally
 RUN apt-get update && \
@@ -17,7 +17,7 @@ COPY . .
 RUN --mount=type=cache,target=/root/.cargo cargo clean
 RUN --mount=type=cache,target=/root/.cargo cargo build --release
 
-FROM rust:latest@sha256:536c1a47d86bcfcd08b00dc234c44db1f809d4d82e86bc27fac1bf93c5da4d4a
+FROM rust:latest@sha256:29fe4376919e25b7587a1063d7b521d9db735fc137d3cf30ae41eb326d209471
 ENV DEBIAN_FRONTEND=noninteractive
 
 ## Update the system generally
