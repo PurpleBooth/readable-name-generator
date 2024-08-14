@@ -5,7 +5,6 @@ class ReadableNameGenerator < Formula
   sha256 "{{ file_sha }}"
   depends_on "help2man" => :build
   depends_on "rust" => :build
-  depends_on "specdown/repo/specdown" => :test
 
   def install
     # Build binary
@@ -23,6 +22,6 @@ shells: [:bash, :zsh, :fish])
   test do
     system bin/"readable-name-generator", "-h"
     system bin/"readable-name-generator", "-V"
-    system "specdown run --temporary-workspace-dir --add-path \"#{bin}\" \"#{prefix}/README.md\""
+    assert_match "gregarious_pauli", shell_output(bin/"readable-name-generator --initial-seed 1")
   end
 end
