@@ -2,6 +2,19 @@
 All notable changes to this project will be documented in this file. See [conventional commits](https://www.conventionalcommits.org/) for commit guidelines.
 
 - - -
+## [v2.100.61](https://github.com/PurpleBooth/readable-name-generator/compare/e4e0c83027e7218f736128e203fa1606f46bcf7b..v2.100.61) - 2024-08-14
+#### Bug Fixes
+- **(deps)** update rust crate anarchist-readable-name-generator-lib to v0.1.2 - ([e499278](https://github.com/PurpleBooth/readable-name-generator/commit/e49927834d6449ba56e429eb2af9189ecf1c80a1)) - renovate[bot]
+#### Build system
+- Correct test command for homebrew - ([fc67565](https://github.com/PurpleBooth/readable-name-generator/commit/fc6756521c6eab7f4fd81ec05fe83e3e670ce03c)) - Billie Thompson
+#### Continuous Integration
+- Prevent release attempt on run - ([0c8d318](https://github.com/PurpleBooth/readable-name-generator/commit/0c8d31826cc11d5c76f71f1cc5e3f8e5c4fc36d0)) - Billie Thompson
+#### Miscellaneous Chores
+- **(deps)** update rust:latest docker digest to 29fe437 - ([fbca3bb](https://github.com/PurpleBooth/readable-name-generator/commit/fbca3bb692f16e37a2000c329cea9155a54c2fc3)) - renovate[bot]
+- **(deps)** update rust:latest docker digest to 536c1a4 - ([e4e0c83](https://github.com/PurpleBooth/readable-name-generator/commit/e4e0c83027e7218f736128e203fa1606f46bcf7b)) - renovate[bot]
+
+- - -
+
 ## [v2.100.60](https://github.com/PurpleBooth/readable-name-generator/compare/432d2997dc4312eedd6e9684f174e964dbf1e914..v2.100.60) - 2024-08-13
 #### Bug Fixes
 - **(deps)** update rust crate clap_complete to v4.5.16 - ([1af7c37](https://github.com/PurpleBooth/readable-name-generator/commit/1af7c3776e691a7dbc8eaef76d5490f2fbc822e6)) - renovate[bot]
