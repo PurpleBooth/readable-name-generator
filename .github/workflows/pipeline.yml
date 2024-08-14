@@ -59,7 +59,7 @@ jobs:
       shell: bash
 
   docker-push:
-    if: needs.release.outputs.version_bump
+    if: needs.release.outputs.current_version != needs.release.outputs.previous_version
     needs:
     - release
     uses: PurpleBooth/common-pipelines/.github/workflows/docker-push.yml@main
@@ -67,7 +67,7 @@ jobs:
       current_version: ${{ needs.release.outputs.current_version }}
 
   release-binary:
-    if: needs.release.outputs.version_bump
+    if: needs.release.outputs.current_version != needs.release.outputs.previous_version
     needs:
     - release
     uses: PurpleBooth/common-pipelines/.github/workflows/release-rust-binary.yml@main
