@@ -106,8 +106,6 @@ jobs:
       options: --privileged
     steps:
       - uses: actions/checkout@v4
-      - name: yq - portable yaml processor
-        uses: mikefarah/yq@v4.44.3
       - uses: robinraju/release-downloader@v1
         with:
           tag: v${{ needs.release.outputs.current_version }}
@@ -115,11 +113,15 @@ jobs:
       - run: echo "hash=$( cut -f1 -d' ' < readable-name-generator-x86_64-unknown-linux-gnu.sha256 )" >> "$GITHUB_OUTPUT"
         shell: bash
         id: release_sha
-      - run: |
-          yq -i '.modules[0].sources[0].url = strenv(URL)'
-          yq -i '.modules[0].sources[0].sha256 = strenv(URL_SHA)'
+      - uses: mikefarah/yq@v4.44.3
+        with:
+          cmd: yq -i '.modules[0].sources[0].url = strenv(URL)' io.github.PurpleBooth.readable-name-generator.yml
         env:
           URL: https://github.com/PurpleBooth/readable-name-generator/releases/download/v${{ needs.release.outputs.current_version }}/readable-name-generator-x86_64-unknown-linux-gnu
+      - uses: mikefarah/yq@v4.44.3
+        with:
+          cmd: yq -i '.modules[0].sources[0].sha256 = strenv(URL_SHA)' io.github.PurpleBooth.readable-name-generator.yml
+        env:
           URL_SHA: ${{ steps.release_sha.outputs.hash }}
       - uses: flatpak/flatpak-github-actions/flatpak-builder@v6
         with:
