@@ -2,6 +2,14 @@
 All notable changes to this project will be documented in this file. See [conventional commits](https://www.conventionalcommits.org/) for commit guidelines.
 
 - - -
+## [v2.101.2](https://github.com/PurpleBooth/readable-name-generator/compare/3f0a7f823974df1acb4a405827e681a725aea8b9..v2.101.2) - 2024-08-15
+#### Bug Fixes
+- Correct tag name (missing prefix) - ([3f0a7f8](https://github.com/PurpleBooth/readable-name-generator/commit/3f0a7f823974df1acb4a405827e681a725aea8b9)) - Billie Thompson
+#### Continuous Integration
+- Update some names - ([cd540d9](https://github.com/PurpleBooth/readable-name-generator/commit/cd540d951c0012b81147b0f4faa9a9654755256d)) - Billie Thompson
+
+- - -
+
 ## [v2.101.1](https://github.com/PurpleBooth/readable-name-generator/compare/3789ffe10c2867b3cf28e9eda4499fc5e41209ec..v2.101.1) - 2024-08-15
 #### Bug Fixes
 - Add flatpak app to pipeline - ([4f8ec3a](https://github.com/PurpleBooth/readable-name-generator/commit/4f8ec3ac4b899652f98a367b31280168a21cfc2b)) - Billie Thompson
