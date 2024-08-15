@@ -2,6 +2,12 @@
 All notable changes to this project will be documented in this file. See [conventional commits](https://www.conventionalcommits.org/) for commit guidelines.
 
 - - -
+## [v2.101.0](https://github.com/PurpleBooth/readable-name-generator/compare/b92bd7c362e3f081eda85aed9aed60ad07694b94..v2.101.0) - 2024-08-15
+#### Features
+- Add flatpak manifest - ([b92bd7c](https://github.com/PurpleBooth/readable-name-generator/commit/b92bd7c362e3f081eda85aed9aed60ad07694b94)) - Billie Thompson
+
+- - -
+
 ## [v2.100.61](https://github.com/PurpleBooth/readable-name-generator/compare/e4e0c83027e7218f736128e203fa1606f46bcf7b..v2.100.61) - 2024-08-14
 #### Bug Fixes
 - **(deps)** update rust crate anarchist-readable-name-generator-lib to v0.1.2 - ([e499278](https://github.com/PurpleBooth/readable-name-generator/commit/e49927834d6449ba56e429eb2af9189ecf1c80a1)) - renovate[bot]
