@@ -92,3 +92,46 @@ jobs:
       committer_token: ${{ secrets.COMMITTER_TOKEN }}
       gpg_private_key: ${{ secrets.GPG_PRIVATE_KEY }}
       gpg_passphrase: ${{ secrets.GPG_PASSPHRASE }}
+
+  release-flatpak:
+    permissions:
+      id-token: write
+      attestations: write
+      contents: write
+    name: "Flatpak"
+    runs-on: ubuntu-latest
+    needs:
+      - release-binary
+      - release
+    container:
+      image: bilelmoussaoui/flatpak-github-actions:gnome-44
+      options: --privileged
+    steps:
+      - uses: actions/checkout@v4
+      - name: yq - portable yaml processor
+        uses: mikefarah/yq@v4.44.3
+      - uses: robinraju/release-downloader@v1
+        with:
+          tag: ${{ needs.release.outputs.current_version }}
+          fileName: 'readable-name-generator-x86_64-unknown-linux-gnu.sha256'
+      - run: echo "hash=$( cut -f1 -d' ' < readable-name-generator-x86_64-unknown-linux-gnu.sha256 )" >> "$GITHUB_OUTPUT"
+        shell: bash
+        id: release_sha
+      - run: |
+          yq -i '.modules[0].sources[0].url = strenv(URL)'
+          yq -i '.modules[0].sources[0].sha256 = strenv(URL_SHA)'
+        env:
+          URL: https://github.com/PurpleBooth/readable-name-generator/releases/download/${{ needs.release.outputs.current_version }}/readable-name-generator-x86_64-unknown-linux-gnu
+          URL_SHA: ${{ steps.release_sha.outputs.hash }}
+      - uses: flatpak/flatpak-github-actions/flatpak-builder@v6
+        with:
+          bundle: readable-name-generator.flatpak
+          manifest-path: io.github.PurpleBooth.readable-name-generator.yml
+          cache-key: flatpak-builder-${{ github.sha }}
+      - name: Attest binaries
+        uses: actions/attest-build-provenance@v1
+        with:
+          subject-path: readable-name-generator.flatpak
+      - run: gh release upload "$RELEASE_TAG" readable-name-generator.flatpak
+        env:
+          RELEASE_TAG: ${{ needs.release-binary.outputs.current_version }}
