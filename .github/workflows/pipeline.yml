@@ -14,10 +14,25 @@ jobs:
   docker-build:
     uses: PurpleBooth/common-pipelines/.github/workflows/docker-build.yml@main
 
+  flatpak-build:
+    name: "Flatpak"
+    runs-on: ubuntu-latest
+    container:
+      image: bilelmoussaoui/flatpak-github-actions:gnome-44
+      options: --privileged
+    steps:
+      - uses: actions/checkout@v4
+      - uses: flatpak/flatpak-github-actions/flatpak-builder@v6
+        with:
+          bundle: readable-name-generator.flatpak
+          manifest-path: io.github.PurpleBooth.readable-name-generator.yml
+          cache-key: flatpak-builder-${{ github.sha }}
+
   release:
     if: github.ref == 'refs/heads/main'
     needs:
     - docker-build
+    - flatpak-build
     - specdown
     - lint-markdown
     - rust-checks
