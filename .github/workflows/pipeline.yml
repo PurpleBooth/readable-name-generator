@@ -22,8 +22,6 @@ jobs:
     - lint-markdown
     - rust-checks
     outputs:
-      version_bump: ${{ steps.current_version.outputs.current_version != steps.previous_version.outputs.previous_version
-        }}
       current_version: ${{ steps.current_version.outputs.current_version }}
       previous_version: ${{ steps.previous_version.outputs.previous_version }}
     runs-on: ubuntu-latest
