@@ -2,6 +2,17 @@
 All notable changes to this project will be documented in this file. See [conventional commits](https://www.conventionalcommits.org/) for commit guidelines.
 
 - - -
+## [v2.101.3](https://github.com/PurpleBooth/readable-name-generator/compare/0547c647b67aa0c44a55e1e9d0c0456a6ecb538a..v2.101.3) - 2024-08-16
+#### Bug Fixes
+- **(deps)** bump clap_complete from 4.5.16 to 4.5.17 - ([8916a9c](https://github.com/PurpleBooth/readable-name-generator/commit/8916a9ced487f786141c719b0106d7f0b1fde4ce)) - dependabot[bot]
+- **(deps)** update rust crate clap to v4.5.16 - ([470d198](https://github.com/PurpleBooth/readable-name-generator/commit/470d198bb615c4ce749a902033f51c6e1f3994ad)) - renovate[bot]
+#### Continuous Integration
+- correct how yq action works - ([0547c64](https://github.com/PurpleBooth/readable-name-generator/commit/0547c647b67aa0c44a55e1e9d0c0456a6ecb538a)) - Billie Thompson
+#### Miscellaneous Chores
+- **(deps)** pin dependencies - ([d4ea8c7](https://github.com/PurpleBooth/readable-name-generator/commit/d4ea8c77da6652fc76a24f0bb31698cb6f8102ca)) - renovate[bot]
+
+- - -
+
 ## [v2.101.2](https://github.com/PurpleBooth/readable-name-generator/compare/3f0a7f823974df1acb4a405827e681a725aea8b9..v2.101.2) - 2024-08-15
 #### Bug Fixes
 - Correct tag name (missing prefix) - ([3f0a7f8](https://github.com/PurpleBooth/readable-name-generator/commit/3f0a7f823974df1acb4a405827e681a725aea8b9)) - Billie Thompson
