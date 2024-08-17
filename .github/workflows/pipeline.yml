@@ -23,6 +23,7 @@ jobs:
       - uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4
       - uses: flatpak/flatpak-github-actions/flatpak-builder@df610e76bc0eabff41ffaa7953f6d03123e9e26a # v6
         with:
+          upload-artifact: false
           bundle: readable-name-generator.flatpak
           manifest-path: io.github.PurpleBooth.readable-name-generator.yml
           cache-key: flatpak-builder-${{ github.sha }}
@@ -132,6 +133,9 @@ jobs:
         uses: actions/attest-build-provenance@310b0a4a3b0b78ef57ecda988ee04b132db73ef8 # v1
         with:
           subject-path: readable-name-generator.flatpak
-      - run: gh release upload "$RELEASE_TAG" readable-name-generator.flatpak
-        env:
-          RELEASE_TAG: v${{ needs.release-binary.outputs.current_version }}
+      - name: Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: v${{ needs.release.outputs.current_version }}
+          files: |
+            readable-name-generator.flatpak
