@@ -2,6 +2,17 @@
 All notable changes to this project will be documented in this file. See [conventional commits](https://www.conventionalcommits.org/) for commit guidelines.
 
 - - -
+## [v2.101.4](https://github.com/PurpleBooth/readable-name-generator/compare/4d11f2b49501c20fdcf60353741ab2e95a75459c..v2.101.4) - 2024-08-19
+#### Bug Fixes
+- **(deps)** bump clap_complete from 4.5.17 to 4.5.19 - ([a905fe6](https://github.com/PurpleBooth/readable-name-generator/commit/a905fe699397fff8391e852775cb70c93515152e)) - dependabot[bot]
+- **(deps)** update rust crate clap_complete to v4.5.18 - ([260f144](https://github.com/PurpleBooth/readable-name-generator/commit/260f14422bbac8b156adb8589fc157cbb438e89a)) - renovate[bot]
+#### Continuous Integration
+- upload using different method - ([4d11f2b](https://github.com/PurpleBooth/readable-name-generator/commit/4d11f2b49501c20fdcf60353741ab2e95a75459c)) - Billie Thompson
+#### Miscellaneous Chores
+- **(deps)** pin softprops/action-gh-release action to c062e08 - ([44bc8e2](https://github.com/PurpleBooth/readable-name-generator/commit/44bc8e2063d1c14e254463546c1541b3350feba1)) - renovate[bot]
+
+- - -
+
 ## [v2.101.3](https://github.com/PurpleBooth/readable-name-generator/compare/0547c647b67aa0c44a55e1e9d0c0456a6ecb538a..v2.101.3) - 2024-08-16
 #### Bug Fixes
 - **(deps)** bump clap_complete from 4.5.16 to 4.5.17 - ([8916a9c](https://github.com/PurpleBooth/readable-name-generator/commit/8916a9ced487f786141c719b0106d7f0b1fde4ce)) - dependabot[bot]
