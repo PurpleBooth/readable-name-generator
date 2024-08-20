@@ -17,7 +17,7 @@ jobs:
   flatpak-build:
     runs-on: ubuntu-latest
     container:
-      image: bilelmoussaoui/flatpak-github-actions:gnome-44@sha256:576ffb90b2456ee3dbb6cb2ccd8b2a85273d0e95c142a2f0861cb0b51123d166
+      image: bilelmoussaoui/flatpak-github-actions:freedesktop-23.08
       options: --privileged
     steps:
       - uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4
@@ -103,7 +103,7 @@ jobs:
       - release-binary
       - release
     container:
-      image: bilelmoussaoui/flatpak-github-actions:gnome-44@sha256:576ffb90b2456ee3dbb6cb2ccd8b2a85273d0e95c142a2f0861cb0b51123d166
+      image: bilelmoussaoui/flatpak-github-actions:freedesktop-23.08
       options: --privileged
     steps:
       - uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4
