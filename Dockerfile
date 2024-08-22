@@ -1,33 +1,30 @@
-FROM rust:latest@sha256:29fe4376919e25b7587a1063d7b521d9db735fc137d3cf30ae41eb326d209471 AS builder
+FROM rust:1.80 AS builder
+ARG TARGETPLATFORM
+USER 1000
+RUN if [ "$TARGETPLATFORM" = "linux/amd64" ]; then  \
+    rustup target add x86_64-unknown-linux-musl;  \
+    elif [ "$TARGETPLATFORM" = "linux/arm/v7" ]; then  \
+    rustup target add armv7-unknown-linux-musleabihf;  \
+    elif [ "$TARGETPLATFORM" = "linux/arm64" ]; then  \
+    rustup target add aarch64-unknown-linux-musl;  \
+    else exit 1;  \
+    fi
 
-## Update the system generally
-RUN apt-get update && \
-    apt-get upgrade -y && \
-    rm -rf /var/lib/apt/lists/*
+WORKDIR /app/readable-name-generator
+COPY . ./
 
-WORKDIR /root/app
+RUN if [ "$TARGETPLATFORM" = "linux/amd64" ]; then  \
+    cargo build --target=x86_64-unknown-linux-musl --release ;  \
+    elif [ "$TARGETPLATFORM" = "linux/arm/v7" ]; then  \
+    cargo build --target=armv7-unknown-linux-musleabihf --release ;  \
+    elif [ "$TARGETPLATFORM" = "linux/arm64" ]; then  \
+    cargo build --target=aarch64-unknown-linux-musl --release ;  \
+    else exit 1;  \
+    fi
 
-## Build deps for git-mit
-RUN apt-get update && \
-    apt-get upgrade -y && \
-    rm -rf /var/lib/apt/lists/*
-
-COPY . .
-
-RUN --mount=type=cache,target=/root/.cargo cargo clean
-RUN --mount=type=cache,target=/root/.cargo cargo build --release
-
-FROM rust:latest@sha256:29fe4376919e25b7587a1063d7b521d9db735fc137d3cf30ae41eb326d209471
-ENV DEBIAN_FRONTEND=noninteractive
-
-## Update the system generally
-RUN apt-get update && \
-    apt-get upgrade -y && \
-    rm -rf /var/lib/apt/lists/*
-
-### The Tool
-COPY --from=builder \
-    /root/app/target/release/readable-name-generator \
-    /usr/local/bin/readable-name-generator
-
-ENTRYPOINT ["/usr/local/bin/readable-name-generator"]
+# Bundle Stage
+FROM scratch
+COPY --from=builder /app/readable-name-generator/target/*/release/readable-name-generator .
+RUN ["./readable-name-generator"]
+USER 1000
+ENTRYPOINT ["./readable-name-generator"]
