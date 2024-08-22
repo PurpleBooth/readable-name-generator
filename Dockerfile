@@ -1,4 +1,4 @@
-FROM rust:1.80 AS builder
+FROM rust:1.80@sha256:29fe4376919e25b7587a1063d7b521d9db735fc137d3cf30ae41eb326d209471 AS builder
 ARG TARGETPLATFORM
 USER 1000
 RUN if [ "$TARGETPLATFORM" = "linux/amd64" ]; then  \
