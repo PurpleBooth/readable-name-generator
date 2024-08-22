@@ -2,6 +2,14 @@
 All notable changes to this project will be documented in this file. See [conventional commits](https://www.conventionalcommits.org/) for commit guidelines.
 
 - - -
+## [v4.0.2](https://github.com/PurpleBooth/readable-name-generator/compare/2e07fab12af0ba722c8ec258f669b92f9084923e..v4.0.2) - 2024-08-22
+#### Bug Fixes
+- **(deps)** update rust crate clap_complete to v4.5.22 - ([404c7bf](https://github.com/PurpleBooth/readable-name-generator/commit/404c7bf3146b765dcdfa329181a8c0b6ebdfa394)) - renovate[bot]
+#### Continuous Integration
+- Remove old dependabot file - ([2e07fab](https://github.com/PurpleBooth/readable-name-generator/commit/2e07fab12af0ba722c8ec258f669b92f9084923e)) - Billie Thompson
+
+- - -
+
 ## [v4.0.1](https://github.com/PurpleBooth/readable-name-generator/compare/a9b23bb00e20722d60b2f749a063bc623a86528f..v4.0.1) - 2024-08-21
 #### Bug Fixes
 - **(deps)** update rust crate clap_complete to v4.5.20 - ([a9b23bb](https://github.com/PurpleBooth/readable-name-generator/commit/a9b23bb00e20722d60b2f749a063bc623a86528f)) - renovate[bot]
