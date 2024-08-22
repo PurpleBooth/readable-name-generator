@@ -2,6 +2,12 @@
 All notable changes to this project will be documented in this file. See [conventional commits](https://www.conventionalcommits.org/) for commit guidelines.
 
 - - -
+## [v4.0.6](https://github.com/PurpleBooth/readable-name-generator/compare/a2d4d08632763185c0eabbc648174ee24d53bb92..v4.0.6) - 2024-08-22
+#### Bug Fixes
+- Create an image from scratch for smaller images - ([a2d4d08](https://github.com/PurpleBooth/readable-name-generator/commit/a2d4d08632763185c0eabbc648174ee24d53bb92)) - Billie Thompson
+
+- - -
+
 ## [v4.0.5](https://github.com/PurpleBooth/readable-name-generator/compare/88f6c3c8807cb8c6d2be830ffff36930ea9e31ba..v4.0.5) - 2024-08-22
 #### Bug Fixes
 - **(deps)** update rust crate clap_complete to 4.5.22 - ([88f6c3c](https://github.com/PurpleBooth/readable-name-generator/commit/88f6c3c8807cb8c6d2be830ffff36930ea9e31ba)) - renovate[bot]
