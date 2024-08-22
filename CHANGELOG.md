@@ -2,6 +2,12 @@
 All notable changes to this project will be documented in this file. See [conventional commits](https://www.conventionalcommits.org/) for commit guidelines.
 
 - - -
+## [v4.0.5](https://github.com/PurpleBooth/readable-name-generator/compare/88f6c3c8807cb8c6d2be830ffff36930ea9e31ba..v4.0.5) - 2024-08-22
+#### Bug Fixes
+- **(deps)** update rust crate clap_complete to 4.5.22 - ([88f6c3c](https://github.com/PurpleBooth/readable-name-generator/commit/88f6c3c8807cb8c6d2be830ffff36930ea9e31ba)) - renovate[bot]
+
+- - -
+
 ## [v4.0.4](https://github.com/PurpleBooth/readable-name-generator/compare/9d6c76987523347ff6714718c2cca89ac6e938d7..v4.0.4) - 2024-08-22
 #### Bug Fixes
 - **(deps)** update rust crate clap to 4.5.16 - ([9d6c769](https://github.com/PurpleBooth/readable-name-generator/commit/9d6c76987523347ff6714718c2cca89ac6e938d7)) - renovate[bot]
