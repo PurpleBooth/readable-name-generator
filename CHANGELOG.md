@@ -2,6 +2,14 @@
 All notable changes to this project will be documented in this file. See [conventional commits](https://www.conventionalcommits.org/) for commit guidelines.
 
 - - -
+## [v4.0.3](https://github.com/PurpleBooth/readable-name-generator/compare/b19d8187c9ef01b5bccaee466e64aa19aeb64124..v4.0.3) - 2024-08-22
+#### Bug Fixes
+- **(deps)** update rust crate anarchist-readable-name-generator-lib to 0.1.2 - ([ad96218](https://github.com/PurpleBooth/readable-name-generator/commit/ad96218fcd43f2f6426cc70319a61115a9c5c663)) - renovate[bot]
+#### Miscellaneous Chores
+- **(deps)** update softprops/action-gh-release action to v2.0.8 - ([b19d818](https://github.com/PurpleBooth/readable-name-generator/commit/b19d8187c9ef01b5bccaee466e64aa19aeb64124)) - renovate[bot]
+
+- - -
+
 ## [v4.0.2](https://github.com/PurpleBooth/readable-name-generator/compare/2e07fab12af0ba722c8ec258f669b92f9084923e..v4.0.2) - 2024-08-22
 #### Bug Fixes
 - **(deps)** update rust crate clap_complete to v4.5.22 - ([404c7bf](https://github.com/PurpleBooth/readable-name-generator/commit/404c7bf3146b765dcdfa329181a8c0b6ebdfa394)) - renovate[bot]
