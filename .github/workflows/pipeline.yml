@@ -21,7 +21,10 @@ jobs:
       - uses: actions/checkout@main
         with:
           fetch-depth: 0
-      - run: brew install goreleaser/tap/nfpm
+      - run: |
+          echo 'deb [trusted=yes] https://repo.goreleaser.com/apt/ /' | sudo tee /etc/apt/sources.list.d/goreleaser.list
+          sudo apt update
+          sudo apt install -y nfpm
       - uses: dtolnay/rust-toolchain@master
         name: Install rust toolchain
         with:
