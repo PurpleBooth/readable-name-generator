@@ -1,0 +1,18 @@
+# nfpm example configuration file
+#
+# check https://nfpm.goreleaser.com/configuration for detailed usage
+#
+name: "readable-name-generator"
+arch: " ${GOARCH}"
+platform: "linux"
+version_metadata: git
+section: "default"
+priority: "extra"
+maintainer: "Billie Thompson <billie@billiecodes.com>"
+description: Generate a readable names suitable for infrastructure
+vendor: "PurpleBooth"
+homepage: "https://github.com/PurpleBooth/readable-name-generator"
+license: "CC0"
+contents:
+  - src: ./target/release/readable-name-generator
+    dst: /usr/bin/readable-name-generator

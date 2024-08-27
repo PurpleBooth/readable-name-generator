@@ -1,0 +1,8 @@
+conventional-commits: false
+exclude-merge-commits: false
+deb:
+  distribution: []
+  urgency: ""
+debug: false
+owner: "PurpleBooth"
+package-name: "readable-name-generator"

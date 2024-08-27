@@ -13,26 +13,29 @@ jobs:
     uses: PurpleBooth/common-pipelines/.github/workflows/specdown-check.yml@main
   docker-build:
     uses: PurpleBooth/common-pipelines/.github/workflows/docker-build.yml@main
-
-  flatpak-build:
+  nfpm-build:
     runs-on: ubuntu-latest
-    container:
-      image: bilelmoussaoui/flatpak-github-actions:freedesktop-23.08@sha256:006121baca1a24ba03d16786799092bbfcf4f27b0c1862e82341f61743480154
-      options: --privileged
+    env:
+      GOARCH: amd64
     steps:
-      - uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4
-      - uses: flatpak/flatpak-github-actions/flatpak-builder@df610e76bc0eabff41ffaa7953f6d03123e9e26a # v6
+      - uses: actions/checkout@main
         with:
-          upload-artifact: false
-          bundle: readable-name-generator.flatpak
-          manifest-path: io.github.PurpleBooth.readable-name-generator.yml
-          cache-key: flatpak-builder-${{ github.sha }}
+          fetch-depth: 0
+      - run: brew install goreleaser/tap/nfpm
+      - uses: dtolnay/rust-toolchain@master
+        name: Install rust toolchain
+        with:
+          toolchain: stable
+      - run: cargo build --release
+      - run: nfpm pkg --packager archlinux --target /tmp/
+      - run: nfpm pkg --packager rpm --target /tmp/
+      - run: nfpm pkg --packager deb --target /tmp/
+      - run: nfpm pkg --packager apk --target /tmp/
 
   release:
     if: github.ref == 'refs/heads/main'
     needs:
     - docker-build
-    - flatpak-build
     - specdown
     - lint-markdown
     - rust-checks
@@ -92,50 +95,3 @@ jobs:
       committer_token: ${{ secrets.COMMITTER_TOKEN }}
       gpg_private_key: ${{ secrets.GPG_PRIVATE_KEY }}
       gpg_passphrase: ${{ secrets.GPG_PASSPHRASE }}
-
-  release-flatpak:
-    permissions:
-      id-token: write
-      attestations: write
-      contents: write
-    runs-on: ubuntu-latest
-    needs:
-      - release-binary
-      - release
-    container:
-      image: bilelmoussaoui/flatpak-github-actions:freedesktop-23.08@sha256:006121baca1a24ba03d16786799092bbfcf4f27b0c1862e82341f61743480154
-      options: --privileged
-    steps:
-      - uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4
-      - uses: robinraju/release-downloader@a96f54c1b5f5e09e47d9504526e96febd949d4c2 # v1
-        with:
-          tag: v${{ needs.release.outputs.current_version }}
-          fileName: 'readable-name-generator-x86_64-unknown-linux-gnu.sha256'
-      - run: echo "hash=$( cut -f1 -d' ' < readable-name-generator-x86_64-unknown-linux-gnu.sha256 )" >> "$GITHUB_OUTPUT"
-        shell: bash
-        id: release_sha
-      - uses: mikefarah/yq@bbdd97482f2d439126582a59689eb1c855944955 # v4.44.3
-        with:
-          cmd: yq -i '.modules[0].sources[0].url = strenv(URL)' io.github.PurpleBooth.readable-name-generator.yml
-        env:
-          URL: https://github.com/PurpleBooth/readable-name-generator/releases/download/v${{ needs.release.outputs.current_version }}/readable-name-generator-x86_64-unknown-linux-gnu
-      - uses: mikefarah/yq@bbdd97482f2d439126582a59689eb1c855944955 # v4.44.3
-        with:
-          cmd: yq -i '.modules[0].sources[0].sha256 = strenv(URL_SHA)' io.github.PurpleBooth.readable-name-generator.yml
-        env:
-          URL_SHA: ${{ steps.release_sha.outputs.hash }}
-      - uses: flatpak/flatpak-github-actions/flatpak-builder@df610e76bc0eabff41ffaa7953f6d03123e9e26a # v6
-        with:
-          bundle: readable-name-generator.flatpak
-          manifest-path: io.github.PurpleBooth.readable-name-generator.yml
-          cache-key: flatpak-builder-${{ github.sha }}
-      - name: Attest binaries
-        uses: actions/attest-build-provenance@6149ea5740be74af77f260b9db67e633f6b0a9a1 # v1
-        with:
-          subject-path: readable-name-generator.flatpak
-      - name: Release
-        uses: softprops/action-gh-release@c062e08bd532815e2082a85e87e3ef29c3e6d191 # v2.0.8
-        with:
-          tag_name: v${{ needs.release.outputs.current_version }}
-          files: |
-            readable-name-generator.flatpak

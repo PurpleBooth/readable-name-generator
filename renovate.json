@@ -2,5 +2,20 @@
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
     "local>PurpleBooth/renovate-config"
+  ],
+  "customManagers": [
+    {
+      "fileMatch": [
+        "^flatpak/.+\\.json$"
+      ],
+      "extractVersion": {
+        "filePattern": "sources",
+        "depNameTemplate": "{{#each sources}}{{url}}{{/each}}",
+        "currentValueTemplate": "{{#each sources}}{{sha256}}{{/each}}"
+      },
+      "updateTypes": [
+        "digest"
+      ]
+    }
   ]
 }
