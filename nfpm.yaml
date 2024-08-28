@@ -14,5 +14,5 @@ vendor: "PurpleBooth"
 homepage: "https://github.com/PurpleBooth/readable-name-generator"
 license: "CC0"
 contents:
-  - src: ./target/release/readable-name-generator
+  - src: ./readable-name-generator
     dst: /usr/bin/readable-name-generator
