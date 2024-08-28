@@ -44,8 +44,6 @@ jobs:
             cargo clean --target="$ARGE"
           }
 
-          apt-get update
-
           EMPD="$(mktemp -d)"
           build_for aarch64-unknown-linux-gnu "$EMPD"
           build_for x86_64-unknown-linux-gnu "$EMPD"
