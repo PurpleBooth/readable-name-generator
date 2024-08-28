@@ -33,21 +33,20 @@ jobs:
       - shell: bash
         run: |
           function build_for() {
-            (
-              ARGE="$1"
-              rustup target add "$ARGE"
-              cd "./target/$ARGE/release"
-              cargo build --release --target="$ARGE"
-              nfpm pkg --packager archlinux --target ./../../../target/
-              nfpm pkg --packager rpm --target ./../../../target/
-              nfpm pkg --packager apk --target ./../../../target/
-              nfpm pkg --packager deb --target ./../../../target/
-              cargo clean --target "$ARGE"
-            )
+            ARGE="$1"
+            PACKS="$2"
+            rustup target add "$ARGE"
+            cargo build --release --target="$ARGE"
+            nfpm pkg --packager archlinux --target "$PACKS"
+            nfpm pkg --packager rpm --target "$PACKS"
+            nfpm pkg --packager apk --target "$PACKS"
+            nfpm pkg --packager deb --target "$PACKS"
+            cargo clean --target="$ARGE"
           }
 
-          build_for aarch64-unknown-linux-gnu
-          build_for x86_64-unknown-linux-gnu
+          EMPD="$(mktemp -d)"
+          build_for aarch64-unknown-linux-gnu "$EMPD"
+          build_for x86_64-unknown-linux-gnu "$EMPD"
 
   release:
     if: github.ref == 'refs/heads/main'
