@@ -40,11 +40,12 @@ jobs:
 
             (
               cd "./target/$ARGE/release"
-              nfpm pkg --packager archlinux --target "$PACKS"
-              nfpm pkg --packager rpm --target "$PACKS"
-              nfpm pkg --packager apk --target "$PACKS"
-              nfpm pkg --packager deb --target "$PACKS"
+              nfpm pkg --packager archlinux --config="../../../nfpm.yaml"
+              nfpm pkg --packager rpm --config="../../../nfpm.yaml"
+              nfpm pkg --packager apk --config="../../../nfpm.yaml"
+              nfpm pkg --packager deb --config="../../../nfpm.yaml"
             )
+
             cargo clean --target="$ARGE"
           }
 
