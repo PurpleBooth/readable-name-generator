@@ -37,10 +37,14 @@ jobs:
             PACKS="$2"
             rustup target add "$ARGE"
             cargo build --release --target="$ARGE"
-            nfpm pkg --packager archlinux --target "$PACKS"
-            nfpm pkg --packager rpm --target "$PACKS"
-            nfpm pkg --packager apk --target "$PACKS"
-            nfpm pkg --packager deb --target "$PACKS"
+
+            (
+              cd "./target/$ARGE/release"
+              nfpm pkg --packager archlinux --target "$PACKS"
+              nfpm pkg --packager rpm --target "$PACKS"
+              nfpm pkg --packager apk --target "$PACKS"
+              nfpm pkg --packager deb --target "$PACKS"
+            )
             cargo clean --target="$ARGE"
           }
 
