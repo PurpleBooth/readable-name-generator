@@ -215,11 +215,8 @@ jobs:
         uses: actions/attest-build-provenance@6149ea5740be74af77f260b9db67e633f6b0a9a1 # v1
         with:
           subject-path: packs/**/*
-      - name: Sign packs
-        if: steps.should_skip.outputs.result != 'skip'
-        run: |
-          cd packs
       - name: Add hashes to release
+        if: steps.should_skip.outputs.result != 'skip'
         run: |
           {
             (
