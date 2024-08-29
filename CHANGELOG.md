@@ -2,6 +2,35 @@
 All notable changes to this project will be documented in this file. See [conventional commits](https://www.conventionalcommits.org/) for commit guidelines.
 
 - - -
+## [v4.0.7](https://github.com/PurpleBooth/readable-name-generator/compare/4531e05eea1de5d14fe7343ff174ad7bf32dac0e..v4.0.7) - 2024-08-29
+#### Bug Fixes
+- Bump versions - ([9336d37](https://github.com/PurpleBooth/readable-name-generator/commit/9336d371cedcfdaad2b366fdee3a652d5e7761bd)) - Billie Thompson
+#### Continuous Integration
+- Set version - ([a68e481](https://github.com/PurpleBooth/readable-name-generator/commit/a68e481b5c430458928c60a9fa66dd93d215596c)) - Billie Thompson
+- Update ci - ([0f4ab4b](https://github.com/PurpleBooth/readable-name-generator/commit/0f4ab4ba1fcd904f1c1639c91fc5917ea0913aba)) - Billie Thompson
+- Add rpm build - ([8a474be](https://github.com/PurpleBooth/readable-name-generator/commit/8a474beed9c67626755161886dd83d34e1a78807)) - Billie Thompson
+- Add funcion keyword - ([760171a](https://github.com/PurpleBooth/readable-name-generator/commit/760171a3289e71eade14cc880034ca781c2d7751)) - Billie Thompson
+- Set arch - ([d59ddd8](https://github.com/PurpleBooth/readable-name-generator/commit/d59ddd85fedf6051f9bd2a67a830599804d5b674)) - Billie Thompson
+- Remove stray space - ([b0017a6](https://github.com/PurpleBooth/readable-name-generator/commit/b0017a609aa2d54b5a46398d35f05c0572423c58)) - Billie Thompson
+- correct pathh - ([9da1616](https://github.com/PurpleBooth/readable-name-generator/commit/9da1616eb56a51d5ce5e4815b736a8dc280fc242)) - Billie Thompson
+- Correct config path - ([bd24f5a](https://github.com/PurpleBooth/readable-name-generator/commit/bd24f5a4a3f155aaa5f1cb0bf2aef4aa7f8977ee)) - Billie Thompson
+- cd to subshell - ([aa1cc15](https://github.com/PurpleBooth/readable-name-generator/commit/aa1cc1591e1f454c156730718a00761cc15fc192)) - Billie Thompson
+- Delee unneded update - ([777ad2b](https://github.com/PurpleBooth/readable-name-generator/commit/777ad2b5bea34512240bd0de4b03ffac3e6f687a)) - Billie Thompson
+- Correct package name - ([68d47e2](https://github.com/PurpleBooth/readable-name-generator/commit/68d47e286be8d189bc088f17840ef0dc48d2ef48)) - Billie Thompson
+- add aarch64-linux-gnu-gcc - ([b3f6e14](https://github.com/PurpleBooth/readable-name-generator/commit/b3f6e14002b39cb5a587e1f176ca031b91b90011)) - Billie Thompson
+- shuffle - ([57c640f](https://github.com/PurpleBooth/readable-name-generator/commit/57c640fcb49141537dc9179fcd0b0563175857ee)) - Billie Thompson
+- add clean step - ([3ac045c](https://github.com/PurpleBooth/readable-name-generator/commit/3ac045ca552add8bd357caccfb15c2cf6479f83b)) - Billie Thompson
+- add demo nfpm - ([aa500ff](https://github.com/PurpleBooth/readable-name-generator/commit/aa500ff85530cd808027bbb0282e4587b3f31537)) - Billie Thompson
+- Remove cusom manager - ([9009409](https://github.com/PurpleBooth/readable-name-generator/commit/900940954f65275abffb941de77e183e6989ae8b)) - Billie Thompson
+- Install nfpm from repo - ([af4d48a](https://github.com/PurpleBooth/readable-name-generator/commit/af4d48ae4ad57900766e8f1ead79f16a0b4be429)) - Billie Thompson
+- Try nfpm - ([5d71a2b](https://github.com/PurpleBooth/readable-name-generator/commit/5d71a2b1d1399db131a82de47ba286bbc15a93e7)) - Billie Thompson
+#### Miscellaneous Chores
+- **(deps)** update bilelmoussaoui/flatpak-github-actions:freedesktop-23.08 docker digest to 006121b - ([2ed964e](https://github.com/PurpleBooth/readable-name-generator/commit/2ed964e466183ea3ed54358ad49dcb3a7821dd7a)) - renovate[bot]
+- **(deps)** update actions/attest-build-provenance digest to 6149ea5 - ([001883a](https://github.com/PurpleBooth/readable-name-generator/commit/001883a7cc225002f78e8b88044a64e1da55d0d6)) - renovate[bot]
+- **(deps)** pin rust docker tag to 29fe437 - ([4531e05](https://github.com/PurpleBooth/readable-name-generator/commit/4531e05eea1de5d14fe7343ff174ad7bf32dac0e)) - renovate[bot]
+
+- - -
+
 ## [v4.0.6](https://github.com/PurpleBooth/readable-name-generator/compare/a2d4d08632763185c0eabbc648174ee24d53bb92..v4.0.6) - 2024-08-22
 #### Bug Fixes
 - Create an image from scratch for smaller images - ([a2d4d08](https://github.com/PurpleBooth/readable-name-generator/commit/a2d4d08632763185c0eabbc648174ee24d53bb92)) - Billie Thompson
