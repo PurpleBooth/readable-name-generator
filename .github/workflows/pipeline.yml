@@ -225,8 +225,6 @@ jobs:
                if [[ -f "$file" ]]; then
                  echo -n " * "
                  sha256sum "$file"
-                 echo -n " * "
-                 md5sum "$file"
                fi
              done
             )
