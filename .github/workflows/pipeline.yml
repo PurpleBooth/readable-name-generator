@@ -211,6 +211,11 @@ jobs:
           mkdir -p "$PWD/packs"
           build_for aarch64-unknown-linux-gnu "$EMPD"
           build_for x86_64-unknown-linux-gnu "$EMPD"
+      - name: Attest binaries
+        if: steps.should_skip.outputs.result != 'skip'
+        uses: actions/attest-build-provenance@v1
+        with:
+          subject-path: packs/**/*
       - name: Sign packs
         if: steps.should_skip.outputs.result != 'skip'
         run: |
@@ -221,14 +226,9 @@ jobs:
               md5sum "$file" > "$file.md5"
             fi
           done
-      - name: Attest binaries
-        if: steps.should_skip.outputs.result != 'skip'
-        uses: actions/attest-build-provenance@v1
-        with:
-          subject-path: packs/**/*
       - name: Release
         if: steps.should_skip.outputs.result != 'skip'
         uses: softprops/action-gh-release@v2
         with:
           files: packs/**/*
-          tag_name: ${{ needs.release.outputs.current_version }}
+          tag_name: v${{ needs.release.outputs.current_version }}
