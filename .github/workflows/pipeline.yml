@@ -32,6 +32,27 @@ jobs:
           toolchain: stable
       - shell: bash
         run: |
+          trust_to_goarch() {
+              local rust_triple="$1"
+              local arch
+              arch=$(echo "$rust_triple" | cut -d '-' -f 1)
+              local goarch=""
+          
+              case "$arch" in
+              "x86_64") goarch="amd64" ;;
+              "i686") goarch="386" ;;
+              "arm") goarch="arm" ;;
+              "aarch64") goarch="arm64" ;;
+              # Add more mappings as needed
+              *)
+              echo "Unsupported architecture in Rust target triple: $arch"
+              return 1
+              ;;
+              esac
+          
+              echo "$goarch"
+          }
+          
           function build_for() {
             ARGE="$1"
             PACKS="$2"
@@ -40,10 +61,10 @@ jobs:
 
             (
               cd "./target/$ARGE/release"
-              nfpm pkg --packager archlinux --config="../../../nfpm.yaml"
-              nfpm pkg --packager rpm --config="../../../nfpm.yaml"
-              nfpm pkg --packager apk --config="../../../nfpm.yaml"
-              nfpm pkg --packager deb --config="../../../nfpm.yaml"
+              GOARCH="$(trust_to_goarch "$ARGE")" nfpm pkg --packager archlinux --config="../../../nfpm.yaml" --target="$PACKS"
+              GOARCH="$(trust_to_goarch "$ARGE")" nfpm pkg --packager rpm --config="../../../nfpm.yaml" --target="$PACKS"
+              GOARCH="$(trust_to_goarch "$ARGE")" nfpm pkg --packager apk --config="../../../nfpm.yaml" --target="$PACKS"
+              GOARCH="$(trust_to_goarch "$ARGE")" nfpm pkg --packager deb --config="../../../nfpm.yaml" --target="$PACKS"
             )
 
             cargo clean --target="$ARGE"
