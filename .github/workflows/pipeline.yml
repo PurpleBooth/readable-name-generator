@@ -213,7 +213,7 @@ jobs:
           build_for x86_64-unknown-linux-gnu "$EMPD"
       - name: Attest binaries
         if: steps.should_skip.outputs.result != 'skip'
-        uses: actions/attest-build-provenance@v1
+        uses: actions/attest-build-provenance@6149ea5740be74af77f260b9db67e633f6b0a9a1 # v1
         with:
           subject-path: packs/**/*
       - name: Sign packs
@@ -228,7 +228,7 @@ jobs:
           done
       - name: Release
         if: steps.should_skip.outputs.result != 'skip'
-        uses: softprops/action-gh-release@v2
+        uses: softprops/action-gh-release@c062e08bd532815e2082a85e87e3ef29c3e6d191 # v2
         with:
           files: packs/**/*
           tag_name: v${{ needs.release.outputs.current_version }}
