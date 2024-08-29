@@ -2,6 +2,14 @@
 All notable changes to this project will be documented in this file. See [conventional commits](https://www.conventionalcommits.org/) for commit guidelines.
 
 - - -
+## [v4.1.1](https://github.com/PurpleBooth/readable-name-generator/compare/bbccdef324b2003c2428b92c7661d32324c083ee..v4.1.1) - 2024-08-29
+#### Bug Fixes
+- test deploy - ([b54aaea](https://github.com/PurpleBooth/readable-name-generator/commit/b54aaea81b5b9b03d5624eb94fe1807456dfcabf)) - Billie Thompson
+#### Continuous Integration
+- Remove md5s - ([bbccdef](https://github.com/PurpleBooth/readable-name-generator/commit/bbccdef324b2003c2428b92c7661d32324c083ee)) - Billie Thompson
+
+- - -
+
 ## [v4.1.0](https://github.com/PurpleBooth/readable-name-generator/compare/8e2c8ac910d5a241c7b285c40b3832a6e6b7a35f..v4.1.0) - 2024-08-29
 #### Continuous Integration
 - add missing skip - ([a18425e](https://github.com/PurpleBooth/readable-name-generator/commit/a18425eeec19b5971131d9ae162f3fc5272107af)) - Billie Thompson
