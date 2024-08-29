@@ -32,7 +32,7 @@ jobs:
           toolchain: stable
       - shell: bash
         run: |
-          trust_to_goarch() {
+          function trust_to_goarch() {
               local rust_triple="$1"
               local arch
               arch=$(echo "$rust_triple" | cut -d '-' -f 1)
