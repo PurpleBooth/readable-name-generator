@@ -2,6 +2,14 @@
 All notable changes to this project will be documented in this file. See [conventional commits](https://www.conventionalcommits.org/) for commit guidelines.
 
 - - -
+## [v4.1.0](https://github.com/PurpleBooth/readable-name-generator/compare/8e2c8ac910d5a241c7b285c40b3832a6e6b7a35f..v4.1.0) - 2024-08-29
+#### Continuous Integration
+- add missing skip - ([a18425e](https://github.com/PurpleBooth/readable-name-generator/commit/a18425eeec19b5971131d9ae162f3fc5272107af)) - Billie Thompson
+#### Features
+- Move shas to notes - ([8e2c8ac](https://github.com/PurpleBooth/readable-name-generator/commit/8e2c8ac910d5a241c7b285c40b3832a6e6b7a35f)) - Billie Thompson
+
+- - -
+
 ## [v4.0.9](https://github.com/PurpleBooth/readable-name-generator/compare/5032d690c04a8914c67d32c0abc7646f656b5d15..v4.0.9) - 2024-08-29
 #### Bug Fixes
 - test deploy - ([6dccaae](https://github.com/PurpleBooth/readable-name-generator/commit/6dccaaec5073e81a4d9f5050febd05676eaa8499)) - Billie Thompson
