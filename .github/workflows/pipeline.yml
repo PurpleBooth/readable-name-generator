@@ -140,6 +140,10 @@ jobs:
       gpg_passphrase: ${{ secrets.GPG_PASSPHRASE }}
 
   release-packs:
+    permissions:
+      id-token: write
+      attestations: write
+      contents: write
     runs-on: ubuntu-latest
     if: needs.release.outputs.current_version != needs.release.outputs.previous_version
     needs:
