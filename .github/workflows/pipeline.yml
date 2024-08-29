@@ -137,3 +137,93 @@ jobs:
       committer_token: ${{ secrets.COMMITTER_TOKEN }}
       gpg_private_key: ${{ secrets.GPG_PRIVATE_KEY }}
       gpg_passphrase: ${{ secrets.GPG_PASSPHRASE }}
+
+  release-packs:
+    runs-on: ubuntu-latest
+    if: needs.release.outputs.current_version != needs.release.outputs.previous_version
+    needs:
+      - release
+      - release-binary
+    env:
+      GOARCH: amd64
+      CARGO_TARGET_AARCH64_UNKNOWN_LINUX_GNU_LINKER: aarch64-linux-gnu-gcc
+    steps:
+      - uses: actions/checkout@main
+        with:
+          fetch-depth: 0
+      - run: echo "result=$(test -f nfpm.yaml && echo "" || echo "skip")" >> "$GITHUB_OUTPUT"
+        id: should_skip
+      - run: |
+          echo 'deb [trusted=yes] https://repo.goreleaser.com/apt/ /' | sudo tee /etc/apt/sources.list.d/goreleaser.list
+          sudo apt update
+          sudo apt install -y nfpm gcc-aarch64-linux-gnu
+        if: steps.should_skip.outputs.result != 'skip'
+      - uses: dtolnay/rust-toolchain@master
+        if: steps.should_skip.outputs.result != 'skip'
+        name: Install rust toolchain
+        with:
+          toolchain: stable
+      - shell: bash
+        if: steps.should_skip.outputs.result != 'skip'
+        run: |
+          function trust_to_goarch() {
+              local rust_triple="$1"
+              local arch
+              arch=$(echo "$rust_triple" | cut -d '-' -f 1)
+              local goarch=""
+          
+              case "$arch" in
+              "x86_64") goarch="amd64" ;;
+              "i686") goarch="386" ;;
+              "arm") goarch="arm" ;;
+              "aarch64") goarch="arm64" ;;
+              # Add more mappings as needed
+              *)
+              echo "Unsupported architecture in Rust target triple: $arch"
+              return 1
+              ;;
+              esac
+          
+              echo "$goarch"
+          }
+          
+          function build_for() {
+            ARGE="$1"
+            PACKS="$2"
+            rustup target add "$ARGE"
+            cargo build --release --target="$ARGE"
+
+            (
+              cd "./target/$ARGE/release"
+              GOARCH="$(trust_to_goarch "$ARGE")" nfpm pkg --packager archlinux --config="../../../nfpm.yaml" --target="$PACKS"
+              GOARCH="$(trust_to_goarch "$ARGE")" nfpm pkg --packager rpm --config="../../../nfpm.yaml" --target="$PACKS"
+              GOARCH="$(trust_to_goarch "$ARGE")" nfpm pkg --packager apk --config="../../../nfpm.yaml" --target="$PACKS"
+              GOARCH="$(trust_to_goarch "$ARGE")" nfpm pkg --packager deb --config="../../../nfpm.yaml" --target="$PACKS"
+            )
+          }
+
+          EMPD="$PWD/packs"
+          mkdir -p "$PWD/packs"
+          build_for aarch64-unknown-linux-gnu "$EMPD"
+          build_for x86_64-unknown-linux-gnu "$EMPD"
+      - name: Sign packs
+        if: steps.should_skip.outputs.result != 'skip'
+        run: |
+          cd packs
+          for file in *; do
+            if [[ -f "$file" ]]; then
+              sha256sum "$file" > "$file.sha256"
+              md5sum "$file" > "$file.md5"
+            fi
+          done
+      - name: Attest binaries
+        if: steps.should_skip.outputs.result != 'skip'
+        uses: actions/attest-build-provenance@v1
+        with:
+          subject-path: packs/**/*
+      - name: Release
+        if: steps.should_skip.outputs.result != 'skip'
+        uses: softprops/action-gh-release@v2
+        with:
+          files: packs/**/*
+          tag_name: ${{ needs.release.outputs.current_version }}
