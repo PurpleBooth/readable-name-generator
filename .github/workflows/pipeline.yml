@@ -33,7 +33,7 @@ jobs:
           toolchain: stable
       - shell: bash
         run: |
-          function trust_to_goarch() {
+          function rust_to_goarch() {
               local rust_triple="$1"
               local arch
               arch=$(echo "$rust_triple" | cut -d '-' -f 1)
@@ -62,19 +62,18 @@ jobs:
 
             (
               cd "./target/$ARGE/release"
-              GOARCH="$(trust_to_goarch "$ARGE")" nfpm pkg --packager archlinux --config="../../../nfpm.yaml" --target="$PACKS"
-              GOARCH="$(trust_to_goarch "$ARGE")" nfpm pkg --packager rpm --config="../../../nfpm.yaml" --target="$PACKS"
-              GOARCH="$(trust_to_goarch "$ARGE")" nfpm pkg --packager apk --config="../../../nfpm.yaml" --target="$PACKS"
-              GOARCH="$(trust_to_goarch "$ARGE")" nfpm pkg --packager deb --config="../../../nfpm.yaml" --target="$PACKS"
+              GOARCH="$(rust_to_goarch "$ARGE")" nfpm pkg --packager archlinux --config="../../../nfpm.yaml" --target="$PACKS"
+              GOARCH="$(rust_to_goarch "$ARGE")" nfpm pkg --packager rpm --config="../../../nfpm.yaml" --target="$PACKS"
+              GOARCH="$(rust_to_goarch "$ARGE")" nfpm pkg --packager apk --config="../../../nfpm.yaml" --target="$PACKS"
+              GOARCH="$(rust_to_goarch "$ARGE")" nfpm pkg --packager deb --config="../../../nfpm.yaml" --target="$PACKS"
             )
 
             cargo clean --target="$ARGE"
           }
-
+          
           EMPD="$(mktemp -d)"
           build_for aarch64-unknown-linux-gnu "$EMPD"
           build_for x86_64-unknown-linux-gnu "$EMPD"
-
   release:
     if: github.ref == 'refs/heads/main'
     needs:
@@ -171,7 +170,7 @@ jobs:
       - shell: bash
         if: steps.should_skip.outputs.result != 'skip'
         run: |
-          function trust_to_goarch() {
+          function rust_to_goarch() {
               local rust_triple="$1"
               local arch
               arch=$(echo "$rust_triple" | cut -d '-' -f 1)
@@ -200,10 +199,10 @@ jobs:
 
             (
               cd "./target/$ARGE/release"
-              GOARCH="$(trust_to_goarch "$ARGE")" nfpm pkg --packager archlinux --config="../../../nfpm.yaml" --target="$PACKS"
-              GOARCH="$(trust_to_goarch "$ARGE")" nfpm pkg --packager rpm --config="../../../nfpm.yaml" --target="$PACKS"
-              GOARCH="$(trust_to_goarch "$ARGE")" nfpm pkg --packager apk --config="../../../nfpm.yaml" --target="$PACKS"
-              GOARCH="$(trust_to_goarch "$ARGE")" nfpm pkg --packager deb --config="../../../nfpm.yaml" --target="$PACKS"
+              GOARCH="$(rust_to_goarch "$ARGE")" nfpm pkg --packager archlinux --config="../../../nfpm.yaml" --target="$PACKS"
+              GOARCH="$(rust_to_goarch "$ARGE")" nfpm pkg --packager rpm --config="../../../nfpm.yaml" --target="$PACKS"
+              GOARCH="$(rust_to_goarch "$ARGE")" nfpm pkg --packager apk --config="../../../nfpm.yaml" --target="$PACKS"
+              GOARCH="$(rust_to_goarch "$ARGE")" nfpm pkg --packager deb --config="../../../nfpm.yaml" --target="$PACKS"
             )
           }
 
@@ -220,15 +219,26 @@ jobs:
         if: steps.should_skip.outputs.result != 'skip'
         run: |
           cd packs
-          for file in *; do
-            if [[ -f "$file" ]]; then
-              sha256sum "$file" > "$file.sha256"
-              md5sum "$file" > "$file.md5"
-            fi
-          done
+      - name: Add hashes to release
+        run: |
+          {
+            (
+             cd packs
+             for file in *; do
+               if [[ -f "$file" ]]; then
+                 echo -n " * "
+                 sha256sum "$file"
+                 echo -n " * "
+                 md5sum "$file"
+               fi
+             done
+            )
+          } >> SHAs.md
       - name: Release
         if: steps.should_skip.outputs.result != 'skip'
         uses: softprops/action-gh-release@c062e08bd532815e2082a85e87e3ef29c3e6d191 # v2
         with:
           files: packs/**/*
           tag_name: v${{ needs.release.outputs.current_version }}
+          append_body: true
+          body_path: SHAs.md
