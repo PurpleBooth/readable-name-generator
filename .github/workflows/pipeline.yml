@@ -145,7 +145,6 @@ jobs:
       - release
       - release-binary
     env:
-      GOARCH: amd64
       CARGO_TARGET_AARCH64_UNKNOWN_LINUX_GNU_LINKER: aarch64-linux-gnu-gcc
     steps:
       - uses: actions/checkout@main
