@@ -5,7 +5,7 @@
 name: "readable-name-generator"
 arch: "${GOARCH}"
 platform: "linux"
-version_metadata: git
+version: "${VER}"
 section: "default"
 priority: "extra"
 maintainer: "Billie Thompson <billie@billiecodes.com>"

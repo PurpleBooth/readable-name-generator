@@ -18,6 +18,7 @@ jobs:
     env:
       GOARCH: amd64
       CARGO_TARGET_AARCH64_UNKNOWN_LINUX_GNU_LINKER: aarch64-linux-gnu-gcc
+      VER: 0.0.0
     steps:
       - uses: actions/checkout@main
         with:
@@ -146,6 +147,7 @@ jobs:
       - release-binary
     env:
       CARGO_TARGET_AARCH64_UNKNOWN_LINUX_GNU_LINKER: aarch64-linux-gnu-gcc
+      VER: ${{ needs.release.outputs.current_version }}
     steps:
       - uses: actions/checkout@main
         with:
