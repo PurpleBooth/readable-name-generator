@@ -2,6 +2,12 @@
 All notable changes to this project will be documented in this file. See [conventional commits](https://www.conventionalcommits.org/) for commit guidelines.
 
 - - -
+## [v4.0.8](https://github.com/PurpleBooth/readable-name-generator/compare/1679f6355fd3164ae9be9ddba2da3c134c84eca7..v4.0.8) - 2024-08-29
+#### Bug Fixes
+- add permissions for attestttaitons - ([1679f63](https://github.com/PurpleBooth/readable-name-generator/commit/1679f6355fd3164ae9be9ddba2da3c134c84eca7)) - Billie Thompson
+
+- - -
+
 ## [v4.0.7](https://github.com/PurpleBooth/readable-name-generator/compare/4531e05eea1de5d14fe7343ff174ad7bf32dac0e..v4.0.7) - 2024-08-29
 #### Bug Fixes
 - Bump versions - ([9336d37](https://github.com/PurpleBooth/readable-name-generator/commit/9336d371cedcfdaad2b366fdee3a652d5e7761bd)) - Billie Thompson
