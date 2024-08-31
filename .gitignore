@@ -1,3 +1,4 @@
 /target
 /.versio-paused
 .flatpak-builder/
+artifact
