@@ -2,6 +2,19 @@
 All notable changes to this project will be documented in this file. See [conventional commits](https://www.conventionalcommits.org/) for commit guidelines.
 
 - - -
+## [v4.1.4](https://github.com/PurpleBooth/readable-name-generator/compare/497cc6d682cf5cf44bd05084c6f1341c7c98ad5e..v4.1.4) - 2024-08-31
+#### Bug Fixes
+- test deploy - ([8553e03](https://github.com/PurpleBooth/readable-name-generator/commit/8553e03903a2a832d21d55faffe1e41346dcc78a)) - Billie Thompson
+#### Continuous Integration
+- Use centralised nfpm stuff - ([d04cead](https://github.com/PurpleBooth/readable-name-generator/commit/d04cead5e3f4031e0a98048257b9c5ab127dff9d)) - Billie Thompson
+- remove spaces - ([497cc6d](https://github.com/PurpleBooth/readable-name-generator/commit/497cc6d682cf5cf44bd05084c6f1341c7c98ad5e)) - Billie Thompson
+#### Miscellaneous Chores
+- **(deps)** pin dependencies - ([ea1ff52](https://github.com/PurpleBooth/readable-name-generator/commit/ea1ff52898d79244bbea1c7bd86c9335b830c6fd)) - renovate[bot]
+#### Refactoring
+- cross compile for docker build: - ([95072e7](https://github.com/PurpleBooth/readable-name-generator/commit/95072e720b04d276a7d594263eda0ea0e2c74ea2)) - Billie Thompson
+
+- - -
+
 ## [v4.1.3](https://github.com/PurpleBooth/readable-name-generator/compare/0e546a6e9ba7f12fe838b681045e60e6236e9706..v4.1.3) - 2024-08-29
 #### Bug Fixes
 - test deploy - ([0e546a6](https://github.com/PurpleBooth/readable-name-generator/commit/0e546a6e9ba7f12fe838b681045e60e6236e9706)) - Billie Thompson
