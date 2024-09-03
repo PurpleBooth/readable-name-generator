@@ -2,6 +2,14 @@
 All notable changes to this project will be documented in this file. See [conventional commits](https://www.conventionalcommits.org/) for commit guidelines.
 
 - - -
+## [v4.1.14](https://github.com/PurpleBooth/readable-name-generator/compare/b0adfae7223e8e6aad9a730352e83ffd7d2d7eca..v4.1.14) - 2024-09-03
+#### Bug Fixes
+- Version bump - ([b0adfae](https://github.com/PurpleBooth/readable-name-generator/commit/b0adfae7223e8e6aad9a730352e83ffd7d2d7eca)) - Billie Thompson
+#### Continuous Integration
+- Update docker to run always - ([f266d3f](https://github.com/PurpleBooth/readable-name-generator/commit/f266d3f5a0649b2de05e2250db3195242900cb32)) - Billie Thompson
+
+- - -
+
 ## [v4.1.13](https://github.com/PurpleBooth/readable-name-generator/compare/3f38b434c40114e7a850051f5a5851024e3de16d..v4.1.13) - 2024-09-03
 #### Bug Fixes
 - Version bump - ([3f38b43](https://github.com/PurpleBooth/readable-name-generator/commit/3f38b434c40114e7a850051f5a5851024e3de16d)) - Billie Thompson
