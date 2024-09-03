@@ -2,6 +2,18 @@
 All notable changes to this project will be documented in this file. See [conventional commits](https://www.conventionalcommits.org/) for commit guidelines.
 
 - - -
+## [v4.1.5](https://github.com/PurpleBooth/readable-name-generator/compare/8c5f29c05b9f72ff23bd7fb59b2af098211faa72..v4.1.5) - 2024-09-03
+#### Bug Fixes
+- Version bump - ([7aaa415](https://github.com/PurpleBooth/readable-name-generator/commit/7aaa415b43055bdbe0998c631857e9cb8136ccca)) - Billie Thompson
+#### Build system
+- switch to bake - ([3019284](https://github.com/PurpleBooth/readable-name-generator/commit/3019284fb98b823fd13f6116f45736bc58dbf44c)) - Billie Thompson
+#### Continuous Integration
+- Correct extension - ([e3329f9](https://github.com/PurpleBooth/readable-name-generator/commit/e3329f9cd973757c79cfd0809c9f4f4da27afd67)) - Billie Thompson
+#### Miscellaneous Chores
+- Add a prototype earth file - ([8c5f29c](https://github.com/PurpleBooth/readable-name-generator/commit/8c5f29c05b9f72ff23bd7fb59b2af098211faa72)) - Billie Thompson
+
+- - -
+
 ## [v4.1.4](https://github.com/PurpleBooth/readable-name-generator/compare/497cc6d682cf5cf44bd05084c6f1341c7c98ad5e..v4.1.4) - 2024-08-31
 #### Bug Fixes
 - test deploy - ([8553e03](https://github.com/PurpleBooth/readable-name-generator/commit/8553e03903a2a832d21d55faffe1e41346dcc78a)) - Billie Thompson
