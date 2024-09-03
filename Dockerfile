@@ -2,7 +2,7 @@ FROM --platform=$BUILDPLATFORM tonistiigi/xx@sha256:0c6a569797744e45955f39d4f753
 ARG TARGETPLATFORM
 
 FROM --platform=$BUILDPLATFORM rust:alpine@sha256:1f5aff501e02c1384ec61bb47f89e3eebf60e287e6ed5d1c598077afc82e83d5 AS builder
-RUN apk add clang lld openssl-dev
+RUN apk add clang lld openssl-dev curl bash
 # copy xx scripts to your build stage
 COPY --from=xx / /
 ARG TARGETPLATFORM
@@ -13,21 +13,15 @@ WORKDIR /app
 RUN cargo new --lib readable-name-generator
 WORKDIR /app/readable-name-generator
 COPY Cargo.* ./
-
 RUN xx-cargo build --release --target-dir ./build
 COPY . ./
 RUN xx-cargo build --release --target-dir ./build && \
     xx-verify --static "./build/$(xx-cargo --print-target-triple)/release/readable-name-generator" && \
     cp -v  "./build/$(xx-cargo --print-target-triple)/release/readable-name-generator" "./build/readable-name-generator"
-RUN addgroup -g 568 nonroot
-RUN adduser -u 568 -G nonroot -D nonroot
-USER nonroot
 
 FROM scratch
-COPY --from=builder /etc/passwd /etc/passwd
-COPY --from=builder /etc/group /etc/group
-
 USER nonroot
 COPY --from=builder /app/readable-name-generator/build/readable-name-generator .
-RUN ["/readable-name-generator", "--version"]
 ENTRYPOINT ["/readable-name-generator"]
+
+

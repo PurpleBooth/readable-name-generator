@@ -2,3 +2,4 @@
 /.versio-paused
 .flatpak-builder/
 artifact
+packs
