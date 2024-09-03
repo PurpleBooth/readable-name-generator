@@ -2,6 +2,12 @@
 All notable changes to this project will be documented in this file. See [conventional commits](https://www.conventionalcommits.org/) for commit guidelines.
 
 - - -
+## [v4.1.6](https://github.com/PurpleBooth/readable-name-generator/compare/34e3e4182026d8babe3c746c5fb73dc515a3b542..v4.1.6) - 2024-09-03
+#### Bug Fixes
+- remove defined tags - ([34e3e41](https://github.com/PurpleBooth/readable-name-generator/commit/34e3e4182026d8babe3c746c5fb73dc515a3b542)) - Billie Thompson
+
+- - -
+
 ## [v4.1.5](https://github.com/PurpleBooth/readable-name-generator/compare/8c5f29c05b9f72ff23bd7fb59b2af098211faa72..v4.1.5) - 2024-09-03
 #### Bug Fixes
 - Version bump - ([7aaa415](https://github.com/PurpleBooth/readable-name-generator/commit/7aaa415b43055bdbe0998c631857e9cb8136ccca)) - Billie Thompson
