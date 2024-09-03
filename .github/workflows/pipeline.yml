@@ -12,7 +12,7 @@ jobs:
   specdown:
     uses: PurpleBooth/common-pipelines/.github/workflows/specdown-check.yml@main
   docker-build:
-    uses: PurpleBooth/common-pipelines/.github/workflows/bake-build.yml@main
+    uses: PurpleBooth/common-pipelines/.github/workflows/bake-build.yaml@main
 
   release:
     if: github.ref == 'refs/heads/main'
@@ -60,7 +60,7 @@ jobs:
     if: needs.release.outputs.current_version != needs.release.outputs.previous_version
     needs:
     - release
-    uses: PurpleBooth/common-pipelines/.github/workflows/bake-push.yml@main
+    uses: PurpleBooth/common-pipelines/.github/workflows/bake-push.yaml@main
     with:
       current_version: ${{ needs.release.outputs.current_version }}
 
