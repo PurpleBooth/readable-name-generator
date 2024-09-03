@@ -51,7 +51,6 @@ EOF
     "type=provenance,mode=max",
     "type=sbom"
   ]
-  tags = ["ghcr.io/purplebooth/readable-name-generator"]
   platform = ["alpine/amd64", "alpine/arm64"]
 }
 
