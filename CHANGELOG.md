@@ -2,6 +2,17 @@
 All notable changes to this project will be documented in this file. See [conventional commits](https://www.conventionalcommits.org/) for commit guidelines.
 
 - - -
+## [v4.1.15](https://github.com/PurpleBooth/readable-name-generator/compare/7eaa22461b80049c0042d7ac5e757b53db8f92be..v4.1.15) - 2024-09-04
+#### Bug Fixes
+- bump versions - ([53158ba](https://github.com/PurpleBooth/readable-name-generator/commit/53158bac00e67a32a65c26c9e6dd8cdc3731842a)) - Billie Thompson
+#### Build system
+- Add apks to bake - ([7eaa224](https://github.com/PurpleBooth/readable-name-generator/commit/7eaa22461b80049c0042d7ac5e757b53db8f92be)) - Billie Thompson
+#### Miscellaneous Chores
+- **(deps)** pin goreleaser/nfpm docker tag to b659066 - ([ce63ac5](https://github.com/PurpleBooth/readable-name-generator/commit/ce63ac5348c0f31b0836857040fb573a800a5650)) - renovate[bot]
+- Formatting - ([bdf398f](https://github.com/PurpleBooth/readable-name-generator/commit/bdf398f10b99708c05a1ded1be1c26adcf2e7448)) - Billie Thompson
+
+- - -
+
 ## [v4.1.14](https://github.com/PurpleBooth/readable-name-generator/compare/b0adfae7223e8e6aad9a730352e83ffd7d2d7eca..v4.1.14) - 2024-09-03
 #### Bug Fixes
 - Version bump - ([b0adfae](https://github.com/PurpleBooth/readable-name-generator/commit/b0adfae7223e8e6aad9a730352e83ffd7d2d7eca)) - Billie Thompson
