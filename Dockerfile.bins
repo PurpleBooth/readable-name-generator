@@ -1,3 +1,5 @@
+FROM goreleaser/nfpm AS nfpm
+
 FROM --platform=$BUILDPLATFORM tonistiigi/xx@sha256:0c6a569797744e45955f39d4f7538ac344bfb7ebf0a54006a0a4297b153ccf0f AS xx
 ARG TARGETPLATFORM
 
@@ -6,7 +8,10 @@ RUN apk add clang lld openssl-dev curl bash
 # copy xx scripts to your build stage
 COPY --from=xx / /
 ARG TARGETPLATFORM
+ARG VER
+ENV VER=$VER
 
+COPY --from=nfpm "/usr/bin/nfpm" "/usr/bin/nfpm"
 RUN xx-apk add --no-cache musl-dev zlib-dev zlib-static openssl-dev openssl-libs-static pkgconfig alpine-sdk
 
 WORKDIR /app
@@ -17,11 +22,15 @@ RUN xx-cargo build --release --target-dir ./build
 COPY . ./
 RUN xx-cargo build --release --target-dir ./build && \
     xx-verify --static "./build/$(xx-cargo --print-target-triple)/release/readable-name-generator" && \
-    cp -v  "./build/$(xx-cargo --print-target-triple)/release/readable-name-generator" "./build/readable-name-generator"
+    cp -v  "./build/$(xx-cargo --print-target-triple)/release/readable-name-generator" "./readable-name-generator"
 
+COPY nfpm.yaml nfpm.yaml
+RUN mkdir /PACKS && \
+    GOARCH="$(xx-info arch)" nfpm pkg --packager archlinux --config="nfpm.yaml" --target="/PACKS" && \
+    GOARCH="$(xx-info arch)" nfpm pkg --packager rpm --config="nfpm.yaml" --target="/PACKS" && \
+    GOARCH="$(xx-info arch)" nfpm pkg --packager apk --config="nfpm.yaml" --target="/PACKS" && \
+    GOARCH="$(xx-info arch)" nfpm pkg --packager deb --config="nfpm.yaml" --target="/PACKS"
 FROM scratch
 USER nonroot
-COPY --from=builder /app/readable-name-generator/build/readable-name-generator .
-ENTRYPOINT ["/readable-name-generator"]
-
-
+COPY --from=builder /PACKS .
+COPY --from=builder /app/readable-name-generator/readable-name-generator .

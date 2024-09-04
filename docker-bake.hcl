@@ -1,11 +1,11 @@
-
 target "bins" {
   name = "bins-${join("-", split("/", item.TARGETPLAFORM))}"
-  dockerfile = "Dockerfile"
+  dockerfile = "Dockerfile.bins"
+
   args = {
     TARGETPLAFORM = "${item.TARGETPLAFORM}"
   }
-  output = ["type=local,dest=packs/${item.TARGETPLAFORM}"]
+  output = ["type=local,dest=arfacs/bins/${item.TARGETPLAFORM}"]
 
   matrix = {
     item = [
@@ -38,41 +38,16 @@ target "bins" {
 }
 
 
-target "base" {
-  dockerfile_inline = <<EOF
-FROM --platform=$BUILDPLATFORM alpine AS builder
-RUN addgroup -g 568 nonroot
-RUN adduser -u 568 -G nonroot -D nonroot
-FROM baseapp
-COPY --from=builder /etc/passwd /etc/passwd
-COPY --from=builder /etc/group /etc/group
-EOF
-  attest = [
-    "type=provenance,mode=max",
-    "type=sbom"
-  ]
-  platform = ["alpine/amd64", "alpine/arm64"]
-}
-
-
 target "docker" {
-  contexts = {
-      baseapp = "target:base"
-  }
-  dockerfile_inline = <<EOF
-FROM --platform=$BUILDPLATFORM alpine AS builder
-RUN addgroup -g 568 nonroot
-RUN adduser -u 568 -G nonroot -D nonroot
-FROM baseapp
-COPY --from=builder /etc/passwd /etc/passwd
-COPY --from=builder /etc/group /etc/group
-RUN ["/readable-name-generator", "--version"]
-EOF
+
   attest = [
     "type=provenance,mode=max",
     "type=sbom"
   ]
+
   platform = ["alpine/amd64", "alpine/arm64"]
+
+  dockerfile = "Dockerfile.container"
 }
 
 group "default" {
