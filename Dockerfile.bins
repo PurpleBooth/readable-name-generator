@@ -1,4 +1,4 @@
-FROM goreleaser/nfpm@sha256:b659066b5c0b1055c2a2df3c26a72e1601fdc903c81baf17c44479dd57c5a9cd AS nfpm
+FROM goreleaser/nfpm@sha256:6cf4aff66eebf44c0a2a0be023db4deca507c2ced3139327cee9aee397c0a400 AS nfpm
 
 FROM --platform=$BUILDPLATFORM tonistiigi/xx@sha256:0c6a569797744e45955f39d4f7538ac344bfb7ebf0a54006a0a4297b153ccf0f AS xx
 ARG TARGETPLATFORM
