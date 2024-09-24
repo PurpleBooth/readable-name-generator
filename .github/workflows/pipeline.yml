@@ -57,11 +57,19 @@ jobs:
         shell: bash
 
   docker-push:
+    if: needs.release.outputs.current_version != needs.release.outputs.previous_version
     needs:
       - release
     uses: PurpleBooth/common-pipelines/.github/workflows/bake-push.yaml@main
     with:
       current_version: ${{ needs.release.outputs.current_version }}
+
+  docker-push-edge:
+    if: needs.release.outputs.current_version == needs.release.outputs.previous_version
+    needs:
+      - release
+    uses: PurpleBooth/common-pipelines/.github/workflows/bake-push.yaml@main
+
 
   release-binary:
     if: needs.release.outputs.current_version != needs.release.outputs.previous_version
