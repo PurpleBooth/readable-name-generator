@@ -5,7 +5,7 @@ target "bins" {
   args = {
     TARGETPLAFORM = "${item.TARGETPLAFORM}"
   }
-  output = ["type=local,dest=arfacs/bins/${item.TARGETPLAFORM}"]
+  output = ["type=local,dest=target/bins/${item.TARGETPLAFORM}"]
 
   matrix = {
     item = [
