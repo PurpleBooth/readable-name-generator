@@ -77,7 +77,7 @@ jobs:
   release-binary:
     if: needs.release.outputs.current_version != needs.release.outputs.previous_version
     needs:
-      - release
+      - docker-push
     uses: PurpleBooth/common-pipelines/.github/workflows/release-rust-bake-assets.yaml@main
     with:
       current_version: ${{ needs.release.outputs.current_version }}
