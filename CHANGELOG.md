@@ -2,6 +2,26 @@
 All notable changes to this project will be documented in this file. See [conventional commits](https://www.conventionalcommits.org/) for commit guidelines.
 
 - - -
+## [v4.1.16](https://github.com/PurpleBooth/readable-name-generator/compare/0fac523fefd3dcb0d5036d1e00d3724f470aa058..v4.1.16) - 2024-11-01
+#### Bug Fixes
+- Release bake assets rather than rebuilding - ([d8a80a3](https://github.com/PurpleBooth/readable-name-generator/commit/d8a80a3363614341874c5ea2028d7f3d7b9b9239)) - Billie Thompson
+#### Continuous Integration
+- Correct bake gh release relationship - ([5e75fe3](https://github.com/PurpleBooth/readable-name-generator/commit/5e75fe36e1ad0191ba5ac87549b2ad00f632fe0f)) - Billie Thompson
+- Add sbom hints - ([e93f4a5](https://github.com/PurpleBooth/readable-name-generator/commit/e93f4a59d75efc8430b2f574f042e5a38a414c42)) - Billie Thompson
+- Correct bins directory - ([955fdde](https://github.com/PurpleBooth/readable-name-generator/commit/955fdde9e3aae3c33e4c0735878ceb4d3307bbf0)) - Billie Thompson
+- Add commit lint - ([6aea22b](https://github.com/PurpleBooth/readable-name-generator/commit/6aea22b39cbacbbc1e83458ab51dcf8fb68f5ae9)) - Billie Thompson
+- correct edge tag - ([6072509](https://github.com/PurpleBooth/readable-name-generator/commit/60725099685e556ceb44990600c1622670c568d2)) - Billie Thompson
+#### Miscellaneous Chores
+- **(deps)** update goreleaser/nfpm docker digest to bf713f8 - ([f15c945](https://github.com/PurpleBooth/readable-name-generator/commit/f15c945e368c428864d536d5a8a296d921d621d3)) - renovate[bot]
+- **(deps)** update rust:alpine docker digest to 466dc99 - ([dfabf8d](https://github.com/PurpleBooth/readable-name-generator/commit/dfabf8de96b330b3fabdb3e4b9f7d29fb5d709f9)) - renovate[bot]
+- **(deps)** update goreleaser/nfpm docker digest to 6cf4aff - ([15427a3](https://github.com/PurpleBooth/readable-name-generator/commit/15427a3c3a3f1ba366fe4faa061a7c2e408bdd1d)) - renovate[bot]
+- **(deps)** update rust:alpine docker digest to d6e876c - ([6a876c9](https://github.com/PurpleBooth/readable-name-generator/commit/6a876c91f22dbfa1fa70e3de7b2a4b83926f67a1)) - renovate[bot]
+- **(deps)** update rust:alpine docker digest to d57abe5 - ([3f202f7](https://github.com/PurpleBooth/readable-name-generator/commit/3f202f7e0e5337535b7daa38fc7c38df841000b9)) - renovate[bot]
+- **(deps)** update rust:alpine docker digest to e4ab5bd - ([0fac523](https://github.com/PurpleBooth/readable-name-generator/commit/0fac523fefd3dcb0d5036d1e00d3724f470aa058)) - renovate[bot]
+- Add idea to ignore - ([b2db885](https://github.com/PurpleBooth/readable-name-generator/commit/b2db8858abe9f36e35ee4d21f55da991627bda5a)) - Billie Thompson
+
+- - -
+
 ## [v4.1.15](https://github.com/PurpleBooth/readable-name-generator/compare/7eaa22461b80049c0042d7ac5e757b53db8f92be..v4.1.15) - 2024-09-04
 #### Bug Fixes
 - bump versions - ([53158ba](https://github.com/PurpleBooth/readable-name-generator/commit/53158bac00e67a32a65c26c9e6dd8cdc3731842a)) - Billie Thompson
