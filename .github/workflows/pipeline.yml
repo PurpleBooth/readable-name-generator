@@ -78,7 +78,7 @@ jobs:
     if: needs.release.outputs.current_version != needs.release.outputs.previous_version
     needs:
       - release
-    uses: PurpleBooth/common-pipelines/.github/workflows/release-rust-binary.yml@main
+    uses: PurpleBooth/common-pipelines/.github/workflows/release-rust-bake-assets.yaml@main
     with:
       current_version: ${{ needs.release.outputs.current_version }}
       previous_version: ${{ needs.release.outputs.previous_version }}
