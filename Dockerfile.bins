@@ -1,9 +1,11 @@
+ARG BUILDKIT_SBOM_SCAN_CONTEXT=true
 FROM goreleaser/nfpm@sha256:bf713f8fb367975d647bdd7c04137d107fa943d350950c75a6339a97af9353a9 AS nfpm
 
 FROM --platform=$BUILDPLATFORM tonistiigi/xx@sha256:0c6a569797744e45955f39d4f7538ac344bfb7ebf0a54006a0a4297b153ccf0f AS xx
 ARG TARGETPLATFORM
 
 FROM --platform=$BUILDPLATFORM rust:alpine@sha256:466dc9924d265455aa73e72fd9cdac9db69ce6a988e6f0e6baf852db3485d97d AS builder
+ARG BUILDKIT_SBOM_SCAN_STAGE=true
 RUN apk add clang lld openssl-dev curl bash
 # copy xx scripts to your build stage
 COPY --from=xx / /
