@@ -2,6 +2,12 @@
 All notable changes to this project will be documented in this file. See [conventional commits](https://www.conventionalcommits.org/) for commit guidelines.
 
 - - -
+## [v4.1.17](https://github.com/PurpleBooth/readable-name-generator/compare/8bd05124cdd5edd625c824eadf1888c64e51f588..v4.1.17) - 2024-11-01
+#### Bug Fixes
+- Add needs release to relaese step - ([8bd0512](https://github.com/PurpleBooth/readable-name-generator/commit/8bd05124cdd5edd625c824eadf1888c64e51f588)) - Billie Thompson
+
+- - -
+
 ## [v4.1.16](https://github.com/PurpleBooth/readable-name-generator/compare/0fac523fefd3dcb0d5036d1e00d3724f470aa058..v4.1.16) - 2024-11-01
 #### Bug Fixes
 - Release bake assets rather than rebuilding - ([d8a80a3](https://github.com/PurpleBooth/readable-name-generator/commit/d8a80a3363614341874c5ea2028d7f3d7b9b9239)) - Billie Thompson
