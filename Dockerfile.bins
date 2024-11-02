@@ -31,6 +31,7 @@ RUN --mount=type=secret,id=GPG_PASSPHRASE,env=NFPM_PASSPHRASE,required=false \
     --mount=type=secret,id=GPG_PRIVATE_KEY,target=/signing-key.asc,required=false \
     mkdir /PACKS && \
     ( \
+        test -s /signing-key.asc && \
         test -f /signing-key.asc && \
         GOARCH="$(xx-info arch)" NFPM_SIGNING_KEY_FILE=/signing-key.asc nfpm pkg --packager ipk --config="nfpm.yaml" --target="/PACKS" && \
         GOARCH="$(xx-info arch)" NFPM_SIGNING_KEY_FILE=/signing-key.asc nfpm pkg --packager archlinux --config="nfpm.yaml" --target="/PACKS" && \
