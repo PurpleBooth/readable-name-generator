@@ -2,6 +2,15 @@
 All notable changes to this project will be documented in this file. See [conventional commits](https://www.conventionalcommits.org/) for commit guidelines.
 
 - - -
+## [v4.1.19](https://github.com/PurpleBooth/readable-name-generator/compare/fa32c8f39936d933817546477c8e47c8d9d0a222..v4.1.19) - 2024-11-02
+#### Bug Fixes
+- Add gpg secret to packaging step - ([e1ee374](https://github.com/PurpleBooth/readable-name-generator/commit/e1ee3741c0e9c892e94510b0bade1a3aab706994)) - Billie Thompson
+- Sign rpms etc - ([fa32c8f](https://github.com/PurpleBooth/readable-name-generator/commit/fa32c8f39936d933817546477c8e47c8d9d0a222)) - Billie Thompson
+#### Build system
+- Check file is empty as we can't have optional secrets - ([1c681c7](https://github.com/PurpleBooth/readable-name-generator/commit/1c681c707b98ca6d5484feacc953b1f1f7c9eab9)) - Billie Thompson
+
+- - -
+
 ## [v4.1.18](https://github.com/PurpleBooth/readable-name-generator/compare/53ad97b927a62abc2ce64bf860a5075cbac4b5d2..v4.1.18) - 2024-11-01
 #### Bug Fixes
 - release with binaries - ([53ad97b](https://github.com/PurpleBooth/readable-name-generator/commit/53ad97b927a62abc2ce64bf860a5075cbac4b5d2)) - Billie Thompson
