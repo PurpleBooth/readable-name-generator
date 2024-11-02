@@ -66,12 +66,18 @@ jobs:
     uses: PurpleBooth/common-pipelines/.github/workflows/bake-push.yaml@main
     with:
       current_version: ${{ needs.release.outputs.current_version }}
+    secrets:
+      gpg_private_key: ${{ secrets.GPG_PRIVATE_KEY }}
+      gpg_passphrase: ${{ secrets.GPG_PASSPHRASE }}
 
   docker-push-edge:
     if: needs.release.outputs.current_version == needs.release.outputs.previous_version
     needs:
       - release
     uses: PurpleBooth/common-pipelines/.github/workflows/bake-push.yaml@main
+    secrets:
+      gpg_private_key: ${{ secrets.GPG_PRIVATE_KEY }}
+      gpg_passphrase: ${{ secrets.GPG_PASSPHRASE }}
 
 
   release-binary:
