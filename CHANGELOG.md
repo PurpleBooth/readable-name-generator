@@ -2,6 +2,18 @@
 All notable changes to this project will be documented in this file. See [conventional commits](https://www.conventionalcommits.org/) for commit guidelines.
 
 - - -
+## [v4.1.20](https://github.com/PurpleBooth/readable-name-generator/compare/7de6c6ca4446c9341400bbb84783b707ba5e4dab..v4.1.20) - 2024-12-04
+#### Bug Fixes
+- **(deps)** update rust crate clap_complete to v4.5.38 (#318) - ([c6bce43](https://github.com/PurpleBooth/readable-name-generator/commit/c6bce43b755278451ee5b853e4a5a7cf87f10c37)) - renovate[bot]
+- **(deps)** update rust crate clap to v4.5.22 (#317) - ([1ec594f](https://github.com/PurpleBooth/readable-name-generator/commit/1ec594f88fd99f2e424cc573f2931bee7b23dfff)) - renovate[bot]
+#### Miscellaneous Chores
+- **(deps)** update rust:alpine docker digest to 838d384 - ([7798a39](https://github.com/PurpleBooth/readable-name-generator/commit/7798a39af9c5c4d79155172ae6a2c451e7450f52)) - renovate[bot]
+- **(deps)** update goreleaser/nfpm docker digest to ae35b40 - ([36fcc15](https://github.com/PurpleBooth/readable-name-generator/commit/36fcc157495afa58360d36089baf345f506f1c0a)) - renovate[bot]
+- **(deps)** update rust:alpine docker digest to 2f42ce0 - ([fbc35a1](https://github.com/PurpleBooth/readable-name-generator/commit/fbc35a1f6511ccb9b1b512ae4b5d48661b72a7cf)) - renovate[bot]
+- **(deps)** update rust:alpine docker digest to 00c2107 - ([7de6c6c](https://github.com/PurpleBooth/readable-name-generator/commit/7de6c6ca4446c9341400bbb84783b707ba5e4dab)) - renovate[bot]
+
+- - -
+
 ## [v4.1.19](https://github.com/PurpleBooth/readable-name-generator/compare/fa32c8f39936d933817546477c8e47c8d9d0a222..v4.1.19) - 2024-11-02
 #### Bug Fixes
 - Add gpg secret to packaging step - ([e1ee374](https://github.com/PurpleBooth/readable-name-generator/commit/e1ee3741c0e9c892e94510b0bade1a3aab706994)) - Billie Thompson
