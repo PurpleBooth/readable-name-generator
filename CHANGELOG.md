@@ -2,6 +2,12 @@
 All notable changes to this project will be documented in this file. See [conventional commits](https://www.conventionalcommits.org/) for commit guidelines.
 
 - - -
+## [v4.1.23](https://github.com/PurpleBooth/readable-name-generator/compare/f6826298fdb7049f13e7bfc3731da15562e9ba7c..v4.1.23) - 2024-12-06
+#### Bug Fixes
+- **(deps)** update rust crate clap to v4.5.23 (#321) - ([f682629](https://github.com/PurpleBooth/readable-name-generator/commit/f6826298fdb7049f13e7bfc3731da15562e9ba7c)) - renovate[bot]
+
+- - -
+
 ## [v4.1.22](https://github.com/PurpleBooth/readable-name-generator/compare/6d7f1554e599ad3db2fe61f256753e7112c12380..v4.1.22) - 2024-12-04
 #### Bug Fixes
 - **(deps)** update rust crate miette to v7.4.0 (#320) - ([6d7f155](https://github.com/PurpleBooth/readable-name-generator/commit/6d7f1554e599ad3db2fe61f256753e7112c12380)) - renovate[bot]
