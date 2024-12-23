@@ -2,6 +2,15 @@
 All notable changes to this project will be documented in this file. See [conventional commits](https://www.conventionalcommits.org/) for commit guidelines.
 
 - - -
+## [v4.1.24](https://github.com/PurpleBooth/readable-name-generator/compare/9df62109f8c2880d8e1d3788e3c2a76708d1c63e..v4.1.24) - 2024-12-23
+#### Bug Fixes
+- **(deps)** update rust crate clap_complete to v4.5.40 (#324) - ([7e51740](https://github.com/PurpleBooth/readable-name-generator/commit/7e517400899395080460693cdf300ddb3b2ae64d)) - renovate[bot]
+#### Miscellaneous Chores
+- **(deps)** update tonistiigi/xx docker digest to 923441d (#323) - ([37a2401](https://github.com/PurpleBooth/readable-name-generator/commit/37a24013d48bab22ee9272cc8412c9afa1d9b1a2)) - renovate[bot]
+- **(deps)** update rust:alpine docker digest to 9ab8f4e (#322) - ([9df6210](https://github.com/PurpleBooth/readable-name-generator/commit/9df62109f8c2880d8e1d3788e3c2a76708d1c63e)) - renovate[bot]
+
+- - -
+
 ## [v4.1.23](https://github.com/PurpleBooth/readable-name-generator/compare/f6826298fdb7049f13e7bfc3731da15562e9ba7c..v4.1.23) - 2024-12-06
 #### Bug Fixes
 - **(deps)** update rust crate clap to v4.5.23 (#321) - ([f682629](https://github.com/PurpleBooth/readable-name-generator/commit/f6826298fdb7049f13e7bfc3731da15562e9ba7c)) - renovate[bot]
