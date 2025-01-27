@@ -2,6 +2,14 @@
 All notable changes to this project will be documented in this file. See [conventional commits](https://www.conventionalcommits.org/) for commit guidelines.
 
 - - -
+## [v4.1.26](https://github.com/PurpleBooth/readable-name-generator/compare/770c6930362b128ca7b3caf5ae3f5ccb20f467b3..v4.1.26) - 2025-01-27
+#### Bug Fixes
+- **(deps)** update rust crate clap to v4.5.27 (#329) - ([d52c6c8](https://github.com/PurpleBooth/readable-name-generator/commit/d52c6c8b9733410e9821639b72376167c7dacb6d)) - renovate[bot]
+#### Miscellaneous Chores
+- **(deps)** update rust:alpine docker digest to 0cfc78e (#325) - ([770c693](https://github.com/PurpleBooth/readable-name-generator/commit/770c6930362b128ca7b3caf5ae3f5ccb20f467b3)) - renovate[bot]
+
+- - -
+
 ## [v4.1.25](https://github.com/PurpleBooth/readable-name-generator/compare/50b5d9afbebe44aa2cadb193e70e07727dc1b8a8..v4.1.25) - 2025-01-11
 #### Bug Fixes
 - bump versions - ([50b5d9a](https://github.com/PurpleBooth/readable-name-generator/commit/50b5d9afbebe44aa2cadb193e70e07727dc1b8a8)) - Billie Thompson
