@@ -377,7 +377,7 @@ jobs:
 
   release:
     if: github.ref == 'refs/heads/main'
-    name: Release Workflow
+    name: Release
     needs:
       - all-tests-passed
     outputs:
@@ -629,6 +629,7 @@ jobs:
     runs-on: docker
 
   cargo-publish:
+    name: Publish crate to crates.io
     runs-on: ubuntu-latest
     needs:
       - release
