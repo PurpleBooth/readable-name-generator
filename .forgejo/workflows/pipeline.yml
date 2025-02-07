@@ -631,7 +631,7 @@ jobs:
   cargo-publish:
     if: needs.release.outputs.current_version != needs.release.outputs.previous_version
     name: Publish crate to crates.io
-    runs-on: ubuntu-latest
+    runs-on: docker
     needs:
       - release
     steps:
