@@ -2,15 +2,15 @@ target "bins" {
   name = "bins-${join("-", split("/", item.TARGETPLAFORM))}"
   dockerfile = "Dockerfile.bins"
 
-  secret = [
-    "type=env,id=GPG_PRIVATE_KEY",
-    "type=env,id=GPG_PASSPHRASE",
-  ]
-
   args = {
     TARGETPLAFORM = "${item.TARGETPLAFORM}"
   }
   output = ["type=local,dest=target/bins/${item.TARGETPLAFORM}"]
+
+  secret = [
+    "type=env,id=GPG_PRIVATE_KEY",
+    "type=env,id=GPG_PASSPHRASE",
+  ]
 
   matrix = {
     item = [

@@ -1,10 +1,10 @@
 ARG BUILDKIT_SBOM_SCAN_CONTEXT=true
-FROM goreleaser/nfpm@sha256:ae35b40d48105782d4c29fc392ec5bb81439cc13a40bbd4eeea111e4842f3ca9 AS nfpm
+FROM goreleaser/nfpm AS nfpm
 
-FROM --platform=$BUILDPLATFORM tonistiigi/xx@sha256:923441d7c25f1e2eb5789f82d987693c47b8ed987c4ab3b075d6ed2b5d6779a3 AS xx
+FROM --platform=$BUILDPLATFORM tonistiigi/xx AS xx
 ARG TARGETPLATFORM
 
-FROM --platform=$BUILDPLATFORM rust:alpine@sha256:0cfc78e96e5314e8279cec9faf3067744764ff58cc6a87a3f9c89217f8c4aa16 AS builder
+FROM --platform=$BUILDPLATFORM rust:alpine AS builder
 ARG BUILDKIT_SBOM_SCAN_STAGE=true
 RUN apk add clang lld openssl-dev curl bash
 # copy xx scripts to your build stage
@@ -19,7 +19,8 @@ RUN xx-apk add --no-cache musl-dev zlib-dev zlib-static openssl-dev openssl-libs
 WORKDIR /app
 RUN cargo new --lib readable-name-generator
 WORKDIR /app/readable-name-generator
-COPY Cargo.* ./
+COPY Cargo.toml ./Cargo.toml
+COPY Cargo.lock ./Cargo.lock
 RUN xx-cargo build --release --target-dir ./build
 COPY . ./
 RUN xx-cargo build --release --target-dir ./build && \
@@ -27,25 +28,11 @@ RUN xx-cargo build --release --target-dir ./build && \
     cp -v  "./build/$(xx-cargo --print-target-triple)/release/readable-name-generator" "./readable-name-generator"
 
 COPY nfpm.yaml nfpm.yaml
-RUN --mount=type=secret,id=GPG_PASSPHRASE,env=NFPM_PASSPHRASE,required=false \
-    --mount=type=secret,id=GPG_PRIVATE_KEY,target=/signing-key.asc,required=false \
-    mkdir /PACKS && \
-    ( \
-        test -s /signing-key.asc && \
-        test -f /signing-key.asc && \
-        GOARCH="$(xx-info arch)" NFPM_SIGNING_KEY_FILE=/signing-key.asc nfpm pkg --packager ipk --config="nfpm.yaml" --target="/PACKS" && \
-        GOARCH="$(xx-info arch)" NFPM_SIGNING_KEY_FILE=/signing-key.asc nfpm pkg --packager archlinux --config="nfpm.yaml" --target="/PACKS" && \
-        GOARCH="$(xx-info arch)" NFPM_SIGNING_KEY_FILE=/signing-key.asc nfpm pkg --packager rpm --config="nfpm.yaml" --target="/PACKS" && \
-        GOARCH="$(xx-info arch)" NFPM_SIGNING_KEY_FILE=/signing-key.asc nfpm pkg --packager apk --config="nfpm.yaml" --target="/PACKS" && \
-        GOARCH="$(xx-info arch)" NFPM_SIGNING_KEY_FILE=/signing-key.asc nfpm pkg --packager deb --config="nfpm.yaml" --target="/PACKS" \
-    ) || \
-    ( \
-        GOARCH="$(xx-info arch)" nfpm pkg --packager ipk --config="nfpm.yaml" --target="/PACKS" && \
-        GOARCH="$(xx-info arch)" nfpm pkg --packager archlinux --config="nfpm.yaml" --target="/PACKS" && \
-        GOARCH="$(xx-info arch)" nfpm pkg --packager rpm --config="nfpm.yaml" --target="/PACKS" && \
-        GOARCH="$(xx-info arch)" nfpm pkg --packager apk --config="nfpm.yaml" --target="/PACKS" && \
-        GOARCH="$(xx-info arch)" nfpm pkg --packager deb --config="nfpm.yaml" --target="/PACKS" \
-    )
+RUN mkdir /PACKS && \
+    GOARCH="$(xx-info arch)" GOOS="$(xx-info os)" nfpm pkg --packager archlinux --config="nfpm.yaml" --target="/PACKS" && \
+    GOARCH="$(xx-info arch)" GOOS="$(xx-info os)" nfpm pkg --packager rpm --config="nfpm.yaml" --target="/PACKS" && \
+    GOARCH="$(xx-info arch)" GOOS="$(xx-info os)" nfpm pkg --packager apk --config="nfpm.yaml" --target="/PACKS" && \
+    GOARCH="$(xx-info arch)" GOOS="$(xx-info os)" nfpm pkg --packager deb --config="nfpm.yaml" --target="/PACKS"
 FROM scratch
 USER nonroot
 COPY --from=builder /PACKS .

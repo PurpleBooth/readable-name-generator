@@ -4,7 +4,7 @@ description = "Generate a readable name for throwaway infrastructure"
 version = "4.1.26"
 edition = "2021"
 license = "CC0-1.0"
-repository = "https://github.com/PurpleBooth/anarchist-readable-name-generator-lib.git"
+repository = "https://codeberg.org/PurpleBooth/readable-name-generator.git"
 keywords = ["names", "utility"]
 categories = ["development-tools::testing","command-line-utilities"]
 
