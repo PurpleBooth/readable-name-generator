@@ -78,16 +78,22 @@ Download the [latest
 release](https://codeberg.org/PurpleBooth/readable-name-generator/releases)
 and run it. I install it with homebrew. Or you could use docker.
 
-### Homebrew
-
-``` shell,skip()
-brew install PurpleBooth/repo/readable-name-generator
-```
-
 ### Binaries
 
 Binaries for Windows, Linux and MacOS are available on the [releases
 page](https://codeberg.org/PurpleBooth/readable-name-generator/releases/latest)
+
+### Packages
+
+Packages are available for various platforms, including Debian, Arch Linux, RPM-based distributions, Alpine, and Docker.
+
+You can access them on the [packages page](https://codeberg.org/PurpleBooth/readable-name-generator/packages).
+
+Additionally, a Homebrew repository is provided:
+
+``` shell,skip()
+brew install PurpleBooth/repo/readable-name-generator
+```
 
 ## Development
 
