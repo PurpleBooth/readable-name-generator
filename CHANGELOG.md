@@ -2,6 +2,25 @@
 All notable changes to this project will be documented in this file. See [conventional commits](https://www.conventionalcommits.org/) for commit guidelines.
 
 - - -
+## [v4.1.27](https://codeberg.org/PurpleBooth/readable-name-generator/compare/c99ca36d997186552e1e6ff803b839f5da27bc9e..v4.1.27) - 2025-02-09
+#### Bug Fixes
+- test release - ([d6d0938](https://codeberg.org/PurpleBooth/readable-name-generator/commit/d6d09382064ba936044aa20f69aacc093acd98de)) - Billie Thompson
+#### Continuous Integration
+- correct runs on - ([3ea3487](https://codeberg.org/PurpleBooth/readable-name-generator/commit/3ea3487aa0da7d8218f31f728895d010ddb52274)) - Billie Thompson
+- Adjust cargo-publish workflow to use version - ([9d76b7f](https://codeberg.org/PurpleBooth/readable-name-generator/commit/9d76b7fe07b844e98fd46ce454200ae57dc7afb7)) - Billie Thompson
+- add some different names for the jobs - ([1ecdc9b](https://codeberg.org/PurpleBooth/readable-name-generator/commit/1ecdc9b84afbee0fcdf93edc6e24233102cf46b7)) - Billie Thompson
+- remove redundant Socat installation steps - ([f651159](https://codeberg.org/PurpleBooth/readable-name-generator/commit/f6511593ae1089901841b7951b3875a6b98ce2bd)) - Billie Thompson
+- add cargo publish - ([3aed52b](https://codeberg.org/PurpleBooth/readable-name-generator/commit/3aed52b1f09a3a42dded1ea902bbaebea030002e)) - Billie Thompson
+#### Documentation
+- Update README with package availability - ([b43d657](https://codeberg.org/PurpleBooth/readable-name-generator/commit/b43d657424ba119695036b324d2c5fd9330561fa)) - Billie Thompson
+#### Miscellaneous Chores
+- **(deps)** update https://code.forgejo.org/docker/setup-buildx-action digest to f7ce87c - ([a20ea80](https://codeberg.org/PurpleBooth/readable-name-generator/commit/a20ea80f53e9b25af3cc8058fec21565f4cac4a4)) - Solace System Renovate Fox
+- **(deps)** pin dependencies - ([c25db1d](https://codeberg.org/PurpleBooth/readable-name-generator/commit/c25db1deafa7c130e2876566c347253861f30d95)) - Solace System Renovate Fox
+- unused file - ([36d54f4](https://codeberg.org/PurpleBooth/readable-name-generator/commit/36d54f4fd978a0eefb98896db1caf717404fa6f6)) - PurpleBooth
+- move to codeberg - ([c99ca36](https://codeberg.org/PurpleBooth/readable-name-generator/commit/c99ca36d997186552e1e6ff803b839f5da27bc9e)) - Billie Thompson
+
+- - -
+
 ## [v4.1.26](https://codeberg.org/PurpleBooth/readable-name-generator/compare/770c6930362b128ca7b3caf5ae3f5ccb20f467b3..v4.1.26) - 2025-01-27
 #### Bug Fixes
 - **(deps)** update rust crate clap to v4.5.27 (#329) - ([d52c6c8](https://codeberg.org/PurpleBooth/readable-name-generator/commit/d52c6c8b9733410e9821639b72376167c7dacb6d)) - renovate[bot]
