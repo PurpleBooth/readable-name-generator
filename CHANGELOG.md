@@ -2,6 +2,18 @@
 All notable changes to this project will be documented in this file. See [conventional commits](https://www.conventionalcommits.org/) for commit guidelines.
 
 - - -
+## [v4.1.28](https://codeberg.org/PurpleBooth/readable-name-generator/compare/e388d50c22b7044f3c77a1eb5be4735e15811231..v4.1.28) - 2025-02-09
+#### Bug Fixes
+- Remove unused configs and update dependencies - ([6f5c96a](https://codeberg.org/PurpleBooth/readable-name-generator/commit/6f5c96a6933cc65d1b0076b1600d79388ed448d0)) - Billie Thompson
+#### Continuous Integration
+- install rust before trying to release - ([e388d50](https://codeberg.org/PurpleBooth/readable-name-generator/commit/e388d50c22b7044f3c77a1eb5be4735e15811231)) - Billie Thompson
+#### Documentation
+- Update placeholder name examples in README.md - ([4e1fd39](https://codeberg.org/PurpleBooth/readable-name-generator/commit/4e1fd39eaf117727444024575d6950e20b861475)) - Billie Thompson
+#### Miscellaneous Chores
+- unused file - ([d353abd](https://codeberg.org/PurpleBooth/readable-name-generator/commit/d353abdde3acd3f1ad87a62f28cb4f6ef145c45b)) - PurpleBooth
+
+- - -
+
 ## [v4.1.27](https://codeberg.org/PurpleBooth/readable-name-generator/compare/c99ca36d997186552e1e6ff803b839f5da27bc9e..v4.1.27) - 2025-02-09
 #### Bug Fixes
 - test release - ([d6d0938](https://codeberg.org/PurpleBooth/readable-name-generator/commit/d6d09382064ba936044aa20f69aacc093acd98de)) - Billie Thompson
