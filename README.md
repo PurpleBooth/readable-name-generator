@@ -21,7 +21,7 @@ readable-name-generator --initial-seed 1
 ```
 
 ``` shell,verify(script_name="running")
-gregarious_pauli
+flexible_briseglace
 ```
 
 ### Changing the separator
@@ -31,7 +31,7 @@ readable-name-generator --initial-seed 1 --separator "###"
 ```
 
 ``` shell,verify(script_name="seperator")
-gregarious###pauli
+flexible###briseglace
 ```
 
 ### Full usage
@@ -69,7 +69,7 @@ docker run --rm -it ghcr.io/purplebooth/readable-name-generator:latest -i 1
 ```
 
 ``` shell,skip()
-gregarious_pauli
+flexible_briseglace
 ```
 
 ## Installing
@@ -129,7 +129,7 @@ docker run --rm -it ghcr.io/purplebooth/readable-name-generator:latest -i 1
 ```
 
 ``` shell,skip()
-gregarious_pauli
+flexible_briseglace
 ```
 
 ## License
