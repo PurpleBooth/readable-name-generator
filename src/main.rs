@@ -14,7 +14,6 @@ use clap::Parser;
 
 use clap::CommandFactory;
 use rand::prelude::*;
-use rand_pcg::Pcg64;
 use std::io::stdout;
 
 use clap_complete::generate;
@@ -42,14 +41,14 @@ fn main() {
 
     args.initial_seed.map_or_else(
         || {
-            let rng = thread_rng();
+            let rng = rand::rng();
             println!(
                 "{}",
                 anarchist_readable_name_generator_lib::readable_name_custom(&seperator, rng)
             );
         },
         |seed| {
-            let rng = Pcg64::seed_from_u64(seed);
+            let rng = SmallRng::seed_from_u64(seed);
             println!(
                 "{}",
                 anarchist_readable_name_generator_lib::readable_name_custom(&seperator, rng)

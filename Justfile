@@ -30,7 +30,6 @@ fmt:
 	cargo +nightly fix --allow-dirty --allow-staged
 	cargo +nightly clippy --allow-dirty --allow-staged --fix -Z unstable-options --all-features -- -D warnings -D clippy::all -D clippy::pedantic -D clippy::cargo -D clippy::nursery -A clippy::multiple-crate-versions
 	cargo +nightly fmt --all
-	yamlfmt -w .github/*.yml .github/workflows/*.yml .*.yml
 
 # Clean the build directory
 clean:
