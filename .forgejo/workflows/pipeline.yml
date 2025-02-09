@@ -639,6 +639,10 @@ jobs:
         name: Checkout the repository
         with:
           ref: v${{ needs.release.outputs.current_version }}
+      - uses: https://codeberg.org/PurpleBooth/common-pipelines/actions/install-rust@main
+        name: Install Rust
+        with:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
       - name: Generate release
         run: |
           if [ -n "$CARGO_TOKEN" ] ; then
