@@ -124,8 +124,8 @@ just fmt
 We have a docker container
 
 ``` shell,skip()
-docker build -t "ghcr.io/purplebooth/readable-name-generator:latest"
-docker run --rm -it ghcr.io/purplebooth/readable-name-generator:latest -i 1
+docker build -t "codeberg.org/purplebooth/readable-name-generator:latest"
+docker run --rm -it codeberg.org/purplebooth/readable-name-generator:latest -i 1
 ```
 
 ``` shell,skip()
