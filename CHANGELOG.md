@@ -2,6 +2,14 @@
 All notable changes to this project will be documented in this file. See [conventional commits](https://www.conventionalcommits.org/) for commit guidelines.
 
 - - -
+## [v4.1.29](https://codeberg.org/PurpleBooth/readable-name-generator/compare/e2b03da75c2b68312d3ff1efb06d49534d25ba2e..v4.1.29) - 2025-02-10
+#### Bug Fixes
+- **(deps)** update rust crate anarchist-readable-name-generator-lib to v0.1.4 - ([c62d1cf](https://codeberg.org/PurpleBooth/readable-name-generator/commit/c62d1cf3319ee8b93dfee3ff26ee183b9ea5eeed)) - Solace System Renovate Fox
+#### Documentation
+- Update the docker tag - ([e2b03da](https://codeberg.org/PurpleBooth/readable-name-generator/commit/e2b03da75c2b68312d3ff1efb06d49534d25ba2e)) - PurpleBooth
+
+- - -
+
 ## [v4.1.28](https://codeberg.org/PurpleBooth/readable-name-generator/compare/e388d50c22b7044f3c77a1eb5be4735e15811231..v4.1.28) - 2025-02-09
 #### Bug Fixes
 - Remove unused configs and update dependencies - ([6f5c96a](https://codeberg.org/PurpleBooth/readable-name-generator/commit/6f5c96a6933cc65d1b0076b1600d79388ed448d0)) - Billie Thompson
