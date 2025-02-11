@@ -2,6 +2,17 @@
 All notable changes to this project will be documented in this file. See [conventional commits](https://www.conventionalcommits.org/) for commit guidelines.
 
 - - -
+## [v4.1.30](https://codeberg.org/PurpleBooth/readable-name-generator/compare/12093ebecf7c85614c7ac3b119612173b99a1c0b..v4.1.30) - 2025-02-11
+#### Bug Fixes
+- **(deps)** update rust crate clap to v4.5.29 - ([ebe98fd](https://codeberg.org/PurpleBooth/readable-name-generator/commit/ebe98fdc67065b63d347646c7c782eefcfce213b)) - Solace System Renovate Fox
+#### Build system
+- Update test seed output in formula.rb.j2 - ([12093eb](https://codeberg.org/PurpleBooth/readable-name-generator/commit/12093ebecf7c85614c7ac3b119612173b99a1c0b)) - Billie Thompson
+#### Continuous Integration
+- make pr not match tag - ([c6d0aa2](https://codeberg.org/PurpleBooth/readable-name-generator/commit/c6d0aa2b7ee5597d95c275b2e44dde9d34ee1ea1)) - Billie Thompson
+- make pr not match tag - ([feb8804](https://codeberg.org/PurpleBooth/readable-name-generator/commit/feb880469e33f89c467619651f87cdefe05c8285)) - Billie Thompson
+
+- - -
+
 ## [v4.1.29](https://codeberg.org/PurpleBooth/readable-name-generator/compare/e2b03da75c2b68312d3ff1efb06d49534d25ba2e..v4.1.29) - 2025-02-10
 #### Bug Fixes
 - **(deps)** update rust crate anarchist-readable-name-generator-lib to v0.1.4 - ([c62d1cf](https://codeberg.org/PurpleBooth/readable-name-generator/commit/c62d1cf3319ee8b93dfee3ff26ee183b9ea5eeed)) - Solace System Renovate Fox
