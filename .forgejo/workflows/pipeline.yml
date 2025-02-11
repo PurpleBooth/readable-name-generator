@@ -14,7 +14,7 @@ jobs:
       next_version: ${{ steps.next_version.outputs.next_version }}
     runs-on: docker
     steps:
-    - uses: 
+      - uses:
         https://code.forgejo.org/actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683       # v4
       name: Checkout
       with:
@@ -57,7 +57,7 @@ jobs:
     needs:
     - semver
     steps:
-    - uses: 
+      - uses:
         https://code.forgejo.org/actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683       # v4
       name: Checkout Repository
     - uses: https://codeberg.org/PurpleBooth/common-pipelines/actions/install-rust@main
@@ -80,7 +80,7 @@ jobs:
       run: just build
     - name: Package Built Assets
       run: tar -cvf build-artifacts.tar target
-    - uses: 
+      - uses:
         https://code.forgejo.org/forgejo/upload-artifact@16871d9e8cfcf27ff31822cac382bbb5450f1e1e       # v4
       name: Upload Build Artifacts
       with:
@@ -96,7 +96,7 @@ jobs:
     - semver
     steps:
     - name: Checkout code
-      uses: 
+      uses:
         https://code.forgejo.org/actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683       # v4
 
     - name: Install Rust
@@ -108,7 +108,7 @@ jobs:
       uses: https://codeberg.org/PurpleBooth/common-pipelines/actions/install-just@main
 
     - name: Download built assets archive
-      uses: 
+      uses:
         https://code.forgejo.org/forgejo/download-artifact@d8d0a99033603453ad2255e58720b460a0555e1e       # v4
       with:
         name: build-artifacts
@@ -133,7 +133,7 @@ jobs:
     if: always() && contains(needs.lint.result, 'failure') && github.ref == 'refs/heads/main'
     steps:
     - name: Checkout Repository
-      uses: 
+      uses:
         https://code.forgejo.org/actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683       # v4
       with:
         token: ${{ secrets.FJ_TOKEN }}
@@ -146,7 +146,7 @@ jobs:
     - name: Install Just
       uses: https://codeberg.org/PurpleBooth/common-pipelines/actions/install-just@main
     - name: Download Built Assets
-      uses: 
+      uses:
         https://code.forgejo.org/forgejo/download-artifact@d8d0a99033603453ad2255e58720b460a0555e1e       # v4
       with:
         name: build-artifacts
@@ -163,7 +163,7 @@ jobs:
     - name: Run Integration Tests
       run: just specdown
     - name: Configure Git User
-      uses: 
+      uses:
         https://codeberg.org/PurpleBooth/common-pipelines/actions/configure-git-user@main
     - name: Commit Formatting Changes
       run: |
@@ -179,7 +179,7 @@ jobs:
     runs-on: docker
     steps:
     - name: Checkout Repository
-      uses: 
+      uses:
         https://code.forgejo.org/actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683       # v4
 
     - name: Install Rust
@@ -191,7 +191,7 @@ jobs:
       uses: https://codeberg.org/PurpleBooth/common-pipelines/actions/install-just@main
 
     - name: Download Built Artifacts Archive
-      uses: 
+      uses:
         https://code.forgejo.org/forgejo/download-artifact@d8d0a99033603453ad2255e58720b460a0555e1e       # v4
       with:
         name: build-artifacts
@@ -215,7 +215,7 @@ jobs:
     - semver
     runs-on: docker
     steps:
-    - uses: 
+      - uses:
         https://code.forgejo.org/actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683       # v4
       name: Checkout Code
 
@@ -230,7 +230,7 @@ jobs:
     - uses: https://codeberg.org/PurpleBooth/common-pipelines/actions/install-just@main
       name: Install Just
 
-    - uses: 
+      - uses:
         https://code.forgejo.org/forgejo/download-artifact@d8d0a99033603453ad2255e58720b460a0555e1e       # v4
       name: Download Built Artifacts
       with:
@@ -255,11 +255,11 @@ jobs:
     name: Test Release Build
     steps:
     - name: Checkout Repository
-      uses: 
+      uses:
         https://code.forgejo.org/actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683       # v4
 
     - name: Set Up Docker Buildx
-      uses: 
+      uses:
         https://code.forgejo.org/docker/setup-buildx-action@f7ce87c1d6bead3e36075b2ce75da1f6cc28aaca       # v3
 
     - name: Install Rust
@@ -281,7 +281,7 @@ jobs:
 
     - name: Extract Docker Metadata
       id: extract-docker-metadata
-      uses: 
+      uses:
         https://code.forgejo.org/docker/metadata-action@369eb591f429131d6889c46b94e711f089e6ca96       # v5
       with:
         bake-target: docker
@@ -295,7 +295,7 @@ jobs:
           type=sha
 
     - name: Build (Bake)
-      uses: 
+      uses:
         https://code.forgejo.org/docker/bake-action@7bff531c65a5cda33e52e43950a795b91d450f63       # v6
       env:
         GPG_PRIVATE_KEY: ''
@@ -328,7 +328,7 @@ jobs:
     needs:
     - semver
     steps:
-    - uses: 
+      - uses:
         https://code.forgejo.org/actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683       # v4
       name: Checkout Repository
 
@@ -415,7 +415,7 @@ jobs:
     - name: Install Cocogitto
       uses: https://codeberg.org/PurpleBooth/common-pipelines/actions/install-cocogitto@main
     - name: Configure Git User
-      uses: 
+      uses:
         https://codeberg.org/PurpleBooth/common-pipelines/actions/configure-git-user@main
     - name: Release with Cocogitto
       id: release
@@ -429,15 +429,15 @@ jobs:
     - release
     steps:
     - name: Checkout Repository
-      uses: 
+      uses:
         https://code.forgejo.org/actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683       # v4
 
     - name: Set Up Docker Buildx
-      uses: 
+      uses:
         https://code.forgejo.org/docker/setup-buildx-action@f7ce87c1d6bead3e36075b2ce75da1f6cc28aaca       # v3
 
     - name: Log in to GitHub Container Registry
-      uses: 
+      uses:
         https://code.forgejo.org/docker/login-action@9780b0c442fbb1117ed29e0efdff1e18412f7567       # v3
       with:
         registry: codeberg.org
@@ -451,7 +451,7 @@ jobs:
 
     - name: Extract Metadata for Docker (Tags, Labels)
       id: extract-docker-metadata
-      uses: 
+      uses:
         https://code.forgejo.org/docker/metadata-action@369eb591f429131d6889c46b94e711f089e6ca96       # v5
       with:
         bake-target: docker
@@ -465,7 +465,7 @@ jobs:
           type=sha
 
     - name: Bake Docker Images
-      uses: 
+      uses:
         https://code.forgejo.org/docker/bake-action@7bff531c65a5cda33e52e43950a795b91d450f63       # v6
       env:
         GPG_PRIVATE_KEY: ${{ secrets.GPG_PRIVATE_KEY }}
@@ -493,7 +493,7 @@ jobs:
         find target/bins/ -type d -empty -delete
 
     - name: Upload Binaries
-      uses: 
+      uses:
         https://code.forgejo.org/forgejo/upload-artifact@16871d9e8cfcf27ff31822cac382bbb5450f1e1e       # v4
       with:
         name: built-binaries
@@ -507,7 +507,7 @@ jobs:
     runs-on: docker
     steps:
     - name: Checkout Code
-      uses: 
+      uses:
         https://code.forgejo.org/actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683       # v4
       with:
         token: ${{ secrets.FJ_TOKEN }}
@@ -518,11 +518,11 @@ jobs:
       uses: https://codeberg.org/PurpleBooth/common-pipelines/actions/install-cocogitto@main
 
     - name: Set Up Docker Buildx
-      uses: 
+      uses:
         https://code.forgejo.org/docker/setup-buildx-action@f7ce87c1d6bead3e36075b2ce75da1f6cc28aaca       # v3
 
     - name: Login to Container Registry
-      uses: 
+      uses:
         https://code.forgejo.org/docker/login-action@9780b0c442fbb1117ed29e0efdff1e18412f7567       # v3
       with:
         registry: codeberg.org
@@ -538,7 +538,7 @@ jobs:
 
     - name: Extract Docker Metadata
       id: meta-with-version
-      uses: 
+      uses:
         https://code.forgejo.org/docker/metadata-action@369eb591f429131d6889c46b94e711f089e6ca96       # v5
       with:
         bake-target: docker
@@ -555,7 +555,7 @@ jobs:
           type=sha
 
     - name: Docker Bake
-      uses: 
+      uses:
         https://code.forgejo.org/docker/bake-action@7bff531c65a5cda33e52e43950a795b91d450f63       # v6
       env:
         GPG_PRIVATE_KEY: ${{ secrets.GPG_PRIVATE_KEY }}
@@ -598,13 +598,13 @@ jobs:
     needs:
     - release
     steps:
-    - uses: 
+      - uses:
         https://code.forgejo.org/actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683       # v4
       name: Checkout
       with:
         ref: v${{ needs.release.outputs.current_version }}
         fetch-depth: 0
-    - uses: 
+      - uses:
         https://codeberg.org/PurpleBooth/common-pipelines/actions/configure-git-user@main
       name: Configure git user
     - name: Generate formula
@@ -624,7 +624,7 @@ jobs:
         sha256sum --binary "$TEMP_DIR/v$VERSION.tar.gz" | cut -d' ' -f1
         )" envsubst < homebrew/formula.rb.j2 > "$(echo "$GITHUB_REPOSITORY" | cut -d "/" -f2 ).rb"
         echo "path=$(echo "$GITHUB_REPOSITORY" | cut -d "/" -f2 ).rb" >> "$GITHUB_OUTPUT"
-    - uses: 
+      - uses:
         https://code.forgejo.org/forgejo/upload-artifact@16871d9e8cfcf27ff31822cac382bbb5450f1e1e       # v4
       name: Upload built files
       with:
@@ -650,9 +650,9 @@ jobs:
 
         cp -v "$FORMULA_PATH" "$TEMP_DIR/Formula/"
         cd "$TEMP_DIR" || exit 1
-        git switch --create "$(echo "$GITHUB_REPOSITORY" | cut -d "/" -f2 )-$VERSION"
+        git switch --create "update-$(echo "$GITHUB_REPOSITORY" | cut -d "/" -f2 )-$VERSION"
         git commit --all --message="fix: upgrade $(echo "$GITHUB_REPOSITORY" | cut -d "/" -f2 ) to $VERSION"
-        git push -f origin "$(echo "$GITHUB_REPOSITORY" | cut -d "/" -f2 )-$VERSION"
+        git push -f origin "update-$(echo "$GITHUB_REPOSITORY" | cut -d "/" -f2 )-$VERSION"
         gh pr create --fill --title "fix: upgrade $(echo "$GITHUB_REPOSITORY" | cut -d "/" -f2 ) to $VERSION" --body "$CHANGELOG" --label releases
       shell: bash
       env:
