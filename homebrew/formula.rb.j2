@@ -23,6 +23,6 @@ shells: [:bash, :zsh, :fish])
   test do
     system bin/"readable-name-generator", "-h"
     system bin/"readable-name-generator", "-V"
-    assert_match "gregarious_pauli", shell_output(bin/"readable-name-generator --initial-seed 1")
+    assert_match "flexible_briseglace", shell_output(bin/"readable-name-generator --initial-seed 1")
   end
 end
