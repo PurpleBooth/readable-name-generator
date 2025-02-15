@@ -2,6 +2,12 @@
 All notable changes to this project will be documented in this file. See [conventional commits](https://www.conventionalcommits.org/) for commit guidelines.
 
 - - -
+## [v4.1.32](https://codeberg.org/PurpleBooth/readable-name-generator/compare/d8157752a2ea118aeac64d8468d700e04fda8bd5..v4.1.32) - 2025-02-15
+#### Bug Fixes
+- **(deps)** update rust:alpine docker digest to fdff417 - ([d815775](https://codeberg.org/PurpleBooth/readable-name-generator/commit/d8157752a2ea118aeac64d8468d700e04fda8bd5)) - Solace System Renovate Fox
+
+- - -
+
 ## [v4.1.31](https://codeberg.org/PurpleBooth/readable-name-generator/compare/c807bf1a386799079a72dd640d6e4655d5462ba6..v4.1.31) - 2025-02-14
 #### Bug Fixes
 - **(deps)** update rust:alpine docker digest to 12360d0 - ([c807bf1](https://codeberg.org/PurpleBooth/readable-name-generator/commit/c807bf1a386799079a72dd640d6e4655d5462ba6)) - Solace System Renovate Fox
