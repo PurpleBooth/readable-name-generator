@@ -2,6 +2,15 @@
 All notable changes to this project will be documented in this file. See [conventional commits](https://www.conventionalcommits.org/) for commit guidelines.
 
 - - -
+## [v4.1.35](https://codeberg.org/PurpleBooth/readable-name-generator/compare/6ccaa194eb5360491d0011ea366fed9985eb7b26..v4.1.35) - 2025-02-21
+#### Bug Fixes
+- **(deps)** update rust:alpine docker digest to b11ea81 - ([c72f58f](https://codeberg.org/PurpleBooth/readable-name-generator/commit/c72f58f571080bc60fc0f6ecdb233c5626dc422a)) - Solace System Renovate Fox
+#### Miscellaneous Chores
+- **(deps)** update https://code.forgejo.org/docker/bake-action digest to 4f08b22 - ([f0a0fef](https://codeberg.org/PurpleBooth/readable-name-generator/commit/f0a0feffa251af32791fbffd3be300d5e53632e4)) - Solace System Renovate Fox
+- **(deps)** update https://code.forgejo.org/actions/cache digest to 0c907a7 - ([6ccaa19](https://codeberg.org/PurpleBooth/readable-name-generator/commit/6ccaa194eb5360491d0011ea366fed9985eb7b26)) - Solace System Renovate Fox
+
+- - -
+
 ## [v4.1.34](https://codeberg.org/PurpleBooth/readable-name-generator/compare/9c33320fbcbc1ef38fd7c9a16b1c2a995962b288..v4.1.34) - 2025-02-18
 #### Bug Fixes
 - **(deps)** update rust crate clap_complete to v4.5.45 - ([9c33320](https://codeberg.org/PurpleBooth/readable-name-generator/commit/9c33320fbcbc1ef38fd7c9a16b1c2a995962b288)) - Solace System Renovate Fox
