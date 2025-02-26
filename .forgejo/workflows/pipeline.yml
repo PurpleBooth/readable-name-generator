@@ -280,7 +280,7 @@ jobs:
           type=sha
 
     - name: Build (Bake)
-      uses: https://code.forgejo.org/docker/bake-action@4f08b22a19b3133912e9acbf7da9bfa25184a173       # v6
+      uses: https://code.forgejo.org/docker/bake-action@4ba453fbc2db7735392b93edf935aaf9b1e8f747       # v6
       env:
         GPG_PRIVATE_KEY: ''
         GPG_PASSPHRASE: ''
@@ -443,7 +443,7 @@ jobs:
           type=sha
 
     - name: Bake Docker Images
-      uses: https://code.forgejo.org/docker/bake-action@4f08b22a19b3133912e9acbf7da9bfa25184a173       # v6
+      uses: https://code.forgejo.org/docker/bake-action@4ba453fbc2db7735392b93edf935aaf9b1e8f747       # v6
       env:
         GPG_PRIVATE_KEY: ${{ secrets.GPG_PRIVATE_KEY }}
         GPG_PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}
@@ -527,7 +527,7 @@ jobs:
           type=sha
 
     - name: Docker Bake
-      uses: https://code.forgejo.org/docker/bake-action@4f08b22a19b3133912e9acbf7da9bfa25184a173       # v6
+      uses: https://code.forgejo.org/docker/bake-action@4ba453fbc2db7735392b93edf935aaf9b1e8f747       # v6
       env:
         GPG_PRIVATE_KEY: ${{ secrets.GPG_PRIVATE_KEY }}
         GPG_PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}
