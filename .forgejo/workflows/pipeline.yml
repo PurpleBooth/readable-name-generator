@@ -246,7 +246,7 @@ jobs:
       uses: https://code.forgejo.org/actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683       # v4
 
     - name: Set Up Docker Buildx
-      uses: https://code.forgejo.org/docker/setup-buildx-action@f7ce87c1d6bead3e36075b2ce75da1f6cc28aaca       # v3
+      uses: https://code.forgejo.org/docker/setup-buildx-action@b5ca514318bd6ebac0fb2aedd5d36ec1b5c232a2       # v3
 
     - name: Install Rust
       uses: https://codeberg.org/PurpleBooth/common-pipelines/actions/install-rust@main
@@ -414,7 +414,7 @@ jobs:
       uses: https://code.forgejo.org/actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683       # v4
 
     - name: Set Up Docker Buildx
-      uses: https://code.forgejo.org/docker/setup-buildx-action@f7ce87c1d6bead3e36075b2ce75da1f6cc28aaca       # v3
+      uses: https://code.forgejo.org/docker/setup-buildx-action@b5ca514318bd6ebac0fb2aedd5d36ec1b5c232a2       # v3
 
     - name: Log in to GitHub Container Registry
       uses: https://code.forgejo.org/docker/login-action@9780b0c442fbb1117ed29e0efdff1e18412f7567       # v3
@@ -493,7 +493,7 @@ jobs:
       uses: https://codeberg.org/PurpleBooth/common-pipelines/actions/install-cocogitto@main
 
     - name: Set Up Docker Buildx
-      uses: https://code.forgejo.org/docker/setup-buildx-action@f7ce87c1d6bead3e36075b2ce75da1f6cc28aaca       # v3
+      uses: https://code.forgejo.org/docker/setup-buildx-action@b5ca514318bd6ebac0fb2aedd5d36ec1b5c232a2       # v3
 
     - name: Login to Container Registry
       uses: https://code.forgejo.org/docker/login-action@9780b0c442fbb1117ed29e0efdff1e18412f7567       # v3
