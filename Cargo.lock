@@ -359,7 +359,7 @@ dependencies = [
 
 [[package]]
 name = "readable-name-generator"
-version = "4.1.53"
+version = "4.1.54"
 dependencies = [
  "anarchist-readable-name-generator-lib",
  "clap",
