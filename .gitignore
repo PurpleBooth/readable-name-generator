@@ -5,3 +5,5 @@ artifact
 packs
 arfacs
 /.idea
+/mutants.out/
+/mutants.out.old/
