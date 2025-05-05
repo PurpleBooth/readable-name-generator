@@ -2,6 +2,14 @@
 All notable changes to this project will be documented in this file. See [conventional commits](https://www.conventionalcommits.org/) for commit guidelines.
 
 - - -
+## [v4.1.56](https://codeberg.org/PurpleBooth/readable-name-generator/compare/c87fc364e6667dbbe5b535908aed134021ec17cf..v4.1.56) - 2025-05-05
+#### Bug Fixes
+- **(deps)** update rust:alpine docker digest to 8c042ca - ([2aa005a](https://codeberg.org/PurpleBooth/readable-name-generator/commit/2aa005a853ba4ca453538fc17695bec23581ba6b)) - Solace System Renovate Fox
+#### Refactoring
+- name generation and add comprehensive tests - ([c87fc36](https://codeberg.org/PurpleBooth/readable-name-generator/commit/c87fc364e6667dbbe5b535908aed134021ec17cf)) - Billie Thompson
+
+- - -
+
 ## [v4.1.55](https://codeberg.org/PurpleBooth/readable-name-generator/compare/51ecafa71781af3ef5d7c14256fcff2be1ae3964..v4.1.55) - 2025-04-28
 #### Bug Fixes
 - **(deps)** update rust crate clap_complete to v4.5.48 - ([51ecafa](https://codeberg.org/PurpleBooth/readable-name-generator/commit/51ecafa71781af3ef5d7c14256fcff2be1ae3964)) - Solace System Renovate Fox
