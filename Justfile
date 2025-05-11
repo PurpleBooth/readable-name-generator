@@ -20,16 +20,16 @@ docker-build:
 
 # Lint it
 lint:
-	cargo +nightly fmt --all -- --check
-	cargo +nightly clippy --all-features -- -D warnings -D clippy::all -D clippy::pedantic -D clippy::cargo -A clippy::multiple-crate-versions
-	cargo +nightly check
-	cargo +nightly audit
+	cargo fmt --all -- --check
+	cargo clippy --all-features
+	cargo check
+	cargo audit
 
 # Format what can be formatted
 fmt:
-	cargo +nightly fix --allow-dirty --allow-staged
-	cargo +nightly clippy --allow-dirty --allow-staged --fix -Z unstable-options --all-features -- -D warnings -D clippy::all -D clippy::pedantic -D clippy::cargo -D clippy::nursery -A clippy::multiple-crate-versions
-	cargo +nightly fmt --all
+	cargo fix --allow-dirty --allow-staged
+	cargo clippy --allow-dirty --allow-staged --fix --all-features
+	cargo fmt --all
 
 # Clean the build directory
 clean:

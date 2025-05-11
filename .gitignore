@@ -7,3 +7,4 @@ arfacs
 /.idea
 /mutants.out/
 /mutants.out.old/
+.aider*
