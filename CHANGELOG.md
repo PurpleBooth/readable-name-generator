@@ -2,6 +2,14 @@
 All notable changes to this project will be documented in this file. See [conventional commits](https://www.conventionalcommits.org/) for commit guidelines.
 
 - - -
+## [v4.1.61](https://codeberg.org/PurpleBooth/readable-name-generator/compare/5c0fe79e97266d3d4e6fc1a0ccf84e7703021683..v4.1.61) - 2025-05-11
+#### Bug Fixes
+- **(deps)** update rust crate anarchist-readable-name-generator-lib to v0.1.5 - ([23fc641](https://codeberg.org/PurpleBooth/readable-name-generator/commit/23fc641efc980b86da878bb4b25bed2b8b272771)) - Solace System Renovate Fox
+#### Miscellaneous Chores
+- update .gitignore and simplify Justfile cargo commands - ([5c0fe79](https://codeberg.org/PurpleBooth/readable-name-generator/commit/5c0fe79e97266d3d4e6fc1a0ccf84e7703021683)) - Billie Thompson
+
+- - -
+
 ## [v4.1.60](https://codeberg.org/PurpleBooth/readable-name-generator/compare/0c8d6c9a0b9654e7ccfb76faf7cdf924a634ea4d..v4.1.60) - 2025-05-11
 #### Bug Fixes
 - **(deps)** update rust crate clap to v4.5.38 - ([0c8d6c9](https://codeberg.org/PurpleBooth/readable-name-generator/commit/0c8d6c9a0b9654e7ccfb76faf7cdf924a634ea4d)) - Solace System Renovate Fox
