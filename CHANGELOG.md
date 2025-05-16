@@ -2,6 +2,15 @@
 All notable changes to this project will be documented in this file. See [conventional commits](https://www.conventionalcommits.org/) for commit guidelines.
 
 - - -
+## [v4.1.62](https://codeberg.org/PurpleBooth/readable-name-generator/compare/0ba05b48b044f5ce6a44e4dc833076b0db6dedbe..v4.1.62) - 2025-05-16
+#### Bug Fixes
+- **(deps)** update rust:alpine docker digest to fa7c285 - ([a2bbdac](https://codeberg.org/PurpleBooth/readable-name-generator/commit/a2bbdac8521eb2e50215b6b212214a2c87e80501)) - Solace System Renovate Fox
+#### Miscellaneous Chores
+- **(deps)** update https://code.forgejo.org/docker/bake-action digest to 212c367 - ([0ba05b4](https://codeberg.org/PurpleBooth/readable-name-generator/commit/0ba05b48b044f5ce6a44e4dc833076b0db6dedbe)) - Solace System Renovate Fox
+- update Renovate config to use app-specific preset - ([b65d101](https://codeberg.org/PurpleBooth/readable-name-generator/commit/b65d1012d94d7cc6ca9b00003f91b4ebeef7e6f6)) - Billie Thompson
+
+- - -
+
 ## [v4.1.61](https://codeberg.org/PurpleBooth/readable-name-generator/compare/5c0fe79e97266d3d4e6fc1a0ccf84e7703021683..v4.1.61) - 2025-05-11
 #### Bug Fixes
 - **(deps)** update rust crate anarchist-readable-name-generator-lib to v0.1.5 - ([23fc641](https://codeberg.org/PurpleBooth/readable-name-generator/commit/23fc641efc980b86da878bb4b25bed2b8b272771)) - Solace System Renovate Fox
