@@ -2,6 +2,13 @@
 All notable changes to this project will be documented in this file. See [conventional commits](https://www.conventionalcommits.org/) for commit guidelines.
 
 - - -
+## [v4.1.69](https://codeberg.org/PurpleBooth/readable-name-generator/compare/34dc969cfa76b9fcad54fd0fc1dc0d74fb5f645b..v4.1.69) - 2025-06-09
+#### Bug Fixes
+- **(deps)** update rust crate clap_complete to v4.5.53 - ([7b37396](https://codeberg.org/PurpleBooth/readable-name-generator/commit/7b37396069d751880d692cf9a0cd1d0f83068dc5)) - Solace System Renovate Fox
+- **(deps)** update rust crate clap to v4.5.40 - ([34dc969](https://codeberg.org/PurpleBooth/readable-name-generator/commit/34dc969cfa76b9fcad54fd0fc1dc0d74fb5f645b)) - Solace System Renovate Fox
+
+- - -
+
 ## [v4.1.68](https://codeberg.org/PurpleBooth/readable-name-generator/compare/dde663783d95efef4023af0806442a42071a5044..v4.1.68) - 2025-06-07
 #### Bug Fixes
 - **(deps)** update goreleaser/nfpm docker digest to 929e105 - ([dde6637](https://codeberg.org/PurpleBooth/readable-name-generator/commit/dde663783d95efef4023af0806442a42071a5044)) - Solace System Renovate Fox
