@@ -51,7 +51,7 @@ RUN mkdir -p /PACKS && \
     GOARCH="$(xx-info arch)" GOOS="$(xx-info os)" nfpm pkg --packager deb --config="nfpm.yaml" --target="/PACKS"
 
 # Users stage for container build
-FROM --platform=$BUILDPLATFORM alpine AS users
+FROM --platform=$BUILDPLATFORM alpine@sha256:8a1f59ffb675680d47db6337b49d22281a139e9d709335b492be023728e11715 AS users
 RUN addgroup -S nonroot && adduser -S nonroot -G nonroot
 
 # Bins output stage (includes packages)
