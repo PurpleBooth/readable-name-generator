@@ -1,6 +1,7 @@
 target "bins" {
   name = "bins-${join("-", split("/", item.TARGETPLAFORM))}"
-  dockerfile = "Dockerfile.bins"
+  dockerfile = "Dockerfile"
+  target = "bins"
 
   args = {
     TARGETPLAFORM = "${item.TARGETPLAFORM}"
@@ -42,8 +43,11 @@ target "bins" {
   }
 }
 
-
 target "docker" {
+  dockerfile = "Dockerfile"
+  target = "container"
+
+  args = {}
 
   attest = [
     "type=provenance,mode=max",
@@ -51,8 +55,6 @@ target "docker" {
   ]
 
   platform = ["alpine/amd64", "alpine/arm64"]
-
-  dockerfile = "Dockerfile.container"
 }
 
 group "default" {

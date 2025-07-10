@@ -1,5 +1,10 @@
-*
-!src
-!Cargo.lock
-!Cargo.toml
-!nfpm.yaml
+/target
+/.versio-paused
+.flatpak-builder/
+artifact
+packs
+arfacs
+/.idea
+/mutants.out/
+/mutants.out.old/
+.aider*
