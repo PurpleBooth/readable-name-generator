@@ -16,6 +16,16 @@ pub struct Arguments {
     )]
     pub separator: Option<String>,
 
+    /// Suffix a random number to prevent collisions
+    #[clap(
+        short = 'n',
+        long,
+        value_parser,
+        env = "READABLE_NAME_GENERATOR_SUFFIX",
+        default_value_t = false
+    )]
+    pub suffix: bool,
+
     /// Use a known seed to generate the readable name for repeatability
     #[clap(
         short,
@@ -32,6 +42,7 @@ pub struct Arguments {
         long,
         value_parser,
         env,
+        conflicts_with = "suffix",
         conflicts_with = "separator",
         conflicts_with = "initial_seed",
         required = false

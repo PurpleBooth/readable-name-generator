@@ -34,6 +34,18 @@ readable-name-generator --initial-seed 1 --separator "###"
 flexible###briseglace
 ```
 
+### Randomized Suffix
+
+You can further reduce the chance of a collision by suffixing a random number
+
+``` shell,script(name="seperator")
+readable-name-generator --initial-seed 1 --suffix
+```
+
+``` shell,verify(script_name="seperator")
+vivacious_demibold8
+```
+
 ### Full usage
 
 ``` shell,script(name="help")
@@ -48,6 +60,8 @@ Usage: readable-name-generator [OPTIONS]
 Options:
   -s, --separator <SEPARATOR>
           The separator to use [env: READABLE_NAME_GENERATOR_SEPARATOR=] [default: _]
+  -n, --suffix
+          Suffix a random number to prevent collisions [env: READABLE_NAME_GENERATOR_SUFFIX=]
   -i, --initial-seed <INITIAL_SEED>
           Use a known seed to generate the readable name for repeatability [env:
           READABLE_NAME_GENERATOR_INITIAL_SEED=]

@@ -44,6 +44,7 @@ use rand::prelude::*;
 use std::io::stdout;
 
 use clap_complete::generate;
+use rand::rng;
 
 mod cli;
 
@@ -60,15 +61,41 @@ fn generate_name(args: &CliArgs) -> Result<String> {
         .clone()
         .ok_or_else(|| miette::miette!("Failed to get default value for separator"))?;
 
-    Ok(args.initial_seed.map_or_else(
-        || anarchist_readable_name_generator_lib::readable_name_custom(&separator, rand::rng()),
-        |seed| {
-            anarchist_readable_name_generator_lib::readable_name_custom(
+    match args {
+        CliArgs {
+            suffix: true,
+            initial_seed: Some(seed),
+            ..
+        } => Ok(
+            anarchist_readable_name_generator_lib::readable_name_custom_suffix(
                 &separator,
-                SmallRng::seed_from_u64(seed),
-            )
-        },
-    ))
+                SmallRng::seed_from_u64(*seed),
+            ),
+        ),
+        CliArgs {
+            suffix: false,
+            initial_seed: Some(seed),
+            ..
+        } => Ok(anarchist_readable_name_generator_lib::readable_name_custom(
+            &separator,
+            SmallRng::seed_from_u64(*seed),
+        )),
+        CliArgs {
+            suffix: true,
+            initial_seed: None,
+            ..
+        } => Ok(
+            anarchist_readable_name_generator_lib::readable_name_custom_suffix(&separator, rng()),
+        ),
+        CliArgs {
+            suffix: false,
+            initial_seed: None,
+            ..
+        } => Ok(anarchist_readable_name_generator_lib::readable_name_custom(
+            &separator,
+            rng(),
+        )),
+    }
 }
 
 /// Main entry point for the application
@@ -155,6 +182,29 @@ mod tests {
         assert!(
             output_str.contains('_'),
             "Output should contain the default separator '_'"
+        );
+    }
+
+    #[test]
+    fn suffix_behavior() {
+        // Test default arguments behavior
+        let output = Command::new("cargo")
+            .args(["run", "--quiet", "--", "--suffix"])
+            .output()
+            .expect("Failed to execute cargo run command");
+
+        assert!(output.status.success(), "cargo run command failed");
+
+        let output_str = str::from_utf8(&output.stdout).expect("Output was not valid UTF-8");
+
+        assert!(
+            !output_str.trim().is_empty(),
+            "Application output should not be empty"
+        );
+
+        assert!(
+            output_str.trim_end().ends_with(char::is_numeric),
+            "Output should end with a number"
         );
     }
 

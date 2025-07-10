@@ -14,7 +14,7 @@ vendor: "PurpleBooth"
 homepage: "https://codeberg.org/PurpleBooth/readable-name-generator"
 license: "CC0"
 contents:
-  - src: ./readable-name-generator
+  - src: ./build/readable-name-generator
     dst: /usr/bin/readable-name-generator
 rpm:
   signature:
