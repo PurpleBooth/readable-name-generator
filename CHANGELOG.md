@@ -2,6 +2,16 @@
 All notable changes to this project will be documented in this file. See [conventional commits](https://www.conventionalcommits.org/) for commit guidelines.
 
 - - -
+## [v4.2.0](https://codeberg.org/PurpleBooth/readable-name-generator/compare/1a734afaaa76035fd2836f2e8586c2ab9a365299..v4.2.0) - 2025-07-10
+#### Bug Fixes
+- **(deps)** update rust crate anarchist-readable-name-generator-lib to 0.2.0 - ([3aa7040](https://codeberg.org/PurpleBooth/readable-name-generator/commit/3aa7040361c983ef3c97e9acc30d8b437e2e65c2)) - Solace System Renovate Fox
+#### Features
+- add suffix option to generate names with random number - ([f1283fc](https://codeberg.org/PurpleBooth/readable-name-generator/commit/f1283fc42e555f42177921cad6844d42baf81c03)) - Billie Thompson
+#### Refactoring
+- consolidate Dockerfiles and update build configuration - ([1a734af](https://codeberg.org/PurpleBooth/readable-name-generator/commit/1a734afaaa76035fd2836f2e8586c2ab9a365299)) - Billie Thompson
+
+- - -
+
 ## [v4.1.71](https://codeberg.org/PurpleBooth/readable-name-generator/compare/228201d2be4af8ab94628ebd4fcfe436ce3c03fe..v4.1.71) - 2025-06-27
 #### Bug Fixes
 - **(deps)** update rust:alpine docker digest to ec0413a - ([d6107d7](https://codeberg.org/PurpleBooth/readable-name-generator/commit/d6107d7ae5d78d2171eb715f5e3eb585c4636506)) - Solace System Renovate Fox
