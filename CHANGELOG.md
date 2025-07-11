@@ -2,6 +2,14 @@
 All notable changes to this project will be documented in this file. See [conventional commits](https://www.conventionalcommits.org/) for commit guidelines.
 
 - - -
+## [v4.2.1](https://codeberg.org/PurpleBooth/readable-name-generator/compare/8760063c376e818f69ff0091b56d91c7625d0934..v4.2.1) - 2025-07-11
+#### Bug Fixes
+- **(deps)** update rust crate clap_complete to v4.5.55 - ([e475d41](https://codeberg.org/PurpleBooth/readable-name-generator/commit/e475d41ca664c0d30ec862fd78756f5f48f17c5a)) - Solace System Renovate Fox
+- **(deps)** update rust crate clap to v4.5.41 - ([83bf2db](https://codeberg.org/PurpleBooth/readable-name-generator/commit/83bf2db561c56793403156a00f8d63066defbdaa)) - Solace System Renovate Fox
+- **(deps)** pin dependencies - ([8760063](https://codeberg.org/PurpleBooth/readable-name-generator/commit/8760063c376e818f69ff0091b56d91c7625d0934)) - Solace System Renovate Fox
+
+- - -
+
 ## [v4.2.0](https://codeberg.org/PurpleBooth/readable-name-generator/compare/1a734afaaa76035fd2836f2e8586c2ab9a365299..v4.2.0) - 2025-07-10
 #### Bug Fixes
 - **(deps)** update rust crate anarchist-readable-name-generator-lib to 0.2.0 - ([3aa7040](https://codeberg.org/PurpleBooth/readable-name-generator/commit/3aa7040361c983ef3c97e9acc30d8b437e2e65c2)) - Solace System Renovate Fox
