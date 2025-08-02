@@ -1,36 +1,36 @@
 # This help screen
 show-help:
-	just --list
+        just --list
 
 # Test it was built ok
 test:
-	RUST_BACKTRACE=1 cargo test
+        RUST_BACKTRACE=1 cargo test
 
 # Test the markdown in the docs directory
 specdown: build
-	specdown run --temporary-workspace-dir --add-path "$PWD/target/release" "README.md"
+        specdown run --temporary-workspace-dir --add-path "{{justfile_directory()}}/target/release" ./README.md
+
+# Run a smoke test and see if the app runs
+smoke-test: build
+        cargo run -- -h
 
 # Build release version
 build:
-	cargo build --release
-
-# Build docker image
-docker-build:
-	docker build -t purplebooth/readable-name-generator:latest .
+        cargo build --release
 
 # Lint it
 lint:
-	cargo fmt --all -- --check
-	cargo clippy --all-features
-	cargo check
-	cargo audit
+        cargo fmt --all -- --check
+        cargo clippy --all-features
+        cargo check
+        cargo audit
 
 # Format what can be formatted
 fmt:
-	cargo fix --allow-dirty --allow-staged
-	cargo clippy --allow-dirty --allow-staged --fix --all-features
-	cargo fmt --all
+        cargo fix --allow-dirty
+        cargo clippy --allow-dirty --fix --all-features
+        cargo fmt --all
 
 # Clean the build directory
 clean:
-	cargo clean
+        cargo clean

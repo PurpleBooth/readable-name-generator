@@ -14,14 +14,33 @@ vendor: "PurpleBooth"
 homepage: "https://codeberg.org/PurpleBooth/readable-name-generator"
 license: "CC0"
 contents:
-  - src: ./build/readable-name-generator
+  - src: ./target/release/readable-name-generator
     dst: /usr/bin/readable-name-generator
+    file_info:
+      mode: 0755
+      owner: root
+      group: root
+
 rpm:
   signature:
     key_file: ${NFPM_SIGNING_KEY_FILE}
+  compression: "gzip"
+  packager: "rpmbuild <noreply@purplebooth.com>"
+
 deb:
   signature:
     key_file: ${NFPM_SIGNING_KEY_FILE}
+  compression: "gzip"
+
 apk:
   signature:
     key_file: ${NFPM_SIGNING_KEY_FILE}
+
+overrides:
+  debian:
+    depends:
+      - libc6
+  alpine:
+    depends:
+      - libc6-compat
+
