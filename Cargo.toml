@@ -10,6 +10,10 @@ categories = ["development-tools::testing","command-line-utilities"]
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
+[[bin]]
+name = "readable-name-generator"
+path = "src/main.rs"
+
 [dependencies]
 rand = { version = "0.9.0" }
 anarchist-readable-name-generator-lib = "0.2.0"
