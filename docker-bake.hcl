@@ -136,14 +136,11 @@ RUN --mount=type=secret,id=gpg_private_key,env=GPG_PRIVATE_KEY \
     --mount=type=secret,id=gpg_passphrase,env=GPG_PASSPHRASE \
     if [ -n "$GPG_PRIVATE_KEY" ] && [ -n "$GPG_PASSPHRASE" ]; then \
         echo "Setting up GPG signing for packages" && \
-        GPG_KEY_FILE=$(mktemp) && \
-        echo "$GPG_PRIVATE_KEY" > "$GPG_KEY_FILE" && \
-        export NFPM_SIGNING_KEY_FILE="$GPG_KEY_FILE" && \
-        export NFPM_PASSPHRASE="$GPG_PASSPHRASE" && \
-        VER="$(yq -o tsv -p toml ".package.version" Cargo.toml)" nfpm pkg --packager archlinux --config="nfpm.yaml" && \
-        VER="$(yq -o tsv -p toml ".package.version" Cargo.toml)" nfpm pkg --packager rpm --config="nfpm.yaml" && \
-        VER="$(yq -o tsv -p toml ".package.version" Cargo.toml)" nfpm pkg --packager apk --config="nfpm.yaml" && \
-        VER="$(yq -o tsv -p toml ".package.version" Cargo.toml)" nfpm pkg --packager deb --config="nfpm.yaml" && \
+        echo "$GPG_PRIVATE_KEY" > "/tmp/signingkey" && \
+        NFPM_SIGNING_KEY_FILE="/tmp/signingkey" NFPM_PASSPHRASE="$GPG_PASSPHRASE" VER="$(yq -o tsv -p toml ".package.version" Cargo.toml)" nfpm pkg --packager archlinux --config="nfpm.yaml" && \
+        NFPM_SIGNING_KEY_FILE="/tmp/signingkey" NFPM_PASSPHRASE="$GPG_PASSPHRASE" VER="$(yq -o tsv -p toml ".package.version" Cargo.toml)" nfpm pkg --packager rpm --config="nfpm.yaml" && \
+        NFPM_SIGNING_KEY_FILE="/tmp/signingkey" NFPM_PASSPHRASE="$GPG_PASSPHRASE" VER="$(yq -o tsv -p toml ".package.version" Cargo.toml)" nfpm pkg --packager apk --config="nfpm.yaml" && \
+        NFPM_SIGNING_KEY_FILE="/tmp/signingkey" NFPM_PASSPHRASE="$GPG_PASSPHRASE" VER="$(yq -o tsv -p toml ".package.version" Cargo.toml)" nfpm pkg --packager deb --config="nfpm.yaml" && \
         rm -f "$GPG_KEY_FILE"; \
     else \
         echo "GPG signing not configured, building unsigned packages" && \
