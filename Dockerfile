@@ -72,6 +72,8 @@ RUN curl -L -o /tmp/lipo https://github.com/konoui/lipo/releases/download/v${LIP
     chmod +x /tmp/lipo && \
     mv /tmp/lipo /usr/local/bin/
 
+RUN rustup component add rustfmt clippy
+
 RUN addgroup -S nonroot && \
     adduser -S -G nonroot nonroot && \
     mkdir -p /app /home/nonroot/.cargo/bin/ && \
