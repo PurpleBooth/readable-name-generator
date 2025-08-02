@@ -132,15 +132,13 @@ ENV GOOS=$TARGETOS
 
 # Create packages using the binaries from bins target
 # If GPG_PRIVATE_KEY and GPG_PASSPHRASE are provided, use them to sign packages
-RUN --mount=type=secret,id=gpg_private_key,env=GPG_PRIVATE_KEY \
-    --mount=type=secret,id=gpg_passphrase,env=GPG_PASSPHRASE \
-    if [ -n "$GPG_PRIVATE_KEY" ] && [ -n "$GPG_PASSPHRASE" ]; then \
-        echo "Setting up GPG signing for packages" && \
-        echo "$GPG_PRIVATE_KEY" > "/tmp/signingkey" && \
-        NFPM_SIGNING_KEY_FILE="/tmp/signingkey" NFPM_PASSPHRASE="$GPG_PASSPHRASE" VER="$(yq -o tsv -p toml ".package.version" Cargo.toml)" nfpm pkg --packager archlinux --config="nfpm.yaml" && \
-        NFPM_SIGNING_KEY_FILE="/tmp/signingkey" NFPM_PASSPHRASE="$GPG_PASSPHRASE" VER="$(yq -o tsv -p toml ".package.version" Cargo.toml)" nfpm pkg --packager rpm --config="nfpm.yaml" && \
-        NFPM_SIGNING_KEY_FILE="/tmp/signingkey" NFPM_PASSPHRASE="$GPG_PASSPHRASE" VER="$(yq -o tsv -p toml ".package.version" Cargo.toml)" nfpm pkg --packager apk --config="nfpm.yaml" && \
-        NFPM_SIGNING_KEY_FILE="/tmp/signingkey" NFPM_PASSPHRASE="$GPG_PASSPHRASE" VER="$(yq -o tsv -p toml ".package.version" Cargo.toml)" nfpm pkg --packager deb --config="nfpm.yaml" && \
+RUN --mount=type=secret,id=gpg_private_key \
+    --mount=type=secret,id=gpg_passphrase,env=NFPM_PASSPHRASE \
+    if [ -n "$GPG_PASSPHRASE" ]; then \
+        NFPM_SIGNING_KEY_FILE="/run/secrets/gpg_private_key" VER="$(yq -o tsv -p toml ".package.version" Cargo.toml)" nfpm pkg --packager archlinux --config="nfpm.yaml" && \
+        NFPM_SIGNING_KEY_FILE="/run/secrets/gpg_private_key" VER="$(yq -o tsv -p toml ".package.version" Cargo.toml)" nfpm pkg --packager rpm --config="nfpm.yaml" && \
+        NFPM_SIGNING_KEY_FILE="/run/secrets/gpg_private_key" VER="$(yq -o tsv -p toml ".package.version" Cargo.toml)" nfpm pkg --packager apk --config="nfpm.yaml" && \
+        NFPM_SIGNING_KEY_FILE="/run/secrets/gpg_private_key" VER="$(yq -o tsv -p toml ".package.version" Cargo.toml)" nfpm pkg --packager deb --config="nfpm.yaml" && \
         rm -f "/tmp/signingkey"; \
     else \
         echo "GPG signing not configured, building unsigned packages" && \
