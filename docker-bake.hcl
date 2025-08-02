@@ -121,17 +121,37 @@ target "packages" {
 FROM --platform=$BUILDPLATFORM buildenv AS packages
 ARG TARGETPLATFORM TARGETOS TARGETARCH
 
-# Build application
+# Copy source files for package configuration
 COPY . .
+
+# Copy binaries from bins target
+COPY --from=bins /readable-name-generator /app/target/release/
 
 ENV GOARCH=$TARGETARCH
 ENV GOOS=$TARGETOS
 
-RUN cross-platform-build && \
-    VER="$(yq -o tsv -p toml ".package.version" Cargo.toml)" nfpm pkg --packager archlinux --config="nfpm.yaml" && \
-    VER="$(yq -o tsv -p toml ".package.version" Cargo.toml)" nfpm pkg --packager rpm --config="nfpm.yaml" && \
-    VER="$(yq -o tsv -p toml ".package.version" Cargo.toml)" nfpm pkg --packager apk --config="nfpm.yaml" && \
-    VER="$(yq -o tsv -p toml ".package.version" Cargo.toml)" nfpm pkg --packager deb --config="nfpm.yaml"
+# Create packages using the binaries from bins target
+# If GPG_PRIVATE_KEY and GPG_PASSPHRASE are provided, use them to sign packages
+RUN --mount=type=secret,id=gpg_private_key,env=GPG_PRIVATE_KEY \
+    --mount=type=secret,id=gpg_passphrase,env=GPG_PASSPHRASE \
+    if [ -n "$GPG_PRIVATE_KEY" ] && [ -n "$GPG_PASSPHRASE" ]; then \
+        echo "Setting up GPG signing for packages" && \
+        GPG_KEY_FILE=$(mktemp) && \
+        echo "$GPG_PRIVATE_KEY" > "$GPG_KEY_FILE" && \
+        export NFPM_SIGNING_KEY_FILE="$GPG_KEY_FILE" && \
+        export NFPM_PASSPHRASE="$GPG_PASSPHRASE" && \
+        VER="$(yq -o tsv -p toml ".package.version" Cargo.toml)" nfpm pkg --packager archlinux --config="nfpm.yaml" && \
+        VER="$(yq -o tsv -p toml ".package.version" Cargo.toml)" nfpm pkg --packager rpm --config="nfpm.yaml" && \
+        VER="$(yq -o tsv -p toml ".package.version" Cargo.toml)" nfpm pkg --packager apk --config="nfpm.yaml" && \
+        VER="$(yq -o tsv -p toml ".package.version" Cargo.toml)" nfpm pkg --packager deb --config="nfpm.yaml" && \
+        rm -f "$GPG_KEY_FILE"; \
+    else \
+        echo "GPG signing not configured, building unsigned packages" && \
+        VER="$(yq -o tsv -p toml ".package.version" Cargo.toml)" nfpm pkg --packager archlinux --config="nfpm.yaml" && \
+        VER="$(yq -o tsv -p toml ".package.version" Cargo.toml)" nfpm pkg --packager rpm --config="nfpm.yaml" && \
+        VER="$(yq -o tsv -p toml ".package.version" Cargo.toml)" nfpm pkg --packager apk --config="nfpm.yaml" && \
+        VER="$(yq -o tsv -p toml ".package.version" Cargo.toml)" nfpm pkg --packager deb --config="nfpm.yaml"; \
+    fi
 
 FROM scratch AS final
 COPY --from=packages /app/*.rpm /
@@ -143,7 +163,8 @@ EOF
     platforms = ["linux/amd64", "linux/arm64"]
 
     contexts = {
-        buildenv = "target:build-environment"
+        buildenv = "target:build-environment",
+        bins = "target:bins"
     }
 
     output = [{type="local",dest="target/packages"}]
