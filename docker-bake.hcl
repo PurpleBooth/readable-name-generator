@@ -138,7 +138,7 @@ RUN --mount=type=secret,id=gpg_private_key \
         NFPM_SIGNING_KEY_FILE="/run/secrets/gpg_private_key" VER="$(yq -o tsv -p toml ".package.version" Cargo.toml)" nfpm pkg --packager archlinux --config="nfpm.yaml" && \
         NFPM_SIGNING_KEY_FILE="/run/secrets/gpg_private_key" VER="$(yq -o tsv -p toml ".package.version" Cargo.toml)" nfpm pkg --packager rpm --config="nfpm.yaml" && \
         NFPM_SIGNING_KEY_FILE="/run/secrets/gpg_private_key" VER="$(yq -o tsv -p toml ".package.version" Cargo.toml)" nfpm pkg --packager apk --config="nfpm.yaml" && \
-        NFPM_SIGNING_KEY_FILE="/run/secrets/gpg_private_key" VER="$(yq -o tsv -p toml ".package.version" Cargo.toml)" nfpm pkg --packager deb --config="nfpm.yaml" && \
+        NFPM_SIGNING_KEY_FILE="/run/secrets/gpg_private_key" VER="$(yq -o tsv -p toml ".package.version" Cargo.toml)" nfpm pkg --packager deb --config="nfpm.yaml" \
     else \
         VER="$(yq -o tsv -p toml ".package.version" Cargo.toml)" nfpm pkg --packager archlinux --config="nfpm.yaml" && \
         VER="$(yq -o tsv -p toml ".package.version" Cargo.toml)" nfpm pkg --packager rpm --config="nfpm.yaml" && \
