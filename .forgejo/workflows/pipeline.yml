@@ -201,6 +201,9 @@ jobs:
 
   all-tests-passed:
     name: All tests passed
+    defaults:
+      run:
+        shell: bash
     needs:
       - unit-test
       - integration-test
@@ -211,8 +214,7 @@ jobs:
     container:
       image: ghcr.io/catthehacker/ubuntu:runner-latest@sha256:0202c993063fc51108183905c9489b946ec826fb89101bebf30d1c3929e0dac4
     steps:
-      - run: echo "Looks good"
-        shell: bash
+      - runq: echo "Looks good"
 
   release:
     if: github.ref == 'refs/heads/main'
