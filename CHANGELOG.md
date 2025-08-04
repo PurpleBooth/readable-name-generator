@@ -2,6 +2,37 @@
 All notable changes to this project will be documented in this file. See [conventional commits](https://www.conventionalcommits.org/) for commit guidelines.
 
 - - -
+## [v4.3.0](https://codeberg.org/PurpleBooth/readable-name-generator/compare/3884256dae5cf6ab2125b818d1a4775d066cf73d..v4.3.0) - 2025-08-04
+#### Bug Fixes
+- **(deps)** update rust crate rand to v0.9.2 - ([dc0769d](https://codeberg.org/PurpleBooth/readable-name-generator/commit/dc0769d30876983ccf632ee3a144bd9f844cfb63)) - Solace System Renovate Fox
+- **(deps)** update rust crate clap to v4.5.42 - ([0f378ce](https://codeberg.org/PurpleBooth/readable-name-generator/commit/0f378ce41ec3ce858132531d078aae8d2f8f9da6)) - Solace System Renovate Fox
+- **(deps)** update ghcr.io/catthehacker/ubuntu:runner-latest docker digest to 0202c99 - ([dab1b48](https://codeberg.org/PurpleBooth/readable-name-generator/commit/dab1b4864f2b6ddc3a6289c5fb36e03200af46ee)) - Solace System Renovate Fox
+- **(deps)** update alpine docker digest to 4bcff63 - ([3884256](https://codeberg.org/PurpleBooth/readable-name-generator/commit/3884256dae5cf6ab2125b818d1a4775d066cf73d)) - Solace System Renovate Fox
+- Entferne überflüssiges Und-Zeichen in Docker-Bake-Konfiguration - ([2ac6084](https://codeberg.org/PurpleBooth/readable-name-generator/commit/2ac608482c4a895052867404ac695ed88f3a7039)) - Billie Thompson
+- test release - ([c6c6fd8](https://codeberg.org/PurpleBooth/readable-name-generator/commit/c6c6fd8eb5657ff7ca692131e5fbd5d27624e14f)) - Billie Thompson
+- Korrektes Entfernen des Signaturschlüssels nach Paketerstellung - ([ff48be8](https://codeberg.org/PurpleBooth/readable-name-generator/commit/ff48be89aa43f378143cc71849f1e9a0b86fb0dc)) - Billie Thompson
+#### Build system
+- Entferne Ausgabe für nicht konfigurierte GPG-Signatur - ([83634b2](https://codeberg.org/PurpleBooth/readable-name-generator/commit/83634b2c14498fde0b2c866ffb8c9e93c8ca2c12)) - Billie Thompson
+- Entferne nicht benötigte Signaturreinigungszeile in Docker-Bake-Konfiguration - ([d64b6f4](https://codeberg.org/PurpleBooth/readable-name-generator/commit/d64b6f40a0eac8944b7b0878bda2293230944e0e)) - Billie Thompson
+- GPG-Paketierung optimieren und Signaturprozess vereinfachen - ([4f2b61c](https://codeberg.org/PurpleBooth/readable-name-generator/commit/4f2b61cfbc889b8e449db6065264a02c362da2c7)) - Billie Thompson
+- Verbessere Paketierung mit GPG-Signierung und Binärkopie - ([cf573c5](https://codeberg.org/PurpleBooth/readable-name-generator/commit/cf573c54bb703de21cb79d8a286bff40e4c85689)) - Billie Thompson
+- Rust-Entwicklungstools im Dockerfile hinzufügen - ([58d886a](https://codeberg.org/PurpleBooth/readable-name-generator/commit/58d886abd647970d7fa73b5b0ebef52a0ed340b4)) - Billie Thompson
+- Cross-Platform-Build-Skript für verschiedene Zielplattformen hinzufügen - ([411964f](https://codeberg.org/PurpleBooth/readable-name-generator/commit/411964ffba864b9bac73a9d73da7389cacf148d8)) - Billie Thompson
+#### Continuous Integration
+- Korrigiere Workflow-Schritt von runq zu run - ([1e4f5e3](https://codeberg.org/PurpleBooth/readable-name-generator/commit/1e4f5e3569f992601efe36c38a8bf1daac9454e9)) - Billie Thompson
+- Pipeline-Workflow für Testjobs und Release aktualisieren - ([b3262ce](https://codeberg.org/PurpleBooth/readable-name-generator/commit/b3262ce30aba6cc6f5cd3b7a3805557157bcc3a4)) - Billie Thompson
+- replace build system - ([4d3896c](https://codeberg.org/PurpleBooth/readable-name-generator/commit/4d3896cabdbb90cec27872eee827f3777dab4bef)) - Billie Thompson
+#### Features
+- Cargo.toml um Binärpfad für Readable Name Generator erweitert - ([cd72228](https://codeberg.org/PurpleBooth/readable-name-generator/commit/cd72228b33b66b7c201036260ec297c519505ca9)) - Billie Thompson
+#### Miscellaneous Chores
+- **(deps)** update https://code.forgejo.org/docker/metadata-action digest to c1e5197 - ([bfba4b7](https://codeberg.org/PurpleBooth/readable-name-generator/commit/bfba4b73016625df8a15f469960a8eb009b99f64)) - Solace System Renovate Fox
+- Entferne SHA-Hash aus Container-Image-Referenzen - ([e264734](https://codeberg.org/PurpleBooth/readable-name-generator/commit/e264734150c3c582ae0a247a9a81ba2e5cd1074c)) - Billie Thompson
+- Homebrew-Formel um Version-Attribut bereinigen - ([af83c55](https://codeberg.org/PurpleBooth/readable-name-generator/commit/af83c558ee28390d02697799202b54ec7b3894f3)) - Billie Thompson
+#### Refactoring
+- Vereinfache GPG-Signierung und Paketierung in Docker-Bake-Konfiguration - ([d4e29ec](https://codeberg.org/PurpleBooth/readable-name-generator/commit/d4e29ec1caa545cbee9a8a5d3905e2a943291b23)) - Billie Thompson
+
+- - -
+
 ## [v4.2.2](https://codeberg.org/PurpleBooth/readable-name-generator/compare/9106874de69ad740272c185380a6eeba4f03f59e..v4.2.2) - 2025-07-21
 #### Bug Fixes
 - **(deps)** update rust:alpine docker digest to 6398523 - ([9106874](https://codeberg.org/PurpleBooth/readable-name-generator/commit/9106874de69ad740272c185380a6eeba4f03f59e)) - Solace System Renovate Fox
