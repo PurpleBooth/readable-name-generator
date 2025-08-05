@@ -65,7 +65,7 @@ USER nonroot
 ENTRYPOINT ["/readable-name-generator"]
 EOF
 
-    platforms = ["alpine/amd64", "alpine/arm64"]
+    platforms = ["alpine/amd64", "alpine/arm64", "linux/amd64", "linux/arm64"]
 
     contexts = {
         buildenv = "target:build-environment"
@@ -236,4 +236,3 @@ EOF
         "build-homebrew-formula" = "target:build-homebrew-formula"
     }
 }
-
