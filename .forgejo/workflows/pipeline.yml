@@ -321,6 +321,7 @@ jobs:
             if [[ $tag != *":sha-"* ]]; then
               continue
             fi
+            docker pull "$tag"
             cosign sign --key cosign.key --yes "$(docker inspect --format='{{index .RepoDigests 0}}' "$tag")"
             break
           done
@@ -467,6 +468,7 @@ jobs:
             if [[ $tag != *":sha-"* ]]; then
               continue
             fi
+            docker pull "$tag"
             cosign sign --key cosign.key --yes "$(docker inspect --format='{{index .RepoDigests 0}}' "$tag")"
             break
           done
