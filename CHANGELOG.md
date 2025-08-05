@@ -2,6 +2,14 @@
 All notable changes to this project will be documented in this file. See [conventional commits](https://www.conventionalcommits.org/) for commit guidelines.
 
 - - -
+## [v4.3.1](https://codeberg.org/PurpleBooth/readable-name-generator/compare/d2a0905847df16dcee2427eac4e2de8f6575ef4c..v4.3.1) - 2025-08-05
+#### Bug Fixes
+- **(deps)** pin ghcr.io/catthehacker/ubuntu docker tag to 0202c99 - ([02b67c8](https://codeberg.org/PurpleBooth/readable-name-generator/commit/02b67c81268763b302bf0a58cb23eb9f900ff8b7)) - Solace System Renovate Fox
+#### Miscellaneous Chores
+- **(deps)** update https://code.forgejo.org/docker/login-action digest to 184bdaa - ([d2a0905](https://codeberg.org/PurpleBooth/readable-name-generator/commit/d2a0905847df16dcee2427eac4e2de8f6575ef4c)) - Solace System Renovate Fox
+
+- - -
+
 ## [v4.3.0](https://codeberg.org/PurpleBooth/readable-name-generator/compare/3884256dae5cf6ab2125b818d1a4775d066cf73d..v4.3.0) - 2025-08-04
 #### Bug Fixes
 - **(deps)** update rust crate rand to v0.9.2 - ([dc0769d](https://codeberg.org/PurpleBooth/readable-name-generator/commit/dc0769d30876983ccf632ee3a144bd9f844cfb63)) - Solace System Renovate Fox
