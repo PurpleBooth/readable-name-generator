@@ -290,7 +290,7 @@ jobs:
             type=ref,event=tag
             type=ref,event=pr
             type=sha
-
+          labels: org.opencontainers.image.licenses=CC0-1.0
       - name: Bake Docker Images
         uses: https://code.forgejo.org/docker/bake-action@37816e747588cb137173af99ab33873600c46ea8 # v6
         env:
@@ -437,7 +437,7 @@ jobs:
             type=semver,pattern={{version}},value=v${{ needs.release.outputs.current_version }},prefix=v
             type=semver,pattern={{version}},value=v${{ needs.release.outputs.current_version }}
             type=sha
-
+          labels: org.opencontainers.image.licenses=CC0-1.0
       - name: Docker Bake
         uses: https://code.forgejo.org/docker/bake-action@37816e747588cb137173af99ab33873600c46ea8 # v6
         env:
