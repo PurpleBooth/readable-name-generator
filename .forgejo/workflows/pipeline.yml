@@ -316,10 +316,13 @@ jobs:
           # Write the private key to a file
           echo "${{ secrets.COSIGN_KEY }}" > cosign.key
 
-          # Get the image digest from the metadata output
+          # Process tags and skip those that don't start with sha
           for tag in $(echo "${{ steps.extract-docker-metadata.outputs.tags }}" | tr ',' '\n'); do
-            # Sign the image with cosign (using --yes to avoid interactive prompts)
-            cosign sign --key cosign.key --yes $tag
+            if [[ $tag != *":sha-"* ]]; then
+              continue
+            fi
+            cosign sign --key cosign.key --yes "$(docker inspect --format='{{index .RepoDigests 0}}' "$tag")"
+            break
           done
 
           # Remove the private key file
@@ -459,10 +462,13 @@ jobs:
           # Write the private key to a file
           echo "${{ secrets.COSIGN_KEY }}" > cosign.key
 
-          # Get the image digest from the metadata output
-          for tag in $(echo "${{ steps.meta-with-version.outputs.tags }}" | tr ',' '\n'); do
-            # Sign the image with cosign (using --yes to avoid interactive prompts)
-            cosign sign --key cosign.key --yes $tag
+          # Process tags and skip those that don't start with sha
+          for tag in $(echo "${{ steps.extract-docker-metadata.outputs.tags }}" | tr ',' '\n'); do
+            if [[ $tag != *":sha-"* ]]; then
+              continue
+            fi
+            cosign sign --key cosign.key --yes "$(docker inspect --format='{{index .RepoDigests 0}}' "$tag")"
+            break
           done
 
           # Remove the private key file
