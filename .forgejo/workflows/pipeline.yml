@@ -309,6 +309,22 @@ jobs:
             cwd://${{ steps.extract-docker-metadata.outputs.bake-file-labels }}
           targets: docker
 
+      - name: Sign Docker Images with Cosign
+        env:
+          COSIGN_PASSWORD: ${{ secrets.COSIGN_PASSWORD }}
+        run: |
+          # Write the private key to a file
+          echo "${{ secrets.COSIGN_KEY }}" > cosign.key
+
+          # Get the image digest from the metadata output
+          for tag in $(echo "${{ steps.extract-docker-metadata.outputs.tags }}" | tr ',' '\n'); do
+            # Sign the image with cosign (using --yes to avoid interactive prompts)
+            cosign sign --key cosign.key --yes $tag
+          done
+
+          # Remove the private key file
+          rm cosign.key
+
       - name: Bake Binaries
         uses: https://code.forgejo.org/docker/bake-action@37816e747588cb137173af99ab33873600c46ea8 # v6
         env:
@@ -435,6 +451,22 @@ jobs:
             cwd://${{ steps.meta-with-version.outputs.bake-file-annotations }}
             cwd://${{ steps.meta-with-version.outputs.bake-file-labels }}
           targets: docker
+
+      - name: Sign Docker Images with Cosign
+        env:
+          COSIGN_PASSWORD: ${{ secrets.COSIGN_PASSWORD }}
+        run: |
+          # Write the private key to a file
+          echo "${{ secrets.COSIGN_KEY }}" > cosign.key
+
+          # Get the image digest from the metadata output
+          for tag in $(echo "${{ steps.meta-with-version.outputs.tags }}" | tr ',' '\n'); do
+            # Sign the image with cosign (using --yes to avoid interactive prompts)
+            cosign sign --key cosign.key --yes $tag
+          done
+
+          # Remove the private key file
+          rm cosign.key
 
       - name: Bake Binaries
         uses: https://code.forgejo.org/docker/bake-action@37816e747588cb137173af99ab33873600c46ea8 # v6
