@@ -18,20 +18,22 @@ SHELL ["/usr/bin/env", "bash", "-c"]
 RUN apk add --no-cache \
     alpine-sdk \
     bash \
-    curl \
-    git \
-    bzip2 \
-    xz \
-    unzip \
-    ca-certificates \
-    libc-dev \
-    libc++-dev \
-    zig \
-    openssl-dev  \
     binutils \
+    bzip2 \
+    ca-certificates \
+    clang \
+    curl \
+    gcc \
+    git \
+    libc++-dev \
+    libc-dev \
     mingw-w64-binutils \
     musl-dev \
-    musl-utils
+    musl-utils \
+    openssl-dev  \
+    unzip \
+    xz \
+    zig
 
 # renovate: datasource=crate depName=cargo-binstall
 ARG CARGO_BINSTALL_VERSION=1.14.1

@@ -55,7 +55,7 @@ ARG TARGETARCH
 ENV TARGETPLATFORM=$TARGETPLATFORM
 ENV TARGETOS=$TARGETOS
 ENV TARGETARCH=$TARGETARCH
-ENV RUSTFLAGS='-C target-feature=+crt-static'
+ENV RUSTFLAGS="-Clinker-plugin-lto -Clinker=clang -Clink-arg=-fuse-ld=lld -C target-feature=+crt-static"
 # Build application
 COPY . .
 RUN cross-platform-build

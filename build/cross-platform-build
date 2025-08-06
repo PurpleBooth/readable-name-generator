@@ -40,12 +40,12 @@ elif [[ $TARGETOS == *"windows"* ]] && [[ $TARGETARCH == *"amd64"* ]]; then
 	cp "/app/target/x86_64-pc-windows-gnu/release/readable-name-generator.exe" "/app/target/release/readable-name-generator.exe"
 elif [[ $TARGETOS == *"linux"* ]] && [[ $TARGETARCH == *"amd64"* ]]; then
 	rustup target add "x86_64-unknown-linux-gnu"
-	cargo build --release --target "x86_64-unknown-linux-gnu"
+	cargo zigbuild --release --target "x86_64-unknown-linux-gnu"
 
 	cp "/app/target/x86_64-unknown-linux-gnu/release/readable-name-generator" "/app/target/release/readable-name-generator"
 elif [[ $TARGETOS == *"linux"* ]] && [[ $TARGETARCH == *"arm64"* ]]; then
 	rustup target add "aarch64-unknown-linux-gnu"
-	cargo build --release --target "aarch64-unknown-linux-gnu"
+	cargo zigbuild --release --target "aarch64-unknown-linux-gnu"
 
 	cp "/app/target/aarch64-unknown-linux-gnu/release/readable-name-generator" "/app/target/release/readable-name-generator"
 elif [[ $TARGETOS == *"alpine"* ]] && [[ $TARGETARCH == *"amd64"* ]]; then
