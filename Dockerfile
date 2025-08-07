@@ -3,37 +3,49 @@ ARG BUILDKIT_SBOM_SCAN_CONTEXT=true
 # Download NFPM
 FROM goreleaser/nfpm@sha256:929e1056ba69bf1da57791e851d210e9d6d4f528fede53a55bd43cf85674450c AS nfpm
 
-FROM --platform=$BUILDPLATFORM rust:alpine@sha256:9dfaae478ecd298b6b5a039e1f2cc4fc040fc818a2de9aa78fa714dea036574d AS base
+# Use Debian bookworm (stable) as base instead of Alpine
+FROM --platform=$BUILDPLATFORM ubuntu AS base
 ARG BUILDKIT_SBOM_SCAN_STAGE=true
 
-RUN apk update && \
-    apk upgrade && \
-    rm -rf /var/cache/apk/*
+# Update system packages
+RUN apt-get update && \
+    apt-get upgrade -y && \
+    rm -rf /var/lib/apt/lists/*
 
-# Use bash rather than sh
-RUN apk add --no-cache bash
-SHELL ["/usr/bin/env", "bash", "-c"]
+# Use bash as default shell
+SHELL ["/bin/bash", "-c"]
 
-# Install tools required for cross-compilation and building
-RUN apk add --no-cache \
-    alpine-sdk \
-    bash \
-    binutils \
+# Install essential cross-compilation tools and development packages
+RUN apt-get update && apt-get install -y \
+    build-essential \
     bzip2 \
     ca-certificates \
-    clang \
+    cmake \
     curl \
-    gcc \
+    g++-mingw-w64 \
+    g++-multilib \
+    gcc-mingw-w64 \
+    gcc-multilib \
     git \
     libc++-dev \
-    libc-dev \
-    mingw-w64-binutils \
-    musl-dev \
-    musl-utils \
-    openssl-dev  \
+    libc++abi-dev \
+    libssl-dev \
+    lld \
+    pkg-config \
     unzip \
-    xz \
-    zig
+    wget \
+    xz-utils \
+    && rm -rf /var/lib/apt/lists/*
+
+RUN curl https://sh.rustup.rs -sSf | bash -s -- -y --profile complete --component rustfmt,clippy --target x86_64-apple-darwin,aarch64-apple-darwin,aarch64-pc-windows-gnullvm,x86_64-pc-windows-gnu,x86_64-unknown-linux-gnu,aarch64-unknown-linux-gnu,x86_64-unknown-linux-musl,aarch64-unknown-linux-musl
+
+# Install Zig
+# renovate: datasource=github-releases depName=ziglang/zig
+ARG ZIG_VERSION=0.14.1
+RUN curl -L https://ziglang.org/download/${ZIG_VERSION}/zig-x86_64-linux-${ZIG_VERSION}.tar.xz | \
+    tar -xJ -C /opt && \
+    ln -s /opt/zig-x86_64-linux-${ZIG_VERSION}/zig /usr/local/bin/zig && \
+    zig version
 
 # renovate: datasource=crate depName=cargo-binstall
 ARG CARGO_BINSTALL_VERSION=1.14.1
@@ -76,10 +88,11 @@ RUN curl -L -o /tmp/lipo https://github.com/konoui/lipo/releases/download/v${LIP
 
 RUN rustup component add rustfmt clippy
 
-RUN addgroup -S nonroot && \
-    adduser -S -G nonroot nonroot && \
+RUN addgroup --system nonroot && \
+    adduser --system --ingroup nonroot nonroot && \
     mkdir -p /app /home/nonroot/.cargo/bin/ && \
     chown -R nonroot:nonroot /app /home/nonroot
+
 COPY build/cross-platform-build /usr/local/bin/cross-platform-build
 
 WORKDIR /app

@@ -55,10 +55,9 @@ ARG TARGETARCH
 ENV TARGETPLATFORM=$TARGETPLATFORM
 ENV TARGETOS=$TARGETOS
 ENV TARGETARCH=$TARGETARCH
-ENV RUSTFLAGS="-C target-feature=+crt-static"
 # Build application
 COPY . .
-RUN cross-platform-build
+RUN TARGETOS=alpine cross-platform-build
 FROM scratch AS final
 COPY --from=docker /etc/passwd /etc/passwd
 COPY --from=docker "/app/target/release/readable-name-generator" /readable-name-generator
