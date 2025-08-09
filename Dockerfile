@@ -18,21 +18,9 @@ SHELL ["/bin/bash", "-c"]
 # Install essential cross-compilation tools and development packages
 RUN apt-get update && apt-get install -y \
     build-essential \
-    bzip2 \
     ca-certificates \
-    cmake \
     curl \
-    g++-mingw-w64 \
-    g++-multilib \
-    gcc-mingw-w64 \
-    gcc-multilib \
     git \
-    libc++-dev \
-    libc++abi-dev \
-    libssl-dev \
-    lld \
-    pkg-config \
-    unzip \
     wget \
     xz-utils \
     && rm -rf /var/lib/apt/lists/*
