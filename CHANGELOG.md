@@ -2,6 +2,26 @@
 All notable changes to this project will be documented in this file. See [conventional commits](https://www.conventionalcommits.org/) for commit guidelines.
 
 - - -
+## [v4.3.2](https://codeberg.org/PurpleBooth/readable-name-generator/compare/e043066d32331d9019d67abc690ebc84e74fa6f5..v4.3.2) - 2025-08-10
+#### Bug Fixes
+- **(deps)** pin dependencies - ([d4f4ef6](https://codeberg.org/PurpleBooth/readable-name-generator/commit/d4f4ef65e26df3de90f3399a0d6e055e98865218)) - Solace System Renovate Fox
+#### Build system
+- Dockerfile bereinigen und nicht benötigte Pakete entfernen - ([b0fd6ab](https://codeberg.org/PurpleBooth/readable-name-generator/commit/b0fd6abcb43adcc00b10cddebde4b203fa8cd108)) - Billie Thompson
+- Dockerfile und Build-Skript auf Ubuntu und Zig aktualisieren - ([831eb23](https://codeberg.org/PurpleBooth/readable-name-generator/commit/831eb2340b889e75b6b0f602ba6a13850075da7f)) - Billie Thompson
+- Ersetze zigbuild durch standard cargo build und vereinfache RUSTFLAGS - ([77fedd1](https://codeberg.org/PurpleBooth/readable-name-generator/commit/77fedd16dd3d9a538dceb07146c8b35b7a013c65)) - Billie Thompson
+- Umstellung auf Zig-Build und optimierte Rust-Kompilierungsflags - ([9ef41e2](https://codeberg.org/PurpleBooth/readable-name-generator/commit/9ef41e29e3093453eec9ad296540646e07ae3f19)) - Billie Thompson
+- Aktualisiere Cross-Platform-Build-Skript für whatismyip-Projekt - ([ab8db11](https://codeberg.org/PurpleBooth/readable-name-generator/commit/ab8db1155e33a6c18d37cf948b623d4ecf833298)) - Billie Thompson
+- Statische Rust-Binärkompilierung mit RUSTFLAGS hinzufügen - ([353a79c](https://codeberg.org/PurpleBooth/readable-name-generator/commit/353a79c32825485fec56a70e5eef7fa4a171b0e1)) - Billie Thompson
+- Erweitere Docker-Build-Plattformen um linux/amd64 und linux/arm64 - ([e043066](https://codeberg.org/PurpleBooth/readable-name-generator/commit/e043066d32331d9019d67abc690ebc84e74fa6f5)) - Billie Thompson
+#### Continuous Integration
+- Lizenzen für Docker-Images hinzufügen - ([7c2bb50](https://codeberg.org/PurpleBooth/readable-name-generator/commit/7c2bb50cf2b204aca99dc932ccd0b4d00a6a7181)) - Billie Thompson
+- docker pull hinzufügen vor cosign sign - ([c5dae4d](https://codeberg.org/PurpleBooth/readable-name-generator/commit/c5dae4da853d5707d151031fc479b574ed9161ac)) - Billie Thompson
+- Verbessere Cosign-Image-Signierung mit SHA-Digest-Verarbeitung - ([b38d95d](https://codeberg.org/PurpleBooth/readable-name-generator/commit/b38d95d566fef1b8e2283487007f66155ca2dc03)) - Billie Thompson
+- Docker-Images mit Cosign signieren - ([71c8a11](https://codeberg.org/PurpleBooth/readable-name-generator/commit/71c8a116d94a17d1b20112fcbe85e8a614204cdb)) - Billie Thompson
+- Cosign-Installation zu CI-Workflow hinzufügen - ([c24028f](https://codeberg.org/PurpleBooth/readable-name-generator/commit/c24028f8a8a784463703b25da1a727c8c2970db1)) - Billie Thompson
+
+- - -
+
 ## [v4.3.1](https://codeberg.org/PurpleBooth/readable-name-generator/compare/d2a0905847df16dcee2427eac4e2de8f6575ef4c..v4.3.1) - 2025-08-05
 #### Bug Fixes
 - **(deps)** pin ghcr.io/catthehacker/ubuntu docker tag to 0202c99 - ([02b67c8](https://codeberg.org/PurpleBooth/readable-name-generator/commit/02b67c81268763b302bf0a58cb23eb9f900ff8b7)) - Solace System Renovate Fox
