@@ -4,7 +4,7 @@ ARG BUILDKIT_SBOM_SCAN_CONTEXT=true
 FROM goreleaser/nfpm@sha256:929e1056ba69bf1da57791e851d210e9d6d4f528fede53a55bd43cf85674450c AS nfpm
 
 # Use Debian bookworm (stable) as base instead of Alpine
-FROM --platform=$BUILDPLATFORM ubuntu@sha256:a08e551cb33850e4740772b38217fc1796a66da2506d312abe51acda354ff061 AS base
+FROM --platform=$BUILDPLATFORM ubuntu@sha256:7c06e91f61fa88c08cc74f7e1b7c69ae24910d745357e0dfe1d2c0322aaf20f9 AS base
 ARG BUILDKIT_SBOM_SCAN_STAGE=true
 
 # Update system packages
