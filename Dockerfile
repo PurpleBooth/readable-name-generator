@@ -19,6 +19,7 @@ SHELL ["/bin/bash", "-c"]
 RUN apt-get update && apt-get install -y \
     build-essential \
     ca-certificates \
+    mingw-w64 \
     curl \
     git \
     wget \
