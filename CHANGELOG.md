@@ -2,6 +2,16 @@
 All notable changes to this project will be documented in this file. See [conventional commits](https://www.conventionalcommits.org/) for commit guidelines.
 
 - - -
+## [v4.3.5](https://codeberg.org/PurpleBooth/readable-name-generator/compare/932e2716e482895dc187a5419f51cbc612106cd5..v4.3.5) - 2025-08-27
+#### Bug Fixes
+- **(deps)** update ghcr.io/catthehacker/ubuntu:runner-latest docker digest to 576a953 - ([6dde750](https://codeberg.org/PurpleBooth/readable-name-generator/commit/6dde750091b3e01720d87e79a424450a8b937cc4)) - Solace System Renovate Fox
+#### Build system
+- Dockerfile um mingw-w64 für Cross-Compilation erweitern - ([9d79321](https://codeberg.org/PurpleBooth/readable-name-generator/commit/9d793219793aca3ab410d72e02a5773e889050ff)) - Billie Thompson
+#### Miscellaneous Chores
+- Abhängigkeiten auf neueste Versionen aktualisieren - ([932e271](https://codeberg.org/PurpleBooth/readable-name-generator/commit/932e2716e482895dc187a5419f51cbc612106cd5)) - Billie Thompson
+
+- - -
+
 ## [v4.3.4](https://codeberg.org/PurpleBooth/readable-name-generator/compare/91dd6ab50bd016b0a668c5af9afe29ae7abc425f..v4.3.4) - 2025-08-18
 #### Bug Fixes
 - **(deps)** update ghcr.io/catthehacker/ubuntu:runner-latest docker digest to 25811a7 - ([03b768b](https://codeberg.org/PurpleBooth/readable-name-generator/commit/03b768b0bd7518c6a8d7ff693f2946b3ca14f4d2)) - Solace System Renovate Fox
