@@ -30,7 +30,7 @@ RUN curl https://sh.rustup.rs -sSf | bash -s -- -y --profile complete --componen
 
 # Install Zig
 # renovate: datasource=github-releases depName=ziglang/zig
-ARG ZIG_VERSION=0.14.1
+ARG ZIG_VERSION=0.15.1
 RUN curl -L https://ziglang.org/download/${ZIG_VERSION}/zig-x86_64-linux-${ZIG_VERSION}.tar.xz | \
     tar -xJ -C /opt && \
     ln -s /opt/zig-x86_64-linux-${ZIG_VERSION}/zig /usr/local/bin/zig && \
