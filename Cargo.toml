@@ -18,5 +18,5 @@ path = "src/main.rs"
 rand = { version = "0.9.2" }
 anarchist-readable-name-generator-lib = "0.2.0"
 clap_complete = "4.5.57"
-clap = { version = "4.5.46", features = ["derive", "cargo", "wrap_help", "env", "unicode" ] }
+clap = { version = "4.5.47", features = ["derive", "cargo", "wrap_help", "env", "unicode" ] }
 miette = { version = "7.6.0", features = ["fancy"] }
