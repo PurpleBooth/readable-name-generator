@@ -2,6 +2,16 @@
 All notable changes to this project will be documented in this file. See [conventional commits](https://www.conventionalcommits.org/) for commit guidelines.
 
 - - -
+## [v4.3.6](https://codeberg.org/PurpleBooth/readable-name-generator/compare/781ed4a94eac9e5229ade777f64ee44cd6ae770c..v4.3.6) - 2025-09-08
+#### Bug Fixes
+- **(deps)** update ubuntu docker digest to 9cbed75 - ([4edd9e6](https://codeberg.org/PurpleBooth/readable-name-generator/commit/4edd9e660e69f5b594c3e2a4afbf8e4672703855)) - Solace System Renovate Fox
+- **(deps)** update rust crate clap to v4.5.47 - ([3cba12f](https://codeberg.org/PurpleBooth/readable-name-generator/commit/3cba12fc22b777e0ca44c1a12ac8f9104c3e4b16)) - Solace System Renovate Fox
+#### Miscellaneous Chores
+- **(deps)** update dependency ziglang/zig to v0.15.1 - ([781ed4a](https://codeberg.org/PurpleBooth/readable-name-generator/commit/781ed4a94eac9e5229ade777f64ee44cd6ae770c)) - Solace System Renovate Fox
+- Aktualisiere Cargo-Abhängigkeiten auf neueste Versionen - ([e6f2c26](https://codeberg.org/PurpleBooth/readable-name-generator/commit/e6f2c2602a598b871588fc2e5c6514e497745c17)) - Billie Thompson
+
+- - -
+
 ## [v4.3.5](https://codeberg.org/PurpleBooth/readable-name-generator/compare/932e2716e482895dc187a5419f51cbc612106cd5..v4.3.5) - 2025-08-27
 #### Bug Fixes
 - **(deps)** update ghcr.io/catthehacker/ubuntu:runner-latest docker digest to 576a953 - ([6dde750](https://codeberg.org/PurpleBooth/readable-name-generator/commit/6dde750091b3e01720d87e79a424450a8b937cc4)) - Solace System Renovate Fox
