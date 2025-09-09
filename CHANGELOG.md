@@ -2,6 +2,15 @@
 All notable changes to this project will be documented in this file. See [conventional commits](https://www.conventionalcommits.org/) for commit guidelines.
 
 - - -
+## [v4.3.7](https://codeberg.org/PurpleBooth/readable-name-generator/compare/1ed660fd70868b4ea9e68d300c7198272957affa..v4.3.7) - 2025-09-09
+#### Bug Fixes
+- **(deps)** update goreleaser/nfpm docker digest to f1e9f1a - ([4491454](https://codeberg.org/PurpleBooth/readable-name-generator/commit/44914545b45c782c491bb40ae36c8c4c79ddbf34)) - Solace System Renovate Fox
+#### Miscellaneous Chores
+- **(deps)** update https://code.forgejo.org/docker/bake-action digest to 3acf805 - ([0f92009](https://codeberg.org/PurpleBooth/readable-name-generator/commit/0f92009faf9e7ef2e270efc6ddc9aaa965de8462)) - Solace System Renovate Fox
+- **(deps)** update dependency mikefarah/yq to v4.47.2 - ([1ed660f](https://codeberg.org/PurpleBooth/readable-name-generator/commit/1ed660fd70868b4ea9e68d300c7198272957affa)) - Solace System Renovate Fox
+
+- - -
+
 ## [v4.3.6](https://codeberg.org/PurpleBooth/readable-name-generator/compare/781ed4a94eac9e5229ade777f64ee44cd6ae770c..v4.3.6) - 2025-09-08
 #### Bug Fixes
 - **(deps)** update ubuntu docker digest to 9cbed75 - ([4edd9e6](https://codeberg.org/PurpleBooth/readable-name-generator/commit/4edd9e660e69f5b594c3e2a4afbf8e4672703855)) - Solace System Renovate Fox
