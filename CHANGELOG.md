@@ -2,6 +2,15 @@
 All notable changes to this project will be documented in this file. See [conventional commits](https://www.conventionalcommits.org/) for commit guidelines.
 
 - - -
+## [v4.3.10](https://codeberg.org/PurpleBooth/readable-name-generator/compare/e4969837e5bbb147de56b7e3666611a1ebaa8fe5..v4.3.10) - 2025-09-27
+#### Bug Fixes
+- **(deps)** update ghcr.io/catthehacker/ubuntu:runner-latest docker digest to fb52474 - ([daa948b](https://codeberg.org/PurpleBooth/readable-name-generator/commit/daa948b35f63cd6f8d978e670f10fbc466b153df)) - Solace System Renovate Fox
+#### Miscellaneous Chores
+- **(deps)** update rust crate clap_complete to v4.5.58 - ([8ca1179](https://codeberg.org/PurpleBooth/readable-name-generator/commit/8ca1179e7176fb0f4d7b8442dd4a7d56aa08f2c9)) - Solace System Renovate Fox
+- **(deps)** update rust crate clap to v4.5.48 - ([e496983](https://codeberg.org/PurpleBooth/readable-name-generator/commit/e4969837e5bbb147de56b7e3666611a1ebaa8fe5)) - Solace System Renovate Fox
+
+- - -
+
 ## [v4.3.9](https://codeberg.org/PurpleBooth/readable-name-generator/compare/1336b8d7ff8569be766745a62d321fb0ad74b163..v4.3.9) - 2025-09-22
 #### Bug Fixes
 - **(deps)** update ubuntu docker digest to 353675e - ([1336b8d](https://codeberg.org/PurpleBooth/readable-name-generator/commit/1336b8d7ff8569be766745a62d321fb0ad74b163)) - Solace System Renovate Fox
