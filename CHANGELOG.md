@@ -2,6 +2,14 @@
 All notable changes to this project will be documented in this file. See [conventional commits](https://www.conventionalcommits.org/) for commit guidelines.
 
 - - -
+## [v4.3.11](https://codeberg.org/PurpleBooth/readable-name-generator/compare/6314eaa04c899b52d6d418f67c6559ad58c23e6c..v4.3.11) - 2025-10-03
+#### Bug Fixes
+- **(deps)** update ubuntu docker digest to 728785b - ([6314eaa](https://codeberg.org/PurpleBooth/readable-name-generator/commit/6314eaa04c899b52d6d418f67c6559ad58c23e6c)) - Solace System Renovate Fox
+#### Miscellaneous Chores
+- **(deps)** update https://code.forgejo.org/docker/login-action digest to 5e57cd1 - ([35d4b13](https://codeberg.org/PurpleBooth/readable-name-generator/commit/35d4b13607384dbdd5aae9796e47d303597ae113)) - Solace System Renovate Fox
+
+- - -
+
 ## [v4.3.10](https://codeberg.org/PurpleBooth/readable-name-generator/compare/e4969837e5bbb147de56b7e3666611a1ebaa8fe5..v4.3.10) - 2025-09-27
 #### Bug Fixes
 - **(deps)** update ghcr.io/catthehacker/ubuntu:runner-latest docker digest to fb52474 - ([daa948b](https://codeberg.org/PurpleBooth/readable-name-generator/commit/daa948b35f63cd6f8d978e670f10fbc466b153df)) - Solace System Renovate Fox
