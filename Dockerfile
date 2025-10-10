@@ -1,7 +1,7 @@
 ARG BUILDKIT_SBOM_SCAN_CONTEXT=true
 
 # Download NFPM
-FROM goreleaser/nfpm@sha256:90720c4efb125ff8a2d15da923a4968b2360f39e164bf97dac78127d394f39ad AS nfpm
+FROM goreleaser/nfpm@sha256:c3e0280ee9b7a3ac3916897ab22c25d027ae32dc56841e5de6d1873ca7bd9ee1 AS nfpm
 
 # Use Debian bookworm (stable) as base instead of Alpine
 FROM --platform=$BUILDPLATFORM ubuntu@sha256:59a458b76b4e8896031cd559576eac7d6cb53a69b38ba819fb26518536368d86 AS base
