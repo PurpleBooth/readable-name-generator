@@ -2,6 +2,12 @@
 All notable changes to this project will be documented in this file. See [conventional commits](https://www.conventionalcommits.org/) for commit guidelines.
 
 - - -
+## [v4.3.14](https://codeberg.org/PurpleBooth/readable-name-generator/compare/433adc6af66f29dbd2549e6b3b151167c64e9464..v4.3.14) - 2025-10-10
+#### Bug Fixes
+- **(deps)** update ubuntu docker digest to 59a458b - ([433adc6](https://codeberg.org/PurpleBooth/readable-name-generator/commit/433adc6af66f29dbd2549e6b3b151167c64e9464)) - Solace System Renovate Fox
+
+- - -
+
 ## [v4.3.13](https://codeberg.org/PurpleBooth/readable-name-generator/compare/00f41166ee3904dba9d3c7abeeea0975e50bd2d4..v4.3.13) - 2025-10-07
 #### Bug Fixes
 - **(deps)** update goreleaser/nfpm docker digest to 90720c4 - ([c4d089b](https://codeberg.org/PurpleBooth/readable-name-generator/commit/c4d089ba697922ba3141446e447e9a960cc1fede)) - Solace System Renovate Fox
