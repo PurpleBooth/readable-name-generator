@@ -2,6 +2,15 @@
 All notable changes to this project will be documented in this file. See [conventional commits](https://www.conventionalcommits.org/) for commit guidelines.
 
 - - -
+## [v4.3.16](https://codeberg.org/PurpleBooth/readable-name-generator/compare/8f7336ce426017783c6ab1d249ff4d4f40c8768d..v4.3.16) - 2025-10-22
+#### Bug Fixes
+- (**deps**) update ghcr.io/catthehacker/ubuntu:runner-latest docker digest to fbefcd3 - ([7f9b04e](https://codeberg.org/PurpleBooth/readable-name-generator/commit/7f9b04ead3c2c78a02f26764ac05b55a5a53d0d9)) - Solace System Renovate Fox
+- (**deps**) update ubuntu docker digest to 66460d5 - ([143c0b8](https://codeberg.org/PurpleBooth/readable-name-generator/commit/143c0b8a21a63b93958c4ee4195fad2c9c82982a)) - Solace System Renovate Fox
+#### Style
+- (**yamlfix**) apply auto-fixes - ([8f7336c](https://codeberg.org/PurpleBooth/readable-name-generator/commit/8f7336ce426017783c6ab1d249ff4d4f40c8768d)) - Solace System Renovate Fox [bot]
+
+- - -
+
 ## [v4.3.15](https://codeberg.org/PurpleBooth/readable-name-generator/compare/176043ea88333b56419ba57a8dd0a8fb53e36d68..v4.3.15) - 2025-10-11
 #### Bug Fixes
 - **(deps)** update goreleaser/nfpm docker digest to c3e0280 - ([176043e](https://codeberg.org/PurpleBooth/readable-name-generator/commit/176043ea88333b56419ba57a8dd0a8fb53e36d68)) - Solace System Renovate Fox
