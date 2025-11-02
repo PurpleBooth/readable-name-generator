@@ -19,9 +19,9 @@ checksum = "320119579fcad9c21884f5c4861d16174d0e06250625266f50fe6898340abefa"
 
 [[package]]
 name = "anarchist-readable-name-generator-lib"
-version = "0.2.0"
+version = "0.2.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "09a645c34bad5551ed4b2496536985efdc4373b097c0e57abf2eb14774538278"
+checksum = "653e8243a8f9488a96a8c97f67e480ea5397cc580bbfa717eb43b70dffb9fd70"
 dependencies = [
  "rand",
 ]
