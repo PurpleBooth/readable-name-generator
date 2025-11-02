@@ -2,6 +2,14 @@
 All notable changes to this project will be documented in this file. See [conventional commits](https://www.conventionalcommits.org/) for commit guidelines.
 
 - - -
+## [v4.3.19](https://codeberg.org/PurpleBooth/readable-name-generator/compare/711f9ebdb1065333f4105956725bae9d6fc145a3..v4.3.19) - 2025-11-02
+#### Bug Fixes
+- (**deps**) update ghcr.io/catthehacker/ubuntu:runner-latest docker digest to 2a52cbd - ([7ef61ad](https://codeberg.org/PurpleBooth/readable-name-generator/commit/7ef61ad1c197a205df3f11ac3727fda94f6b12a8)) - Solace System Renovate Fox
+#### Miscellaneous Chores
+- (**deps**) update rust crate anarchist-readable-name-generator-lib to v0.2.1 - ([711f9eb](https://codeberg.org/PurpleBooth/readable-name-generator/commit/711f9ebdb1065333f4105956725bae9d6fc145a3)) - Solace System Renovate Fox
+
+- - -
+
 ## [v4.3.18](https://codeberg.org/PurpleBooth/readable-name-generator/compare/bc73272caff30cc66185e8df7ed5e3675a52a632..v4.3.18) - 2025-11-01
 #### Bug Fixes
 - (**deps**) update ghcr.io/catthehacker/ubuntu:runner-latest docker digest to a0e93a0 - ([7c4b4f0](https://codeberg.org/PurpleBooth/readable-name-generator/commit/7c4b4f02a36e32d235a763fffa458f36cd54afd5)) - Solace System Renovate Fox
