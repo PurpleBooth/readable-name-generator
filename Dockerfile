@@ -37,7 +37,7 @@ RUN curl -L https://ziglang.org/download/${ZIG_VERSION}/zig-x86_64-linux-${ZIG_V
     zig version
 
 # renovate: datasource=crate depName=cargo-binstall
-ARG CARGO_BINSTALL_VERSION=1.14.1
+ARG CARGO_BINSTALL_VERSION=1.16.0
 RUN wget https://github.com/cargo-bins/cargo-binstall/releases/download/v${CARGO_BINSTALL_VERSION}/cargo-binstall-x86_64-unknown-linux-musl.full.tgz -O - | \
     tar -xz && \
     mv cargo-binstall /usr/local/bin/
