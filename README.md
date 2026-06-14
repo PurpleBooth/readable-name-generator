@@ -26,11 +26,11 @@ flexible_briseglace
 
 ### Changing the separator
 
-``` shell,script(name="seperator")
+``` shell,script(name="separator")
 readable-name-generator --initial-seed 1 --separator "###"
 ```
 
-``` shell,verify(script_name="seperator")
+``` shell,verify(script_name="separator")
 flexible###briseglace
 ```
 
@@ -38,11 +38,11 @@ flexible###briseglace
 
 You can further reduce the chance of a collision by suffixing a random number
 
-``` shell,script(name="seperator")
+``` shell,script(name="suffix")
 readable-name-generator --initial-seed 1 --suffix
 ```
 
-``` shell,verify(script_name="seperator")
+``` shell,verify(script_name="suffix")
 vivacious_demibold8
 ```
 
@@ -79,7 +79,7 @@ Options:
 We also have a docker image
 
 ``` shell,skip()
-docker run --rm -it ghcr.io/purplebooth/readable-name-generator:latest -i 1
+docker run --rm -it codeberg.org/purplebooth/readable-name-generator:latest -i 1
 ```
 
 ``` shell,skip()
@@ -138,7 +138,7 @@ just fmt
 We have a docker container
 
 ``` shell,skip()
-docker build -t "codeberg.org/purplebooth/readable-name-generator:latest"
+docker build -t "codeberg.org/purplebooth/readable-name-generator:latest" .
 docker run --rm -it codeberg.org/purplebooth/readable-name-generator:latest -i 1
 ```
 
