@@ -86,8 +86,6 @@ fn generate_name(args: &CliArgs) -> String {
 
 /// Main entry point for the application
 fn main() {
-    miette::set_panic_hook();
-
     let args: CliArgs = CliArgs::parse();
 
     if let Some(shell) = args.completion_shell {
