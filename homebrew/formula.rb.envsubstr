@@ -1,5 +1,5 @@
 class ReadableNameGenerator < Formula
-  desc "Generate a readable names suitable for infrastructure"
+  desc "Generate readable names suitable for infrastructure"
   homepage "https://codeberg.org/${GITHUB_REPOSITORY}"
   url "https://codeberg.org/${GITHUB_REPOSITORY}/archive/${GITHUB_REF_NAME}.tar.gz"
   sha256 "${FILE_SHA}"

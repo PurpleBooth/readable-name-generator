@@ -10,7 +10,7 @@ version: ${VER}
 section: default
 priority: extra
 maintainer: Billie Thompson <billie@billiecodes.com>
-description: Generate a readable names suitable for infrastructure
+description: Generate readable names suitable for infrastructure
 vendor: PurpleBooth
 homepage: https://codeberg.org/PurpleBooth/readable-name-generator
 license: CC0
