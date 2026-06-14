@@ -16,35 +16,21 @@ pub struct Arguments {
     pub separator: String,
 
     /// Suffix a random number to prevent collisions
-    #[clap(
-        short = 'n',
-        long,
-        value_parser,
-        env = "READABLE_NAME_GENERATOR_SUFFIX",
-        default_value_t = false
-    )]
+    #[clap(short = 'n', long, env = "READABLE_NAME_GENERATOR_SUFFIX")]
     pub suffix: bool,
 
     /// Use a known seed to generate the readable name for repeatability
-    #[clap(
-        short,
-        long,
-        value_parser,
-        env = "READABLE_NAME_GENERATOR_INITIAL_SEED",
-        required = false
-    )]
+    #[clap(short, long, env = "READABLE_NAME_GENERATOR_INITIAL_SEED")]
     pub initial_seed: Option<u64>,
 
     /// Generate completion for your shell
     #[clap(
         short,
         long,
-        value_parser,
         env,
         conflicts_with = "suffix",
         conflicts_with = "separator",
-        conflicts_with = "initial_seed",
-        required = false
+        conflicts_with = "initial_seed"
     )]
     pub completion_shell: Option<Shell>,
 }

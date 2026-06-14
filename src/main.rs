@@ -164,6 +164,30 @@ mod tests {
     }
 
     #[test]
+    fn cli_separator_defaults_to_underscore() {
+        let args = CliArgs::parse_from(["program"]);
+        assert_eq!(args.separator, "_");
+    }
+
+    #[test]
+    fn cli_suffix_defaults_to_false() {
+        let args = CliArgs::parse_from(["program"]);
+        assert!(!args.suffix);
+    }
+
+    #[test]
+    fn cli_initial_seed_defaults_to_none() {
+        let args = CliArgs::parse_from(["program"]);
+        assert_eq!(args.initial_seed, None);
+    }
+
+    #[test]
+    fn cli_completion_shell_conflicts_with_suffix() {
+        let result = CliArgs::try_parse_from(["program", "--completion-shell", "bash", "--suffix"]);
+        assert!(result.is_err());
+    }
+
+    #[test]
     fn test_completion_shell() {
         // Verify completion shell functionality
         let result = panic::catch_unwind(|| {
