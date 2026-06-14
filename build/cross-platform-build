@@ -13,33 +13,33 @@ set -xeuo pipefail
 # =====================================================================
 # Check if the target is Mac (darwin)
 if [[ $TARGETOS == *"darwin"* ]]; then
-	cargo zigbuild --release --target "x86_64-apple-darwin"
-	cargo zigbuild --release --target "aarch64-apple-darwin"
-	mkdir -p "/app/target/universal/release"
-	lipo -create \
-		"/app/target/x86_64-apple-darwin/release/readable-name-generator" \
-		"/app/target/aarch64-apple-darwin/release/readable-name-generator" \
-		-output "/app/target/universal/release/readable-name-generator"
-	cp "/app/target/universal/release/readable-name-generator" "/app/target/release/readable-name-generator"
+  cargo zigbuild --release --target "x86_64-apple-darwin"
+  cargo zigbuild --release --target "aarch64-apple-darwin"
+  mkdir -p "/app/target/universal/release"
+  lipo -create \
+    "/app/target/x86_64-apple-darwin/release/readable-name-generator" \
+    "/app/target/aarch64-apple-darwin/release/readable-name-generator" \
+    -output "/app/target/universal/release/readable-name-generator"
+  cp "/app/target/universal/release/readable-name-generator" "/app/target/release/readable-name-generator"
 elif [[ $TARGETOS == *"windows"* ]] && [[ $TARGETARCH == *"arm64"* ]]; then
-	cargo zigbuild --release --target "aarch64-pc-windows-gnullvm"
-	cp "/app/target/aarch64-pc-windows-gnullvm/release/readable-name-generator.exe" "/app/target/release/readable-name-generator.exe"
+  cargo zigbuild --release --target "aarch64-pc-windows-gnullvm"
+  cp "/app/target/aarch64-pc-windows-gnullvm/release/readable-name-generator.exe" "/app/target/release/readable-name-generator.exe"
 elif [[ $TARGETOS == *"windows"* ]] && [[ $TARGETARCH == *"amd64"* ]]; then
-	cargo zigbuild --release --target "x86_64-pc-windows-gnu"
-	cp "/app/target/x86_64-pc-windows-gnu/release/readable-name-generator.exe" "/app/target/release/readable-name-generator.exe"
+  cargo zigbuild --release --target "x86_64-pc-windows-gnu"
+  cp "/app/target/x86_64-pc-windows-gnu/release/readable-name-generator.exe" "/app/target/release/readable-name-generator.exe"
 elif [[ $TARGETOS == *"linux"* ]] && [[ $TARGETARCH == *"amd64"* ]]; then
-	cargo zigbuild --release --target "x86_64-unknown-linux-gnu"
-	cp "/app/target/x86_64-unknown-linux-gnu/release/readable-name-generator" "/app/target/release/readable-name-generator"
+  cargo zigbuild --release --target "x86_64-unknown-linux-gnu"
+  cp "/app/target/x86_64-unknown-linux-gnu/release/readable-name-generator" "/app/target/release/readable-name-generator"
 elif [[ $TARGETOS == *"linux"* ]] && [[ $TARGETARCH == *"arm64"* ]]; then
-	cargo zigbuild --release --target "aarch64-unknown-linux-gnu"
-	cp "/app/target/aarch64-unknown-linux-gnu/release/readable-name-generator" "/app/target/release/readable-name-generator"
+  cargo zigbuild --release --target "aarch64-unknown-linux-gnu"
+  cp "/app/target/aarch64-unknown-linux-gnu/release/readable-name-generator" "/app/target/release/readable-name-generator"
 elif [[ $TARGETOS == *"alpine"* ]] && [[ $TARGETARCH == *"amd64"* ]]; then
-	cargo zigbuild --release --target "x86_64-unknown-linux-musl"
-	cp "/app/target/x86_64-unknown-linux-musl/release/readable-name-generator" "/app/target/release/readable-name-generator"
+  cargo zigbuild --release --target "x86_64-unknown-linux-musl"
+  cp "/app/target/x86_64-unknown-linux-musl/release/readable-name-generator" "/app/target/release/readable-name-generator"
 elif [[ $TARGETOS == *"alpine"* ]] && [[ $TARGETARCH == *"arm64"* ]]; then
-	cargo zigbuild --release --target "aarch64-unknown-linux-musl"
-	cp "/app/target/aarch64-unknown-linux-musl/release/readable-name-generator" "/app/target/release/readable-name-generator"
+  cargo zigbuild --release --target "aarch64-unknown-linux-musl"
+  cp "/app/target/aarch64-unknown-linux-musl/release/readable-name-generator" "/app/target/release/readable-name-generator"
 else
-	echo "Target unsupported"
-	exit 1
+  echo "Target unsupported"
+  exit 1
 fi
