@@ -39,7 +39,6 @@
 use clap::Parser;
 
 use clap::CommandFactory;
-use miette::Result;
 use rand::prelude::*;
 use std::io::stdout;
 
@@ -51,59 +50,42 @@ mod cli;
 use crate::cli::Arguments as CliArgs;
 
 /// Generate a name based on args (separated for testability)
-///
-/// # Errors
-///
-/// Returns an error if the separator is not available
-fn generate_name(args: &CliArgs) -> Result<String> {
-    let separator = args
-        .separator
-        .clone()
-        .ok_or_else(|| miette::miette!("Failed to get default value for separator"))?;
-
+fn generate_name(args: &CliArgs) -> String {
     match args {
         CliArgs {
             suffix: true,
             initial_seed: Some(seed),
             ..
-        } => Ok(
-            anarchist_readable_name_generator_lib::readable_name_custom_suffix(
-                &separator,
-                SmallRng::seed_from_u64(*seed),
-            ),
+        } => anarchist_readable_name_generator_lib::readable_name_custom_suffix(
+            &args.separator,
+            SmallRng::seed_from_u64(*seed),
         ),
         CliArgs {
             suffix: false,
             initial_seed: Some(seed),
             ..
-        } => Ok(anarchist_readable_name_generator_lib::readable_name_custom(
-            &separator,
+        } => anarchist_readable_name_generator_lib::readable_name_custom(
+            &args.separator,
             SmallRng::seed_from_u64(*seed),
-        )),
+        ),
         CliArgs {
             suffix: true,
             initial_seed: None,
             ..
-        } => Ok(
-            anarchist_readable_name_generator_lib::readable_name_custom_suffix(&separator, rng()),
+        } => anarchist_readable_name_generator_lib::readable_name_custom_suffix(
+            &args.separator,
+            rng(),
         ),
         CliArgs {
             suffix: false,
             initial_seed: None,
             ..
-        } => Ok(anarchist_readable_name_generator_lib::readable_name_custom(
-            &separator,
-            rng(),
-        )),
+        } => anarchist_readable_name_generator_lib::readable_name_custom(&args.separator, rng()),
     }
 }
 
 /// Main entry point for the application
-///
-/// # Errors
-///
-/// Returns an error if there's an issue generating the name
-fn main() -> Result<()> {
+fn main() {
     miette::set_panic_hook();
 
     let args: CliArgs = CliArgs::parse();
@@ -113,13 +95,11 @@ fn main() -> Result<()> {
         let name = cmd.get_name().to_string();
         generate(shell, &mut cmd, name, &mut stdout());
 
-        return Ok(());
+        return;
     }
 
-    let name = generate_name(&args)?;
+    let name = generate_name(&args);
     println!("{name}");
-
-    Ok(())
 }
 
 #[cfg(test)]
@@ -130,6 +110,58 @@ mod tests {
     use std::panic;
     use std::process::Command;
     use std::str;
+
+    #[test]
+    fn generate_name_with_default_args() {
+        let args = CliArgs::parse_from(["program"]);
+        let name = generate_name(&args);
+        assert!(!name.is_empty(), "Generated name should not be empty");
+        assert!(
+            name.contains('_'),
+            "Default name should contain '_' separator"
+        );
+    }
+
+    #[test]
+    fn generate_name_with_custom_separator() {
+        let args = CliArgs::parse_from(["program", "--separator", "-"]);
+        let name = generate_name(&args);
+        assert!(
+            name.contains('-'),
+            "Name should contain custom separator '-'"
+        );
+    }
+
+    #[test]
+    fn generate_name_is_deterministic_with_seed() {
+        let args1 = CliArgs::parse_from(["program", "--initial-seed", "42"]);
+        let args2 = CliArgs::parse_from(["program", "--initial-seed", "42"]);
+        let name1 = generate_name(&args1);
+        let name2 = generate_name(&args2);
+        assert_eq!(name1, name2, "Same seed should produce same name");
+    }
+
+    #[test]
+    fn generate_name_with_suffix_ends_in_number() {
+        let args = CliArgs::parse_from(["program", "--initial-seed", "42", "--suffix"]);
+        let name = generate_name(&args);
+        assert!(
+            name.trim_end().ends_with(char::is_numeric),
+            "Suffixed name should end with a number"
+        );
+    }
+
+    #[test]
+    fn generate_name_seed_changes_output() {
+        let args1 = CliArgs::parse_from(["program", "--initial-seed", "1"]);
+        let args2 = CliArgs::parse_from(["program", "--initial-seed", "2"]);
+        let name1 = generate_name(&args1);
+        let name2 = generate_name(&args2);
+        assert_ne!(
+            name1, name2,
+            "Different seeds should produce different names"
+        );
+    }
 
     #[test]
     fn test_completion_shell() {

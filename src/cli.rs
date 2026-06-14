@@ -10,11 +10,10 @@ pub struct Arguments {
     #[clap(
         short,
         long,
-        value_parser,
         env = "READABLE_NAME_GENERATOR_SEPARATOR",
         default_value = "_"
     )]
-    pub separator: Option<String>,
+    pub separator: String,
 
     /// Suffix a random number to prevent collisions
     #[clap(
