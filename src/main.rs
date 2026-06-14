@@ -51,36 +51,13 @@ use crate::cli::Arguments as CliArgs;
 
 /// Generate a name based on args (separated for testability)
 fn generate_name(args: &CliArgs) -> String {
-    match args {
-        CliArgs {
-            suffix: true,
-            initial_seed: Some(seed),
-            ..
-        } => anarchist_readable_name_generator_lib::readable_name_custom_suffix(
-            &args.separator,
-            SmallRng::seed_from_u64(*seed),
-        ),
-        CliArgs {
-            suffix: false,
-            initial_seed: Some(seed),
-            ..
-        } => anarchist_readable_name_generator_lib::readable_name_custom(
-            &args.separator,
-            SmallRng::seed_from_u64(*seed),
-        ),
-        CliArgs {
-            suffix: true,
-            initial_seed: None,
-            ..
-        } => anarchist_readable_name_generator_lib::readable_name_custom_suffix(
-            &args.separator,
-            rng(),
-        ),
-        CliArgs {
-            suffix: false,
-            initial_seed: None,
-            ..
-        } => anarchist_readable_name_generator_lib::readable_name_custom(&args.separator, rng()),
+    let rng = args
+        .initial_seed
+        .map_or_else(|| SmallRng::from_rng(&mut rng()), SmallRng::seed_from_u64);
+    if args.suffix {
+        anarchist_readable_name_generator_lib::readable_name_custom_suffix(&args.separator, rng)
+    } else {
+        anarchist_readable_name_generator_lib::readable_name_custom(&args.separator, rng)
     }
 }
 
@@ -146,6 +123,16 @@ mod tests {
         assert!(
             name.trim_end().ends_with(char::is_numeric),
             "Suffixed name should end with a number"
+        );
+    }
+
+    #[test]
+    fn generate_name_with_suffix_no_seed_ends_in_number() {
+        let args = CliArgs::parse_from(["program", "--suffix"]);
+        let name = generate_name(&args);
+        assert!(
+            name.trim_end().ends_with(char::is_numeric),
+            "Suffixed name should end with a number even without a seed"
         );
     }
 
