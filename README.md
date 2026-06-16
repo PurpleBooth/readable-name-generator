@@ -21,7 +21,7 @@ readable-name-generator --initial-seed 1
 ```
 
 ``` shell,verify(script_name="running")
-flexible_briseglace
+efficient_briseglace
 ```
 
 ### Changing the separator
@@ -31,7 +31,7 @@ readable-name-generator --initial-seed 1 --separator "###"
 ```
 
 ``` shell,verify(script_name="separator")
-flexible###briseglace
+efficient###briseglace
 ```
 
 ### Randomized Suffix
@@ -43,7 +43,7 @@ readable-name-generator --initial-seed 1 --suffix
 ```
 
 ``` shell,verify(script_name="suffix")
-vivacious_demibold8
+vibrant_demibold8
 ```
 
 ### Full usage
@@ -83,7 +83,7 @@ docker run --rm -it codeberg.org/purplebooth/readable-name-generator:latest -i 1
 ```
 
 ``` shell,skip()
-flexible_briseglace
+efficient_briseglace
 ```
 
 ## Installing
@@ -143,7 +143,7 @@ docker run --rm -it codeberg.org/purplebooth/readable-name-generator:latest -i 1
 ```
 
 ``` shell,skip()
-flexible_briseglace
+efficient_briseglace
 ```
 
 ## License

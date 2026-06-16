@@ -2,7 +2,7 @@
 name = "readable-name-generator"
 description = "Generate a readable name for throwaway infrastructure"
 version = "4.3.21"
-edition = "2021"
+edition = "2024"
 license = "CC0-1.0"
 repository = "https://codeberg.org/PurpleBooth/readable-name-generator.git"
 keywords = ["names", "utility"]
@@ -15,7 +15,7 @@ name = "readable-name-generator"
 path = "src/main.rs"
 
 [dependencies]
-rand = { version = "0.9.4" }
-anarchist-readable-name-generator-lib = "0.2.0"
-clap_complete = "4.5.57"
-clap = { version = "4.5.47", features = ["derive", "cargo", "wrap_help", "env", "unicode" ] }
+rand = { version = "0.9" }
+anarchist-readable-name-generator-lib = "0.2"
+clap_complete = "4"
+clap = { version = "4", features = ["derive", "cargo", "wrap_help", "env", "unicode" ] }
