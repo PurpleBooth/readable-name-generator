@@ -19,3 +19,14 @@ rand = { version = "0.9" }
 anarchist-readable-name-generator-lib = "0.2"
 clap_complete = "4"
 clap = { version = "4", features = ["derive", "cargo", "wrap_help", "env", "unicode" ] }
+[profile.release-max]
+inherits = "release"
+opt-level = 3
+lto = "fat"
+codegen-units = 1
+panic = "abort"
+debug = false
+debug-assertions = false
+overflow-checks = false
+incremental = false
+strip = "symbols"
