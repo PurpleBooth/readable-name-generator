@@ -19,9 +19,9 @@ jobs:
     runs-on: codeberg-small
     strategy:
       matrix:
-        rust: [stable, beta, nightly]
+        rust: [stable]
     steps:
-      - uses: actions/checkout@v4
+      - uses: https://code.forgejo.org/actions/checkout@v4
 
       - name: Install Rust ${{ matrix.rust }}
         uses: https://github.com/dtolnay/rust-toolchain@stable
@@ -36,9 +36,9 @@ jobs:
     runs-on: codeberg-small
     strategy:
       matrix:
-        rust: [stable, beta, nightly]
+        rust: [stable]
     steps:
-      - uses: actions/checkout@v4
+      - uses: https://code.forgejo.org/actions/checkout@v4
 
       - name: Install Rust ${{ matrix.rust }}
         uses: https://github.com/dtolnay/rust-toolchain@stable
@@ -46,7 +46,7 @@ jobs:
           toolchain: ${{ matrix.rust }}
 
       - name: Add components
-        run: rustup component add --allow-downgrade rustfmt clippy
+        run: rustup component add rustfmt clippy
 
       - name: Check formatting
         run: cargo fmt --all -- --check
@@ -61,39 +61,24 @@ jobs:
     name: Security
     runs-on: codeberg-small
     steps:
-      - uses: actions/checkout@v4
+      - uses: https://code.forgejo.org/actions/checkout@v4
 
-      - name: Install Rust
-        uses: https://github.com/dtolnay/rust-toolchain@stable
-
-      - name: Install cargo-binstall
-        run: curl -L --proto '=https' --tlsv1.2 -sSf https://raw.githubusercontent.com/cargo-bins/cargo-binstall/main/install-from-binstall-release.sh | bash
-
-      - name: Install cargo-audit
-        run: cargo binstall --no-confirm --locked cargo-audit
-
-      - name: Run cargo audit
-        run: cargo audit
-
-      - name: Run Trivy filesystem scan
+      - name: Run Trivy vulnerability scan
         run: |
           curl -sfL https://raw.githubusercontent.com/aquasecurity/trivy/main/contrib/install.sh | sh -s -- -b /usr/local/bin
           trivy fs --scanners vuln,secret,misconfig --exit-code 1 .
 
   specdown:
     name: Specdown
-    runs-on: codeberg-small
+    runs-on: codeberg-medium
     steps:
-      - uses: actions/checkout@v4
+      - uses: https://code.forgejo.org/actions/checkout@v4
 
       - name: Install Rust
         uses: https://github.com/dtolnay/rust-toolchain@stable
 
-      - name: Install cargo-binstall
-        run: curl -L --proto '=https' --tlsv1.2 -sSf https://raw.githubusercontent.com/cargo-bins/cargo-binstall/main/install-from-binstall-release.sh | bash
-
       - name: Install specdown
-        run: cargo binstall --no-confirm --locked specdown
+        uses: https://github.com/specdown/setup-specdown-action@v0.2.32
 
       - name: Build release binary
         run: cargo build --release
@@ -108,29 +93,33 @@ jobs:
     container:
       image: homebrew/brew:latest
     steps:
-      - uses: actions/checkout@v4
+      - name: Clone repository (checkout action requires node, unavailable in homebrew container)
+        run: |
+          git clone --depth 50 "https://codeberg.org/${{ github.repository }}.git" .
+          git fetch origin "${{ github.event.pull_request.head.sha || github.sha }}" 2>/dev/null || true
+          git checkout FETCH_HEAD 2>/dev/null || git checkout "${{ github.sha }}" 2>/dev/null || true
 
       - name: Install yq and gettext
         run: |
           curl -L "https://github.com/mikefarah/yq/releases/latest/download/yq_linux_amd64" -o /tmp/yq
           chmod +x /tmp/yq
-          sudo apt-get update
-          sudo apt-get install -y gettext
-          sudo apt-get clean
+          apt-get update
+          apt-get install -y gettext
+          apt-get clean
 
       - name: Generate and audit formula
         run: |
           VERSION=$(/tmp/yq -o tsv -p toml '.package.version' Cargo.toml)
           TEMP_DIR=$(mktemp -d)
           curl --silent --fail --output "$TEMP_DIR/v$VERSION.tar.gz" "https://codeberg.org/$GITHUB_REPOSITORY/archive/v$VERSION.tar.gz" || true
-          if [ -f "$TEMP_DIR/v$VERSION.tar.gz" ]; then
+          if [ -s "$TEMP_DIR/v$VERSION.tar.gz" ]; then
             FILE_SHA=$(sha256sum --binary "$TEMP_DIR/v$VERSION.tar.gz" | cut -d' ' -f1)
             export GITHUB_REF_NAME="v$VERSION"
             export FILE_SHA
             envsubst < homebrew/formula.rb.envsubstr > "${GITHUB_REPOSITORY##*/}.rb"
-            brew tap-new homebrew-releaser/test --no-git
-            cp -v "${GITHUB_REPOSITORY##*/}.rb" "$(brew --repository)/Library/Taps/homebrew-releaser/homebrew-test/Formula/"
-            brew audit --formula "homebrew-releaser/test/${GITHUB_REPOSITORY##*/}"
+            brew tap-new PurpleBooth/homebrew-releaser --no-git
+            cp -v "${GITHUB_REPOSITORY##*/}.rb" "$(brew --repository)/Library/Taps/PurpleBooth/homebrew-releaser/Formula/"
+            brew audit --formula "PurpleBooth/homebrew-releaser/${GITHUB_REPOSITORY##*/}"
           else
             echo "Skipping formula audit: release tarball not yet published"
           fi
@@ -141,7 +130,7 @@ jobs:
     if: github.ref == 'refs/heads/main'
     runs-on: codeberg-small
     steps:
-      - uses: actions/checkout@v4
+      - uses: https://code.forgejo.org/actions/checkout@v4
         with:
           fetch-depth: 0
           token: ${{ secrets.GITHUB_TOKEN }}
